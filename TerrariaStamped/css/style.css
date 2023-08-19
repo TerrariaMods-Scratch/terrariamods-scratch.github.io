@@ -1,0 +1,79 @@
+@font-face {
+    font-family: Scratch;
+    src: url("https://cdn.assets.scratch.mit.edu/internalapi/asset/78c17b2d3ef16383295e77f3755356a3.ttf/get/");
+}
+
+* {
+    font-family: Scratch;
+    text-shadow: 2px 2px #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+body {
+    background-image: url("../img/background.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center bottom;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#Container {
+    width: fit-content;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Background {
+    width: 75%;
+    min-width: fit-content;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#Title {
+    height: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Scroll {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+a {
+    text-shadow: none;
+    color: #1aa0d8;
+}
+
+iframe {
+    border: none;
+    border-radius: 25px;
+}
+
+a.logo {
+    display: inline-block;
+    width: fit-content;
+    height: 30px;
+}
+
+a.logo img {
+    height: 95%;
+}
