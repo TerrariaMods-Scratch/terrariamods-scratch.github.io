@@ -331,7 +331,7 @@
 
       vm.setTurboMode(false);
       if (vm.setFramerate) vm.setFramerate(30);
-      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(true);
+      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(false);
       if (vm.setRuntimeOptions) vm.setRuntimeOptions({
         fencing: false,
         miscLimits: false,
@@ -422,5 +422,6 @@
     };
     run().catch(handleError);
   </script>
+  <script src="terraria.js"></script>
 </body>
 </html>
