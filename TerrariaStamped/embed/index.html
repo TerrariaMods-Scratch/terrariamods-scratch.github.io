@@ -148,12 +148,45 @@
     .sc-monitor-row-value-editing .sc-monitor-row-value-outer {
       background-color: #e25b27;
     }
+    #mods {
+      font-family: Scratch;
+      position: absolute;
+      width: calc(100vw - 60px);
+      height: calc(100vh - 60px);
+      z-index: 999;
+      border-radius: 50px;
+      margin: 5px;
+      padding: 25px;
+      background-color: #4955baaa;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    #close-mods {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: none;
+      border: none;
+      font-family: Scratch;
+      color: #fff;
+      cursor: pointer;
+    }
+    #mods input[type=checkbox] {
+      cursor: pointer;
+    }
     
   </style>
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="./img/favicon.png">
 </head>
 <body>
+  <div id="mods" hidden>
+    <button id="close-mods">X</button>
+    <h1>Mods</h1>
+    <input type="checkbox" class="OreExcavator"> Ore Excavator
+  </div>
+
   <div id="app"></div>
 
   <div id="launch" class="screen" hidden title="Click to start">
@@ -281,6 +314,24 @@
       scaffolding.addControlButton({
         element: stopAllButton,
         where: 'top-left'
+      });
+
+      const modsDiv = document.querySelector("#mods");
+      const modsButton = document.createElement('img');
+      modsButton.src = "./img/mods.png";
+      modsButton.className = 'control-button';
+      modsButton.draggable = false;
+      modsButton.addEventListener('click', () => {
+        vm.setPaused(true);
+        modsDiv.hidden = false;
+      });
+      scaffolding.addControlButton({
+        element: modsButton,
+        where: 'top-left'
+      });
+      document.querySelector("#close-mods").addEventListener("click", () => {
+        vm.setPaused(false);
+        modsDiv.hidden = true;
       });
 
       if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {

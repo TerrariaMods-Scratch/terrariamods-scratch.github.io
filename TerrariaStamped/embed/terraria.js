@@ -670,4 +670,14 @@ Object.defineProperty(terrariaCustomEffects, "value", {
     get: () => true,
     set: e => {}
 });
+
+const OreExtractor = (() => {
+  let e = Stage.lookupVariableByNameAndType("mod-OreExcavator");
+  if (!e) e = Stage.createVariable("mod-OreExcavator", "mod-OreExcavator", "", false);
+  return Stage.lookupVariableByNameAndType("mod-OreExcavator");
+})();
+Object.defineProperty(OreExtractor, "value", {
+    get: () => document.querySelector("#mods .OreExcavator").checked,
+    set: e => {}
+});
 });
