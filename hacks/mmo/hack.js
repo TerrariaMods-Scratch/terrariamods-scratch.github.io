@@ -28,7 +28,7 @@ const inject = (async () => {
     ws.onopen = () => {
         ws.send(JSON.stringify({
             method: "handshake",
-            project_id: "680643095",
+            project_id: "https://terrariamods-scratch.github.io/hacks/mmo/",
             user: vm.runtime.ioDevices.userData.getUsername()
         }));
         setInterval(() => {
@@ -112,8 +112,51 @@ const inject = (async () => {
         set: () => { }
     });
     alert("Successfully Injected Mod Menu!");
-
 })();
+
+function injectSpeedrunOverlay(_) {
+    const canvas = document.querySelector("canvas");
+    const div = document.createElement("div");
+    div.id = "MMOModMenuSpeedrunOverlay";
+    div.hidden = !_("CustomUI").checked;
+    div.innerHTML = `
+    <div id="MMOModMenuSpeedrunOverlayTimer"></div>
+    <div id="MMOModMenuSpeedrunOverlayServerInfo"></div>
+`;
+    canvas.parentElement.insertBefore(div, canvas);
+}
+function injectSpeedrunClient(_) {
+    injectSpeedrunOverlay(_);
+    const style = document.createElement("style");
+    style.innerText = `
+    #MMOModMenuSpeedrunOverlay {
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    #MMOModMenuSpeedrunOverlay * {
+        font-family: monospace;
+        color: #0f0;
+    }
+    #MMOModMenuSpeedrunOverlayTimer {
+        position: absolute;
+        background: #000;
+        padding: 5px;
+        width: fit-content;
+        height: fit-content;
+    }
+    #MMOModMenuSpeedrunOverlayServerInfo {
+        position: absolute;
+        right: 0px;
+        background: #000;
+        padding: 5px;
+        width: fit-content;
+        height: fit-content;
+        text-align: end;
+    }`;
+    document.body.appendChild(style);
+}
 
 var skinID = 0;
 function createModMenu(skinData, _, vm) {
@@ -127,12 +170,31 @@ function createModMenu(skinData, _, vm) {
     </div>
     <hr>
     <div id="MMOModMenuSettings">
-        <br><h3 class="MMOModMenuSettingLabel">Skin</h3>
-        <div id="MMOModMenuSkinSelector" class="MMOModMenuSetting"><input type="button" value="←"><img id="MMOModMenuSelectedSkin" src="https://assets.scratch.mit.edu/07edb9b9e82368e5dce30a60641f419a.svg"><input type="button" value="→"></div>
-        <br><h3 class="MMOModMenuSettingLabel">Skin Color</h3>
-        <div class="MMOModMenuSetting"><div id="MMOModMenuColorDisplay"></div><input id="MMOModMenuColorSelector" type="range" min="0" max="200" value="0"><input id="MMOModMenuColorBlack" type="checkbox">Black<br></div>
-        <br><h3 class="MMOModMenuSettingLabel">Extra</h3>
-        <div class="MMOModMenuSetting"><input id="MMOModMenuUsernameFix" type="checkbox"> Fix Username Capitalization<br><br></div>
+        <button class="MMOModMenuGroup" id="MMOModMenuCustomizationGroup">Customization</button>
+        <br>
+        <div id="MMOModMenuCustomization" hidden>
+            <br><h3 class="MMOModMenuSettingLabel">Skin</h3>
+            <div id="MMOModMenuSkinSelector" class="MMOModMenuSetting"><input type="button" value="←"><img id="MMOModMenuSelectedSkin" src="https://assets.scratch.mit.edu/07edb9b9e82368e5dce30a60641f419a.svg"><input type="button" value="→"></div>
+            <br><h3 class="MMOModMenuSettingLabel">Skin Color</h3>
+            <div class="MMOModMenuSetting"><div id="MMOModMenuColorDisplay"></div><input id="MMOModMenuColorSelector" type="range" min="0" max="200" value="0"><input id="MMOModMenuColorBlack" type="checkbox">Black<br></div>
+            <br><h3 class="MMOModMenuSettingLabel">Extra</h3>
+            <div class="MMOModMenuSetting"><input id="MMOModMenuUsernameFix" type="checkbox"> Fix Username Capitalization<br><br></div>
+        </div>
+        <br>
+        <button class="MMOModMenuGroup" id="MMOModMenuSpeedrunGroup">Speedrunning</button>
+        <br>
+        <div id="MMOModMenuSpeedrun" hidden>
+            <br><h3 class="MMOModMenuSettingLabel">Speedrun Settings</h3>
+            <div class="MMOModMenuSetting"><input id="MMOModMenuCustomUI" type="checkbox"> Custom UI<br><br></div>
+            <div class="MMOModMenuSetting"><input id="MMOModMenuServerInfo" type="checkbox" checked> Show Server Info<br><br></div>
+            <div class="MMOModMenuSetting">Speedrun Category <select id="MMOModMenuSpeedrunCategory">
+                <option>None</option>
+                <option>Any%</option>
+                <option>Refresh%</option>
+            </select>
+            <br><br></div>
+        </div>
+        <br>
     </div>
 `;
     document.body.insertBefore(div, document.body.firstChild);
@@ -145,6 +207,7 @@ function createModMenu(skinData, _, vm) {
         width: fit-content;
         height: fit-content;
         margin: 0px auto;
+        text-align: center;
     }
     #MMOModMenuSelectedSkin {
         margin: 0px 5px;
@@ -173,6 +236,14 @@ function createModMenu(skinData, _, vm) {
     }
     #MMOModMenuSkinSelector input[type=button] {
         color: #000;
+    }
+    #MMOModMenu select {
+        background-color: #000;
+        border-color: #0f0;
+    }
+    .MMOModMenuGroup {
+        background: none;
+        border: 1px solid #0f0;
     }`;
     document.body.appendChild(style);
     _("SkinSelector input[value=←]").addEventListener("click", () => {
@@ -203,6 +274,108 @@ function createModMenu(skinData, _, vm) {
         let d = (e, f = Math.round(e * 255).toString(16)) => f.length == 1 ? "0" + f : f;
         return "#" + [d(a(5)), d(a(3)), d(a(1))].join("");
     }
+
+    
+    _("CustomizationGroup").addEventListener("click", () => _("Customization").hidden = !_("Customization").hidden);
+    _("SpeedrunGroup").addEventListener("click", () => _("Speedrun").hidden = !_("Speedrun").hidden);
+    
+    const Stage = vm.runtime.getTargetForStage();
+    const Game = vm.runtime.getSpriteTargetByName("Game");
+
+    const TIME = Stage.lookupVariableByNameAndType("TIME");
+    const FASTEST = Stage.lookupVariableByNameAndType("FASTEST");
+    const ActivePlayers = Stage.lookupVariableByNameAndType("Active Players");
+    const FastestTime = Stage.lookupVariableByNameAndType("@Fastest Time");
+    const FastestPlayer = Stage.lookupVariableByNameAndType("@Fastest Player");
+    const clock = Game.lookupVariableByNameAndType("clock");
+
+    injectSpeedrunClient(_);
+
+    var clockValue = clock.value;
+    var start = Date.now()-clock.value/30*1000;
+    Object.defineProperty(clock, "value", {
+        get: () => clockValue,
+        set: value => {
+            if (clockValue == 0 || value == 0) start = Date.now();
+            clockValue = value;
+            renderSpeedrunTimer();
+        }
+    });
+    var FastestTimeValue = FastestTime.value;
+    Object.defineProperty(FastestTime, "value", {
+        get: () => FastestTimeValue,
+        set: value => {
+            FastestTimeValue = value;
+            renderServerInfo();
+        }
+    });
+    var FastestPlayerValue = FastestPlayer.value;
+    Object.defineProperty(FastestPlayer, "value", {
+        get: () => FastestPlayerValue,
+        set: value => {
+            FastestPlayerValue = value;
+            renderServerInfo();
+        }
+    });
+    var ActivePlayersValue = ActivePlayers.value;
+    Object.defineProperty(ActivePlayers, "value", {
+        get: () => ActivePlayersValue,
+        set: value => {
+            ActivePlayersValue = value;
+            renderServerInfo();
+        }
+    });
+
+    function renderServerInfo() {
+        if (_("CustomUI").checked && _("ServerInfo").checked) {
+            if (!_("SpeedrunOverlay")) injectSpeedrunOverlay(_);
+            _("SpeedrunOverlayServerInfo").hidden = !_("ServerInfo").checked;
+            _("SpeedrunOverlayServerInfo").innerText = `Active Players: ${ActivePlayersValue}\nFastest Time: ${clockToString(FastestTimeValue)}\nHeld By: ${FastestPlayerValue}`;
+        }
+    }
+    function renderSpeedrunTimer() {
+        if (_("CustomUI").checked) {
+            if (!_("SpeedrunOverlay")) injectSpeedrunOverlay(_);
+            _("SpeedrunOverlay").hidden = !_("CustomUI").checked;
+            _("SpeedrunOverlayTimer").innerText = `Speedrun Category: ${_("SpeedrunCategory").value}\n${clockToString(clockValue)} - In Game Time\n${millisecondsToString(Date.now()-start)} - Real Time`;
+        }
+    }
+    
+    _("CustomUI").addEventListener("input", (e) => {
+        vm.runtime.monitorBlocks.changeBlock({
+            id: TIME.id,
+            element: "checkbox",
+            value: !_("CustomUI").checked
+        }, vm.runtime);
+        vm.runtime.monitorBlocks.changeBlock({
+            id: FASTEST.id,
+            element: "checkbox",
+            value: !_("CustomUI").checked && _("ServerInfo").checked
+        }, vm.runtime);
+        vm.runtime.monitorBlocks.changeBlock({
+            id: ActivePlayers.id,
+            element: "checkbox",
+            value: !_("CustomUI").checked && _("ServerInfo").checked
+        }, vm.runtime);
+        _("SpeedrunOverlay").hidden = !_("CustomUI").checked;
+        renderSpeedrunTimer();
+    });
+
+    _("ServerInfo").addEventListener("input", (e) => {
+        vm.runtime.monitorBlocks.changeBlock({
+            id: FASTEST.id,
+            element: "checkbox",
+            value: !_("CustomUI").checked && _("ServerInfo").checked
+        }, vm.runtime);
+        vm.runtime.monitorBlocks.changeBlock({
+            id: ActivePlayers.id,
+            element: "checkbox",
+            value: !_("CustomUI").checked && _("ServerInfo").checked
+        }, vm.runtime);
+        _("SpeedrunOverlayServerInfo").hidden = !_("ServerInfo").checked;
+        renderServerInfo();
+    });
+
     var x = 0, y = 0;
     _("Header").addEventListener("mousedown", (e) => {
         e = e || window.event;
@@ -237,4 +410,15 @@ function daysSince2000() {
     let mSecsSinceStart = today.valueOf() - start.valueOf();
     mSecsSinceStart += ((today.getTimezoneOffset() - dstAdjust) * 60 * 1000);
     return mSecsSinceStart / msPerDay;
+}
+
+function clockToString(clock) {
+    return millisecondsToString(clock / 30 * 1000);
+}
+function millisecondsToString(milliseconds) {
+    const seconds = Math.floor(milliseconds / 1000);
+    const remainingMilliseconds = Math.floor(milliseconds % 1000);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}'${remainingSeconds.toString().padStart(2, "0")}.${remainingMilliseconds.toString().padStart(3, "0")}`;
 }
