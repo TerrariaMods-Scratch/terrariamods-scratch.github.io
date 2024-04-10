@@ -20,7 +20,8 @@ const inject = (async () => {
     const skinData = [
         ["", "07edb9b9e82368e5dce30a60641f419a.svg"],
         ["EoC", "e83a54817d2b9d114025b1b550af966f.svg"],
-        ["Cat", "65017286152bef4172225f601185ea9d.svg"]
+        ["Cat", "65017286152bef4172225f601185ea9d.svg"],
+        ["GradientOutline", "f876eeee8adca5045c82136348e9fe50.svg"]
     ];
 
     //Establish Connection to Turbowarp
