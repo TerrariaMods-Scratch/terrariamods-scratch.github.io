@@ -14,12 +14,14 @@
                 <iframe src="./embed/" width="510" height="408"></iframe><br><hr>
                 <a class="logo" href="https://scratch.mit.edu/projects/590926828/"><img src="./img/scratch.png"></a>
                 <a class="logo" href="https://discord.gg/fKB3TjxQsc"><img src="./img/discord.png"></a>
-                <a class="logo" href="./download/1.1.3.5.sb3"><img src="./img/save.svg"></a>
+                <a class="logo" href="./download/1.1.4.sb3"><img src="./img/save.svg"></a>
                 <hr>
                 <div style="width:50%;margin:0 auto;">
                     <h1>Changelog</h1>
                     If you have an unmodified version of an update that is not available for download here, contact <a href="https://scratch.mit.edu/users/TerrariaMods">@TerrariaMods</a>
                     <p>
+                        25 June 2024 - v1.1.4<br>Added 187 New Items<br>Added Lava<br>Added Underworld<br>Added Ashwood<br>Added Ruined Houses<br>Added NPC Banners<br>Added Snails<br>Added Wall of Flesh<br>Added Chocolate<br>Added Boss Health Bars<br>Added Explosions<br>Added Bestiary Saving<br>Updated Creative Menu<br>Improved Meteorite Bullet Code<br>Improved Bullet Hit Detection<br>Improved cave backgrounds<br>Fixed Treasure Bag Naming<br>Fixed Banana Naming<br>Fixed Seeds<br>More Bugfixes<br>
+                        <a href="./download/1.1.4.sb3" download="Terraria (Stamped) v1.1.4.sb3" class="downloadParts" numParts="3">Download</a><hr>
                         17 March 2024 - v1.1.3.5<br>Added Heavy Workbench<br>Added error<br>Added Ore Excavator<br>Fixed Objects Rendering Over Map<br>Fixed Bottle Crafting Station<br>Fixed Tree Placement<br>Fixed Underwater Torches<br>Updated Save/Load Screen<br>
                         <a href="./download/1.1.3.5.sb3" download="Terraria (Stamped) v1.1.3.5.sb3">Download</a><hr>
                         15 October 2023 - v1.1.3<br>Enhanced Visuals<br>Ducks<br>Grasshoppers<br>Gold Critters<br>Town NPC Drops<br>Painter<br>Zoologist<br>Whip<br>Paintings<br>Sun<br>Moon<br>Halloween<br>Trophies<br>Bugfixes<br>
@@ -168,5 +170,25 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelectorAll(".downloadParts").forEach(elem => {
+            elem.addEventListener("click", e => {
+                e.preventDefault();
+                download(elem.href, elem.download, parseInt(elem.getAttribute("numParts")));
+            });
+        });
+        async function download(url, filename, numParts) {
+            const parts = await Promise.all(Array.from({ length: numParts }, (_, i) => fetch(`${url}.${i}`).then(res => res.blob())));
+            const blob = new Blob(parts);
+            const fileUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = fileUrl;
+            a.download = filename;
+            a.click();
+
+            a.remove();
+            URL.revokeObjectURL(fileUrl);
+        }
+    </script>
 </body>
 </html>
