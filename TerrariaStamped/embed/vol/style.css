@@ -1,0 +1,117 @@
+.sa-vol-slider {
+  position: relative;
+  width: 20px;
+  box-sizing: content-box;
+}
+
+.sa-vol-slider-inner {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+[dir="ltr"] .sa-vol-slider-inner {
+  left: 0.25rem;
+}
+
+[dir="rtl"] .sa-vol-slider-inner {
+  right: 0.25rem;
+}
+
+.sa-vol-slider-inner:not(:hover) > .sa-vol-slider-input {
+  opacity: 0;
+  width: 0;
+}
+
+[dir="ltr"] .sa-vol-slider-inner:not(:hover) > .sa-vol-slider-input {
+  margin-left: -3px;
+}
+
+[dir="rtl"] .sa-vol-slider-inner:not(:hover) > .sa-vol-slider-input {
+  margin-right: -3px;
+}
+
+.sa-vol-slider-inner:hover {
+  z-index: 1;
+}
+
+.pos-container-container,
+.clone-container-container,
+[class*="turbo-mode_turbo-container"] {
+  transition: opacity 0.25s ease;
+}
+
+.sa-vol-slider:hover ~ .pos-container-container,
+.sa-vol-slider:hover ~ .clone-container-container,
+.sa-vol-slider:hover ~ [class*="turbo-mode_turbo-container"] {
+  opacity: 0;
+}
+
+.sa-vol-slider {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.sa-vol-slider-inner {
+  display: flex;
+  align-items: center;
+}
+
+.sa-vol-slider-icon {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+.sa-vol-slider-icon[data-icon="mute"] {
+  background-image: url("./mute.svg");
+}
+.sa-vol-slider-icon[data-icon="quiet"] {
+  background-image: url("./quiet.svg");
+}
+.sa-vol-slider-icon[data-icon="loud"] {
+  background-image: url("./loud.svg");
+}
+.sa-vol-slider-icon:hover,
+.sa-vol-slider-input:hover {
+  cursor: pointer;
+}
+
+.sa-small-stage .sa-vol-slider-input,
+.sa-small-stage .sa-vol-slider-icon:not([data-icon="mute"]) {
+  display: none;
+}
+
+.sa-vol-slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #de91de;
+  transition: all 0.25s ease;
+}
+
+[dir="ltr"] .sa-vol-slider-input {
+  margin-left: 3px;
+}
+
+[dir="rtl"] .sa-vol-slider-input {
+  margin-right: 3px;
+}
+
+.sa-vol-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #c234c2;
+}
+
+.sa-vol-slider-input::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background-color: #c234c2;
+}

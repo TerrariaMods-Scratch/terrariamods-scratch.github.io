@@ -680,4 +680,63 @@ Object.defineProperty(OreExtractor, "value", {
     get: () => document.querySelector("#mods .OreExcavator").checked,
     set: e => {}
 });
+
+const Light = vm.runtime.getSpriteTargetByName("Light");
+const digital = Light.lookupVariableByNameAndType("digital");
+const PLAYER_DEFENSE = Stage.lookupVariableByNameAndType("PLAYER_DEFENSE");
+
+const oldMonitorUpdate = vm._events.MONITORS_UPDATE;
+vm._events.MONITORS_UPDATE = (monitors) => {
+  const NewMonitors = [];
+  const EditedMonitors = [];
+  for (const monitorData of monitors.valueSeq()) {
+      const id = monitorData.get('id');
+      if (!scaffolding._monitors.has(id)) {
+          const visible = monitorData.get('visible');
+          if (visible) {
+              NewMonitors.push(id);
+          }
+      } else {
+          const visible = monitorData.get('visible');
+          if (visible) {
+              EditedMonitors.push(id);
+          }
+      }
+  }
+  oldMonitorUpdate(monitors);
+  NewMonitors.forEach(id => {
+    const monitor = scaffolding._monitors.get(id);
+    if (monitor.params.VARIABLE == "digital" && monitor.spriteName == "Light") {
+      monitor.root.style.borderColor = "transparent";
+      monitor.root.style.backgroundColor = "transparent";
+      monitor.root.style.flexDirection = "row";
+      monitor.valueElement.style.backgroundColor = "transparent";
+      monitor.valueElement.style.fontFamily = "Scratch";
+      monitor.valueElement.style.textShadow = new Array(100).fill("0 0 1px #000").join();
+      monitor.valueElement.style.display = "inline-block";
+      monitor.valueElement.style.width = "fit-content";
+      monitor.valueElement.style.padding = "0.1rem 2px 0.1rem 5px";
+      monitor.valueElement.style.fontSize = "0.7rem";
+      monitor.valueElement.style.textAlign = "left";
+      const icon = new Image();
+      icon.src = "./img/TimeIcon.png";
+      icon.style.width = "14px";
+      icon.style.height = "14px";
+      icon.style.imageRendering = "pixelated";
+      monitor.root.insertBefore(icon, monitor.valueElement);
+    }
+    if (monitor.params.VARIABLE == "PLAYER_DEFENSE" && monitor.spriteName == null) {
+      monitor.root.style.borderColor = "transparent";
+      monitor.root.style.backgroundColor = "transparent";
+      monitor.root.style.backgroundImage = "url(./img/DefenseIcon.png)";
+      monitor.root.style.imageRendering = "pixelated";
+      monitor.root.style.backgroundSize = "contain";
+      monitor.root.style.backgroundRepeat = "no-repeat";
+      monitor.root.style.backgroundPosition = "center";
+      monitor.valueElement.style.backgroundColor = "transparent";
+      monitor.valueElement.style.fontFamily = "Scratch";
+      monitor.valueElement.style.textShadow = new Array(100).fill("0 0 1px #000").join();
+    }
+  });
+}
 });

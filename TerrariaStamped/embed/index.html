@@ -18,9 +18,15 @@
     body {
       color: #ffffff;
       font-family: sans-serif;
-      overflow: hidden;
+      overflow-y: auto;
       margin: 0;
       padding: 0;
+      overscroll-behavior: contain;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        background: transparent;
     }
     :root, body.is-fullscreen {
       background-color: #000000;
@@ -176,45 +182,56 @@
       cursor: pointer;
     }
     
+    #container {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
   </style>
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="./img/favicon.png">
+  <link rel="stylesheet" href="./vol/style.css">
 </head>
 <body>
-  <div id="mods" hidden>
-    <button id="close-mods">X</button>
-    <h1>Mods</h1>
-    <input type="checkbox" class="OreExcavator"> Ore Excavator
-  </div>
-
-  <div id="app"></div>
-
-  <div id="launch" class="screen" hidden title="Click to start">
-    <div class="green-flag">
-      <svg viewBox="0 0 16.63 17.5" width="42" height="44">
-        <defs><style>.cls-1,.cls-2{fill:#4cbf56;stroke:#45993d;stroke-linecap:round;stroke-linejoin:round;}.cls-2{stroke-width:1.5px;}</style></defs>
-        <path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0"/>
-        <line class="cls-2" x1="0.75" y1="16.75" x2="0.75" y2="0.75"/>
-      </svg>
+  <div id="container">
+    <div id="mods" hidden>
+      <button id="close-mods">X</button>
+      <h1>Mods</h1>
+      <input type="checkbox" class="OreExcavator"> Ore Excavator
+    </div>
+  
+    <div id="app"></div>
+  
+    <div id="launch" class="screen" hidden title="Click to start">
+      <div class="green-flag">
+        <svg viewBox="0 0 16.63 17.5" width="42" height="44">
+          <defs><style>.cls-1,.cls-2{fill:#4cbf56;stroke:#45993d;stroke-linecap:round;stroke-linejoin:round;}.cls-2{stroke-width:1.5px;}</style></defs>
+          <path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0"/>
+          <line class="cls-2" x1="0.75" y1="16.75" x2="0.75" y2="0.75"/>
+        </svg>
+      </div>
+    </div>
+  
+    <div id="loading" class="screen">
+      <noscript>Enable JavaScript</noscript>
+      <div class="loading-image"><img src="./img/thumbnail.png"></div>
+      <h1 class="loading-text">Loading Assets...</h1>
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
+    </div>
+  
+    <div id="error" class="screen" hidden>
+      <h1>Error</h1>
+      <details>
+        <summary id="error-message"></summary>
+        <p id="error-stack"></p>
+      </details>
     </div>
   </div>
-
-  <div id="loading" class="screen">
-    <noscript>Enable JavaScript</noscript>
-    <div class="loading-image"><img src="./img/thumbnail.png"></div>
-    <h1 class="loading-text">Loading Assets...</h1>
-    <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
-  </div>
-
-  <div id="error" class="screen" hidden>
-    <h1>Error</h1>
-    <details>
-      <summary id="error-message"></summary>
-      <p id="error-stack"></p>
-    </details>
-  </div>
-
+  <div style="height: 200%;width: 100%;position: absolute;pointer-events: none;"></div>
   <script src="script.js"></script>
+  <script src="./vol/VolumeControl.js"></script>
   <script>
     const appElement = document.getElementById('app');
     const launchScreen = document.getElementById('launch');
@@ -334,6 +351,56 @@
         modsDiv.hidden = true;
       });
 
+      const vol = new VolumeControl(vm);
+      const icon = document.createElement("div");
+      icon.className = "sa-vol-slider-icon";
+      icon.addEventListener("click", () => {
+        vol.setMuted(!vol.isMuted());
+      });
+      const updateIcon = () => {
+        const newVolume = vol.getVolume();
+        if (newVolume === 0) {
+          icon.dataset.icon = "mute";
+        } else if (newVolume < 0.5) {
+          icon.dataset.icon = "quiet";
+        } else {
+          icon.dataset.icon = "loud";
+        }
+      };
+      vol.onVolumeChanged(updateIcon);
+      const slider = document.createElement("input");
+      slider.className = "sa-vol-slider-input";
+      slider.type = "range";
+      slider.min = 0;
+      slider.max = 1;
+      slider.step = 0.02;
+      slider.addEventListener("input", (e) => {
+        vol.setVolume(+e.target.value);
+      });
+      slider.addEventListener("change", (e) => {
+        if (!isMuted()) {
+          vol.setUnmutedVolume(vol.getVolume());
+        }
+      });
+      vol.onVolumeChanged(() => {
+        const newVolume = vol.getVolume();
+        if (newVolume !== +slider.value) {
+          slider.value = newVolume;
+        }
+      });
+      vol.setVolume(1);
+      const container = document.createElement("div");
+      container.className = "sa-vol-slider";
+      const innerContainer = document.createElement("div");
+      innerContainer.className = "sa-vol-slider-inner";
+      innerContainer.appendChild(icon);
+      innerContainer.appendChild(slider);
+      container.appendChild(innerContainer);
+      scaffolding.addControlButton({
+        element: container,
+        where: 'top-left'
+      });
+
       if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
         let isFullScreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
         const fullscreenButton = document.createElement('img');
@@ -416,22 +483,7 @@
   
   
     <script>
-      const getProjectData = (function() {
-        const storage = scaffolding.storage;
-        storage.onprogress = (total, loaded) => {
-          setProgress(interpolate(0.2, 0.98, loaded / total));
-        };
-        
-        storage.addWebStore(
-          [
-            storage.AssetType.ImageVector,
-            storage.AssetType.ImageBitmap,
-            storage.AssetType.Sound,
-            storage.AssetType.Font
-          ].filter(i => i),
-          (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
-        );
-        return () => new Promise((resolve, reject) => {
+      const loadProjectJSON = () => new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
           resolve(xhr.response);
@@ -452,7 +504,45 @@
         xhr.open('GET', "./assets/project.json");
         xhr.send();
       });
-      })();
+      const getProjectData = (function() {
+        const storage = scaffolding.storage;
+        storage.onprogress = (total, loaded) => {
+          setProgress(interpolate(0.2, 0.98, loaded / total));
+        };
+        storage.addWebStore(
+          [
+            storage.AssetType.ImageVector,
+            storage.AssetType.ImageBitmap,
+            storage.AssetType.Sound,
+            storage.AssetType.Font
+          ].filter(i => i),
+          (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
+        );
+        if ((new URLSearchParams(window.location.search)).get("loadCustom") == "true") {
+          return new Promise((resolve, reject) => {
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = "*.sb3";
+            input.onchange = () => {
+              const reader = new FileReader();
+              reader.onload = () => {
+                resolve(reader.result);
+                input.remove();
+              }
+              reader.readAsArrayBuffer(input.files[0]);
+            }
+            input.click();
+            window.addEventListener("focus", () => {
+              setTimeout(async () => {
+                  if (input.files.length == 0 && document.getElementById(el.id)) {
+                    alert("Load Failed");
+                    resolve(await loadProjectJSON());
+                  }
+              }, 300);
+            }, { once: true });
+          });
+        } else return loadProjectJSON();
+      });
     </script>
   <script>
     const run = async () => {

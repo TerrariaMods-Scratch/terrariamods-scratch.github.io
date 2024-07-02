@@ -48,6 +48,7 @@ body {
     overflow: auto;
     width: 100%;
     height: 100%;
+    margin-top: -100vh;
 }
 
 button {
@@ -61,11 +62,14 @@ button {
 a {
     text-shadow: none;
     color: #1aa0d8;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 iframe {
     border: none;
     border-radius: 25px;
+    resize: both;
 }
 
 a.logo {
@@ -76,4 +80,75 @@ a.logo {
 
 a.logo img {
     height: 95%;
+}
+
+#menuBarContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0px;
+}
+
+#menuBar {
+    width: 640px;
+    height: 80px;
+    background-image: url("../img/MenuBarBg.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menuBar table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#menuBar table th {
+    text-align: center;
+}
+
+#scroll::-webkit-scrollbar {
+    width: 20px;
+}
+
+#scrollContainer {
+    position: relative;
+}
+
+.scrollbar {
+    pointer-events: none;
+    width: 20px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    left: calc(100% - 20px);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+.scrollbar-top, .scrollbar-bottom {
+    flex: 0 0 auto;
+    image-rendering: pixelated;
+}
+.scrollbar-middle {
+    flex: 1 1 auto;
+    image-rendering: pixelated;
+}
+.scrollbar-thumb {
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+.scrollbar-thumb-top, .scrollbar-thumb-bottom {
+    flex: 0 0 auto;
+    image-rendering: pixelated;
+}
+.scrollbar-thumb-middle {
+    flex: 1 1 auto;
+    image-rendering: pixelated;
 }
