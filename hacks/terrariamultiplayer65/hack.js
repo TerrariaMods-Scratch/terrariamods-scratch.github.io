@@ -1,3 +1,6 @@
+"use strict";
+// @ts-check
+
 if (!window.multiplayer) {
     if (ReduxStore.getState().scratchGui.mode.hasEverEnteredEditor) {
         alert("Project has been modified, reload to use");

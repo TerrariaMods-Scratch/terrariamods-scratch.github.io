@@ -1,3 +1,6 @@
+"use strict";
+// @ts-check
+
 const inject = async () => {
     window.osuHackInjected = true;
     const vm =

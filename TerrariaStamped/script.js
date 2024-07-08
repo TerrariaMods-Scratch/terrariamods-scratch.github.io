@@ -1,3 +1,6 @@
+"use strict";
+// @ts-check
+
 document.querySelectorAll(".downloadParts").forEach((elem) => {
     elem.addEventListener("click", (e) => {
         e.preventDefault();

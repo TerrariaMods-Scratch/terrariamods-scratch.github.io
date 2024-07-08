@@ -1,3 +1,6 @@
+"use strict";
+// @ts-check
+
 (async () => {
     if (window.location.origin == "https://terrariamods-scratch.github.io")
         alert(
