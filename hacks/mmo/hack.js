@@ -518,7 +518,9 @@ function createModMenu(skinData, _, vm) {
     };
 }
 
-//https://github.com/LLK/scratch-vm/blob/33f480513d572ac5d7cd9db1f765be68f6e0ad2d/src/blocks/scratch3_sensing.js#L252
+/**
+ * Copied from <https://github.com/scratchfoundation/scratch-vm/blob/33f480513d572ac5d7cd9db1f765be68f6e0ad2d/src/blocks/scratch3_sensing.js#L252-L260>
+ */
 function daysSince2000() {
     const msPerDay = 24 * 60 * 60 * 1000;
     const start = new Date(2000, 0, 1);
