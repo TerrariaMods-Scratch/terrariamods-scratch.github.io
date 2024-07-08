@@ -1,25 +1,49 @@
-const inject = (async () => {
+const inject = async () => {
     window.osuHackInjected = true;
-    const vm = window.vm || (() => {
-        const app = document.querySelector("#app");
-        return app[Object.keys(app).find(value => value.startsWith("__reactContainer"))].child.stateNode.store.getState().scratchGui.vm;
-    })();
-    await eval(await (await fetch("https://raw.githubusercontent.com/Stuk/jszip/main/dist/jszip.min.js")).text());
-    await eval(await (await fetch("https://raw.githubusercontent.com/pvorb/node-md5/master/dist/md5.min.js")).text());
-    const deserializeSound = function(sound, runtime, data, fileName) {
+    const vm =
+        window.vm ||
+        (() => {
+            const app = document.querySelector("#app");
+            return app[
+                Object.keys(app).find((value) =>
+                    value.startsWith("__reactContainer"),
+                )
+            ].child.stateNode.store.getState().scratchGui.vm;
+        })();
+    await eval(
+        await (
+            await fetch(
+                "https://raw.githubusercontent.com/Stuk/jszip/main/dist/jszip.min.js",
+            )
+        ).text(),
+    );
+    await eval(
+        await (
+            await fetch(
+                "https://raw.githubusercontent.com/pvorb/node-md5/master/dist/md5.min.js",
+            )
+        ).text(),
+    );
+    const deserializeSound = function (sound, runtime, data, fileName) {
         return new Promise(async (resolve, reject) => {
             const storage = runtime.storage;
             if (!storage) {
-                console.warn('No storage module present; cannot load sound asset: ', fileName);
+                console.warn(
+                    "No storage module present; cannot load sound asset: ",
+                    fileName,
+                );
                 return reject(null);
             }
-            const dataFormat = sound.dataFormat.toLowerCase() === "mp3" ? storage.DataFormat.MP3 : storage.DataFormat.WAV;
+            const dataFormat =
+                sound.dataFormat.toLowerCase() === "mp3"
+                    ? storage.DataFormat.MP3
+                    : storage.DataFormat.WAV;
             let asset = await storage.createAsset(
                 storage.AssetType.Sound,
                 dataFormat,
                 data,
                 null,
-                true
+                true,
             );
             sound.asset = asset;
             sound.assetId = asset.assetId;
@@ -27,11 +51,14 @@ const inject = (async () => {
             resolve(sound);
         });
     };
-    const deserializeCostume = function(costume, runtime, data, fileName) {
+    const deserializeCostume = function (costume, runtime, data, fileName) {
         return new Promise(async (resolve, reject) => {
             const storage = runtime.storage;
             if (!storage) {
-                console.warn('No storage module present; cannot load costume asset: ', fileName);
+                console.warn(
+                    "No storage module present; cannot load costume asset: ",
+                    fileName,
+                );
                 return reject(null);
             }
             let asset = await storage.createAsset(
@@ -39,11 +66,11 @@ const inject = (async () => {
                 storage.DataFormat.PNG,
                 data,
                 null,
-                true
+                true,
             );
             asset.assetType = {
-                runtimeFormat: "png"
-            }
+                runtimeFormat: "png",
+            };
             costume.asset = asset;
             costume.assetId = asset.assetId;
             costume.md5 = `${asset.assetId}.${asset.dataFormat}`;
@@ -67,7 +94,9 @@ const inject = (async () => {
         isOnline.nerinyan = false;
     }
     try {
-        isOnline.cheesegull = (await fetch("https://api.chimu.moe/cheesegull/search")).ok;
+        isOnline.cheesegull = (
+            await fetch("https://api.chimu.moe/cheesegull/search")
+        ).ok;
     } catch (e) {
         isOnline.cheesegull = false;
     }
@@ -81,33 +110,83 @@ const inject = (async () => {
     const HitObject = vm.runtime.getSpriteTargetByName("Hit Object");
 
     //variables
-    const selectedMenuSong = Stage.lookupVariableByNameAndType("~selectedMenuSong");
+    const selectedMenuSong =
+        Stage.lookupVariableByNameAndType("~selectedMenuSong");
     const _mode = Stage.lookupVariableByNameAndType("_mode");
     const _mod_auto = Stage.lookupVariableByNameAndType("_mod_auto");
     const _mod_autopilot = Stage.lookupVariableByNameAndType("_mod_autopilot");
     const _game_hasEnded = Stage.lookupVariableByNameAndType("_game_hasEnded");
-    const _game_hasFailed = Stage.lookupVariableByNameAndType("_game_hasFailed");
+    const _game_hasFailed =
+        Stage.lookupVariableByNameAndType("_game_hasFailed");
     const _timer = Stage.lookupVariableByNameAndType("_timer");
 
     //lists
-    const beatmap_artist = Stage.lookupVariableByNameAndType("beatmap_artist", "list");
-    const beatmap_audio = Stage.lookupVariableByNameAndType("beatmap_audio", "list");
+    const beatmap_artist = Stage.lookupVariableByNameAndType(
+        "beatmap_artist",
+        "list",
+    );
+    const beatmap_audio = Stage.lookupVariableByNameAndType(
+        "beatmap_audio",
+        "list",
+    );
     const beatmap_bg = Stage.lookupVariableByNameAndType("beatmap_bg", "list");
-    const beatmap_creator = Stage.lookupVariableByNameAndType("beatmap_creator", "list");
-    const beatmap_data = Stage.lookupVariableByNameAndType("beatmap_data", "list");
+    const beatmap_creator = Stage.lookupVariableByNameAndType(
+        "beatmap_creator",
+        "list",
+    );
+    const beatmap_data = Stage.lookupVariableByNameAndType(
+        "beatmap_data",
+        "list",
+    );
     const beatmap_ID = Stage.lookupVariableByNameAndType("beatmap_ID", "list");
-    const beatmap_imported = Stage.lookupVariableByNameAndType("beatmap_imported", "list");
-    const beatmap_leaderboards = Stage.lookupVariableByNameAndType("beatmap_leaderboards", "list");
-    const beatmap_localOffset = Stage.lookupVariableByNameAndType("beatmap_localOffset", "list");
-    const beatmap_objectCount = Stage.lookupVariableByNameAndType("beatmap_objectCount", "list");
-    const beatmap_onlineIndex = Stage.lookupVariableByNameAndType("beatmap_onlineIndex", "list");
-    const beatmap_setID = Stage.lookupVariableByNameAndType("beatmap_setID", "list");
-    const beatmap_starRating = Stage.lookupVariableByNameAndType("beatmap_starRating", "list");
-    const beatmap_thumbnail = Stage.lookupVariableByNameAndType("beatmap_thumbnail", "list");
-    const beatmap_title = Stage.lookupVariableByNameAndType("beatmap_title", "list");
-    const beatmap_version = Stage.lookupVariableByNameAndType("beatmap_version", "list");
-    const chartSortedIndex = Stage.lookupVariableByNameAndType("chartSortedIndex", "list");
-    const hitObject_endTime = Stage.lookupVariableByNameAndType("hitObject_endTime", "list");
+    const beatmap_imported = Stage.lookupVariableByNameAndType(
+        "beatmap_imported",
+        "list",
+    );
+    const beatmap_leaderboards = Stage.lookupVariableByNameAndType(
+        "beatmap_leaderboards",
+        "list",
+    );
+    const beatmap_localOffset = Stage.lookupVariableByNameAndType(
+        "beatmap_localOffset",
+        "list",
+    );
+    const beatmap_objectCount = Stage.lookupVariableByNameAndType(
+        "beatmap_objectCount",
+        "list",
+    );
+    const beatmap_onlineIndex = Stage.lookupVariableByNameAndType(
+        "beatmap_onlineIndex",
+        "list",
+    );
+    const beatmap_setID = Stage.lookupVariableByNameAndType(
+        "beatmap_setID",
+        "list",
+    );
+    const beatmap_starRating = Stage.lookupVariableByNameAndType(
+        "beatmap_starRating",
+        "list",
+    );
+    const beatmap_thumbnail = Stage.lookupVariableByNameAndType(
+        "beatmap_thumbnail",
+        "list",
+    );
+    const beatmap_title = Stage.lookupVariableByNameAndType(
+        "beatmap_title",
+        "list",
+    );
+    const beatmap_version = Stage.lookupVariableByNameAndType(
+        "beatmap_version",
+        "list",
+    );
+    const chartSortedIndex = Stage.lookupVariableByNameAndType(
+        "chartSortedIndex",
+        "list",
+    );
+    const hitObject_endTime = Stage.lookupVariableByNameAndType(
+        "hitObject_endTime",
+        "list",
+    );
 
     //custom
     const customSFX = Stage.lookupOrCreateList("CustomSFX", "CustomSFX");
@@ -132,7 +211,7 @@ const inject = (async () => {
         "seeya.wav",
         "sectionpass.wav",
         "sectionfail.wav",
-        "spinnerbonus.wav"
+        "spinnerbonus.wav",
     ];
     const SoundsForHitObject = [
         "normal-hitnormal.wav",
@@ -155,12 +234,13 @@ const inject = (async () => {
         "drum-hitclap.wav",
         "drum-slidertick.wav",
         "drum-sliderslide.wav",
-        "drum-sliderwhistle.wav"
+        "drum-sliderwhistle.wav",
     ];
 
     //https://github.com/TurboWarp/scratch-vm/blob/develop/src/util/uid.js
-    const soup_ = '!#%()*+,-./:;=?@[]^_`{|}~' +
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const soup_ =
+        "!#%()*+,-./:;=?@[]^_`{|}~" +
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     const uid = function () {
         const length = 20;
         const soupLength = soup_.length;
@@ -168,7 +248,7 @@ const inject = (async () => {
         for (let i = 0; i < length; i++) {
             id[i] = soup_.charAt(Math.random() * soupLength);
         }
-        return id.join('');
+        return id.join("");
     };
     //https://github.com/TurboWarp/scratch-vm/blob/develop/src/util/uid.js
 
@@ -183,7 +263,7 @@ const inject = (async () => {
         block.id = newSpriteBlockID(sprite);
         block.parent = parent;
         const clonedBlocks = [block];
-        Object.values(block.inputs).forEach(e => {
+        Object.values(block.inputs).forEach((e) => {
             if (e.block) {
                 var [id, blocks] = cloneInput(e.block, block.id, sprite);
                 e.block = id;
@@ -199,382 +279,432 @@ const inject = (async () => {
     }
 
     function patchAudio(sprite) {
-        Object.values(sprite.blocks._blocks).filter(e => e.opcode == "sound_play").forEach(block => {
-            const ids = {
-                "ifelse": newSpriteBlockID(sprite),
-                "contains": newSpriteBlockID(sprite),
-                "join1": newSpriteBlockID(sprite),
-                "song1": newSpriteBlockID(sprite),
-                "setID1": newSpriteBlockID(sprite),
-                "sortIDX1": newSpriteBlockID(sprite),
-                "selectedSong1": newSpriteBlockID(sprite),
-                "play": newSpriteBlockID(sprite),
-                "join2": newSpriteBlockID(sprite),
-                "song2": newSpriteBlockID(sprite),
-                "setID2": newSpriteBlockID(sprite),
-                "sortIDX2": newSpriteBlockID(sprite),
-                "selectedSong2": newSpriteBlockID(sprite)
-            };
-            if (block.parent) {
-                const parent = sprite.blocks.getBlock(block.parent);
-                if (parent.next == block.id) parent.next = ids.ifelse;
-                else Object.values(parent.inputs).forEach(input => {
-                    if (input.block == block.id) input.block = ids.ifelse;
-                });
-            }
-            if (block.next) {
-                const next = sprite.blocks.getBlock(block.next);
-                next.parent = ids.ifelse;
-            }
-            const clone1 = cloneInput(block.inputs.SOUND_MENU.block, ids.join1, sprite);
-            const clone2 = cloneInput(block.inputs.SOUND_MENU.block, ids.join2, sprite);
-            clone1[1].forEach(block => sprite.blocks.createBlock(block));
-            clone2[1].forEach(block => sprite.blocks.createBlock(block));
-            [
-                {
-                    "id": ids.ifelse,
-                    "opcode": "control_if_else",
-                    "inputs": {
-                        "CONDITION": {
-                            "name": "CONDITION",
-                            "block": ids.contains
-                        },
-                        "SUBSTACK": {
-                            "name": "SUBSTACK",
-                            "block": ids.play
-                        },
-                        "SUBSTACK2": {
-                            "name": "SUBSTACK2",
-                            "block": block.id
-                        }
-                    },
-                    "fields": {},
-                    "next": block.next,
-                    "topLevel": false,
-                    "parent": block.parent,
-                    "shadow": false
-                },
-                {
-                    "id": ids.contains,
-                    "opcode": "data_listcontainsitem",
-                    "inputs": {
-                        "ITEM": {
-                            "name": "ITEM",
-                            "block": ids.join1,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {
-                        "LIST": {
-                            "name": "LIST",
-                            "id": customSFX.id,
-                            "value": customSFX.name,
-                            "variableType": "list"
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.ifelse,
-                    "shadow": false
-                },
-                {
-                    "id": ids.join1,
-                    "opcode": "operator_join",
-                    "inputs": {
-                        "STRING1": {
-                            "name": "STRING1",
-                            "block": clone1[0],
-                            "shadow": clone1[0]
-                        },
-                        "STRING2": {
-                            "name": "STRING2",
-                            "block": ids.setID1,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {},
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.contains,
-                    "shadow": false
-                },
-                {
-                    "id": ids.setID1,
-                    "opcode": "data_itemoflist",
-                    "inputs": {
-                        "INDEX": {
-                            "name": "INDEX",
-                            "block": ids.sortIDX1,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {
-                        "LIST": {
-                            "name": "LIST",
-                            "id": beatmap_setID.id,
-                            "value": beatmap_setID.name,
-                            "variableType": "list"
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.join1,
-                    "shadow": false
-                },
-                {
-                    "id": ids.sortIDX1,
-                    "opcode": "data_itemoflist",
-                    "inputs": {
-                        "INDEX": {
-                            "name": "INDEX",
-                            "block": ids.selectedSong1,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {
-                        "LIST": {
-                            "name": "LIST",
-                            "id": chartSortedIndex.id,
-                            "value": chartSortedIndex.name,
-                            "variableType": "list"
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.setID1,
-                    "shadow": false
-                },
-                {
-                    "id": ids.selectedSong1,
-                    "opcode": "data_variable",
-                    "inputs": {},
-                    "fields": {
-                        "VARIABLE": {
-                            "name": "VARIABLE",
-                            "id": selectedMenuSong.id,
-                            "value": selectedMenuSong.name,
-                            "variableType": ""
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.sortIDX1,
-                    "shadow": false
-                },
-                {
-                    "id": ids.play,
-                    "opcode": "sound_play",
-                    "inputs": {
-                        "SOUND_MENU": {
-                            "name": "SOUND_MENU",
-                            "block": ids.join2,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {},
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.ifelse,
-                    "shadow": false
-                },
-                {
-                    "id": ids.join2,
-                    "opcode": "operator_join",
-                    "inputs": {
-                        "STRING1": {
-                            "name": "STRING1",
-                            "block": clone2[0],
-                            "shadow": clone2[0]
-                        },
-                        "STRING2": {
-                            "name": "STRING2",
-                            "block": ids.setID2,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {},
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.play,
-                    "shadow": false
-                },
-                {
-                    "id": ids.setID2,
-                    "opcode": "data_itemoflist",
-                    "inputs": {
-                        "INDEX": {
-                            "name": "INDEX",
-                            "block": ids.sortIDX2,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {
-                        "LIST": {
-                            "name": "LIST",
-                            "id": beatmap_setID.id,
-                            "value": beatmap_setID.name,
-                            "variableType": "list"
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.join2,
-                    "shadow": false
-                },
-                {
-                    "id": ids.sortIDX2,
-                    "opcode": "data_itemoflist",
-                    "inputs": {
-                        "INDEX": {
-                            "name": "INDEX",
-                            "block": ids.selectedSong2,
-                            "shadow": null
-                        }
-                    },
-                    "fields": {
-                        "LIST": {
-                            "name": "LIST",
-                            "id": chartSortedIndex.id,
-                            "value": chartSortedIndex.name,
-                            "variableType": "list"
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.setID2,
-                    "shadow": false
-                },
-                {
-                    "id": ids.selectedSong2,
-                    "opcode": "data_variable",
-                    "inputs": {},
-                    "fields": {
-                        "VARIABLE": {
-                            "name": "VARIABLE",
-                            "id": selectedMenuSong.id,
-                            "value": selectedMenuSong.name,
-                            "variableType": ""
-                        }
-                    },
-                    "next": null,
-                    "topLevel": false,
-                    "parent": ids.sortIDX2,
-                    "shadow": false
+        Object.values(sprite.blocks._blocks)
+            .filter((e) => e.opcode == "sound_play")
+            .forEach((block) => {
+                const ids = {
+                    ifelse: newSpriteBlockID(sprite),
+                    contains: newSpriteBlockID(sprite),
+                    join1: newSpriteBlockID(sprite),
+                    song1: newSpriteBlockID(sprite),
+                    setID1: newSpriteBlockID(sprite),
+                    sortIDX1: newSpriteBlockID(sprite),
+                    selectedSong1: newSpriteBlockID(sprite),
+                    play: newSpriteBlockID(sprite),
+                    join2: newSpriteBlockID(sprite),
+                    song2: newSpriteBlockID(sprite),
+                    setID2: newSpriteBlockID(sprite),
+                    sortIDX2: newSpriteBlockID(sprite),
+                    selectedSong2: newSpriteBlockID(sprite),
+                };
+                if (block.parent) {
+                    const parent = sprite.blocks.getBlock(block.parent);
+                    if (parent.next == block.id) parent.next = ids.ifelse;
+                    else
+                        Object.values(parent.inputs).forEach((input) => {
+                            if (input.block == block.id)
+                                input.block = ids.ifelse;
+                        });
                 }
-            ].forEach(block => sprite.blocks.createBlock(block));
-            block.parent = ids.contains;
-            block.next = null;
-        });
+                if (block.next) {
+                    const next = sprite.blocks.getBlock(block.next);
+                    next.parent = ids.ifelse;
+                }
+                const clone1 = cloneInput(
+                    block.inputs.SOUND_MENU.block,
+                    ids.join1,
+                    sprite,
+                );
+                const clone2 = cloneInput(
+                    block.inputs.SOUND_MENU.block,
+                    ids.join2,
+                    sprite,
+                );
+                clone1[1].forEach((block) => sprite.blocks.createBlock(block));
+                clone2[1].forEach((block) => sprite.blocks.createBlock(block));
+                [
+                    {
+                        id: ids.ifelse,
+                        opcode: "control_if_else",
+                        inputs: {
+                            CONDITION: {
+                                name: "CONDITION",
+                                block: ids.contains,
+                            },
+                            SUBSTACK: {
+                                name: "SUBSTACK",
+                                block: ids.play,
+                            },
+                            SUBSTACK2: {
+                                name: "SUBSTACK2",
+                                block: block.id,
+                            },
+                        },
+                        fields: {},
+                        next: block.next,
+                        topLevel: false,
+                        parent: block.parent,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.contains,
+                        opcode: "data_listcontainsitem",
+                        inputs: {
+                            ITEM: {
+                                name: "ITEM",
+                                block: ids.join1,
+                                shadow: null,
+                            },
+                        },
+                        fields: {
+                            LIST: {
+                                name: "LIST",
+                                id: customSFX.id,
+                                value: customSFX.name,
+                                variableType: "list",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.ifelse,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.join1,
+                        opcode: "operator_join",
+                        inputs: {
+                            STRING1: {
+                                name: "STRING1",
+                                block: clone1[0],
+                                shadow: clone1[0],
+                            },
+                            STRING2: {
+                                name: "STRING2",
+                                block: ids.setID1,
+                                shadow: null,
+                            },
+                        },
+                        fields: {},
+                        next: null,
+                        topLevel: false,
+                        parent: ids.contains,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.setID1,
+                        opcode: "data_itemoflist",
+                        inputs: {
+                            INDEX: {
+                                name: "INDEX",
+                                block: ids.sortIDX1,
+                                shadow: null,
+                            },
+                        },
+                        fields: {
+                            LIST: {
+                                name: "LIST",
+                                id: beatmap_setID.id,
+                                value: beatmap_setID.name,
+                                variableType: "list",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.join1,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.sortIDX1,
+                        opcode: "data_itemoflist",
+                        inputs: {
+                            INDEX: {
+                                name: "INDEX",
+                                block: ids.selectedSong1,
+                                shadow: null,
+                            },
+                        },
+                        fields: {
+                            LIST: {
+                                name: "LIST",
+                                id: chartSortedIndex.id,
+                                value: chartSortedIndex.name,
+                                variableType: "list",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.setID1,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.selectedSong1,
+                        opcode: "data_variable",
+                        inputs: {},
+                        fields: {
+                            VARIABLE: {
+                                name: "VARIABLE",
+                                id: selectedMenuSong.id,
+                                value: selectedMenuSong.name,
+                                variableType: "",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.sortIDX1,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.play,
+                        opcode: "sound_play",
+                        inputs: {
+                            SOUND_MENU: {
+                                name: "SOUND_MENU",
+                                block: ids.join2,
+                                shadow: null,
+                            },
+                        },
+                        fields: {},
+                        next: null,
+                        topLevel: false,
+                        parent: ids.ifelse,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.join2,
+                        opcode: "operator_join",
+                        inputs: {
+                            STRING1: {
+                                name: "STRING1",
+                                block: clone2[0],
+                                shadow: clone2[0],
+                            },
+                            STRING2: {
+                                name: "STRING2",
+                                block: ids.setID2,
+                                shadow: null,
+                            },
+                        },
+                        fields: {},
+                        next: null,
+                        topLevel: false,
+                        parent: ids.play,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.setID2,
+                        opcode: "data_itemoflist",
+                        inputs: {
+                            INDEX: {
+                                name: "INDEX",
+                                block: ids.sortIDX2,
+                                shadow: null,
+                            },
+                        },
+                        fields: {
+                            LIST: {
+                                name: "LIST",
+                                id: beatmap_setID.id,
+                                value: beatmap_setID.name,
+                                variableType: "list",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.join2,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.sortIDX2,
+                        opcode: "data_itemoflist",
+                        inputs: {
+                            INDEX: {
+                                name: "INDEX",
+                                block: ids.selectedSong2,
+                                shadow: null,
+                            },
+                        },
+                        fields: {
+                            LIST: {
+                                name: "LIST",
+                                id: chartSortedIndex.id,
+                                value: chartSortedIndex.name,
+                                variableType: "list",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.setID2,
+                        shadow: false,
+                    },
+                    {
+                        id: ids.selectedSong2,
+                        opcode: "data_variable",
+                        inputs: {},
+                        fields: {
+                            VARIABLE: {
+                                name: "VARIABLE",
+                                id: selectedMenuSong.id,
+                                value: selectedMenuSong.name,
+                                variableType: "",
+                            },
+                        },
+                        next: null,
+                        topLevel: false,
+                        parent: ids.sortIDX2,
+                        shadow: false,
+                    },
+                ].forEach((block) => sprite.blocks.createBlock(block));
+                block.parent = ids.contains;
+                block.next = null;
+            });
     }
     function patchGameLogic() {
-        Object.values(UI.blocks._blocks).filter(e => e.opcode == "event_broadcast_menu" && e.fields.BROADCAST_OPTION.value == "sfx_menu-play-click").map(e => UI.blocks.getBlock(e.parent)).filter(e => {
-            var block = e;
-            while (block.parent) block = UI.blocks.getBlock(block.parent);
-            if (block.opcode != "procedures_definition") return false;
-            block = UI.blocks.getBlock(block.inputs.custom_block.block);
-            if (block.opcode != "procedures_prototype") return false;
-            if (block.mutation.proccode == "tick_retry_game" || block.mutation.proccode == "tick_exit_game") return true;
-        }).forEach(block => {
-            const parent = UI.blocks.getBlock(block.parent);
-            if (parent.opcode == "control_if") {
-                const id = newSpriteBlockID(UI);
-                parent.inputs.SUBSTACK.block = id;
-                block.parent = id;
-                UI.blocks.createBlock({
-                    "id": id,
-                    "opcode": "sound_stopallsounds",
-                    "inputs": {},
-                    "fields": {},
-                    "next": block.id,
-                    "topLevel": false,
-                    "parent": parent.id,
-                    "shadow": false
-                });
-            }
-        });
+        Object.values(UI.blocks._blocks)
+            .filter(
+                (e) =>
+                    e.opcode == "event_broadcast_menu" &&
+                    e.fields.BROADCAST_OPTION.value == "sfx_menu-play-click",
+            )
+            .map((e) => UI.blocks.getBlock(e.parent))
+            .filter((e) => {
+                var block = e;
+                while (block.parent) block = UI.blocks.getBlock(block.parent);
+                if (block.opcode != "procedures_definition") return false;
+                block = UI.blocks.getBlock(block.inputs.custom_block.block);
+                if (block.opcode != "procedures_prototype") return false;
+                if (
+                    block.mutation.proccode == "tick_retry_game" ||
+                    block.mutation.proccode == "tick_exit_game"
+                )
+                    return true;
+            })
+            .forEach((block) => {
+                const parent = UI.blocks.getBlock(block.parent);
+                if (parent.opcode == "control_if") {
+                    const id = newSpriteBlockID(UI);
+                    parent.inputs.SUBSTACK.block = id;
+                    block.parent = id;
+                    UI.blocks.createBlock({
+                        id: id,
+                        opcode: "sound_stopallsounds",
+                        inputs: {},
+                        fields: {},
+                        next: block.id,
+                        topLevel: false,
+                        parent: parent.id,
+                        shadow: false,
+                    });
+                }
+            });
         patchAudio(SFX);
         patchAudio(HitObject);
     }
     patchGameLogic();
 
     Object.defineProperty(this, "br", {
-        get: () => document.createElement("br")
+        get: () => document.createElement("br"),
     });
 
     function search(query) {
-        return new Promise(async resolve => {
+        return new Promise(async (resolve) => {
             var response;
             var maps = [];
             if (isOnline.direct) {
                 try {
-                    response = await fetch("https://osu.direct/api/search?mode=0&amount=50&query=" + encodeURIComponent(query));
-                    if (response.ok) maps.push(...(await (response).json()));
+                    response = await fetch(
+                        "https://osu.direct/api/search?mode=0&amount=50&query=" +
+                            encodeURIComponent(query),
+                    );
+                    if (response.ok) maps.push(...(await response.json()));
                     resolve(maps);
-                } catch (e) { }
+                } catch (e) {}
             }
             if (isOnline.chimu) {
                 try {
-                    response = await fetch("https://api.chimu.moe/v1/search?mode=0&amount=50&query=" + encodeURIComponent(query));
-                    if (response.ok) maps.push(...(await (response).json()).data.map(map => {
-                        map.SetID = map.SetId;
-                        return map;
-                    }));
-                } catch (e) { }
+                    response = await fetch(
+                        "https://api.chimu.moe/v1/search?mode=0&amount=50&query=" +
+                            encodeURIComponent(query),
+                    );
+                    if (response.ok)
+                        maps.push(
+                            ...(await response.json()).data.map((map) => {
+                                map.SetID = map.SetId;
+                                return map;
+                            }),
+                        );
+                } catch (e) {}
             }
             if (isOnline.nerinyan) {
                 try {
-                    response = await fetch("https://api.nerinyan.moe/search?mode=0&s=ranked,qualified,loved,1,2,4&ps=50&q=" + encodeURIComponent(query));
-                    if (response.ok) maps.push(...(await (response).json()).map(map => {
-                        map.Title = map.title;
-                        map.SetID = map.id;
-                        map.Artist = map.artist;
-                        map.Creator = map.creator;
-                        return map;
-                    }));
-                } catch (e) { }
+                    response = await fetch(
+                        "https://api.nerinyan.moe/search?mode=0&s=ranked,qualified,loved,1,2,4&ps=50&q=" +
+                            encodeURIComponent(query),
+                    );
+                    if (response.ok)
+                        maps.push(
+                            ...(await response.json()).map((map) => {
+                                map.Title = map.title;
+                                map.SetID = map.id;
+                                map.Artist = map.artist;
+                                map.Creator = map.creator;
+                                return map;
+                            }),
+                        );
+                } catch (e) {}
             }
             if (isOnline.cheesegull) {
                 try {
-                    response = await fetch("https://api.chimu.moe/cheesegull/search?mode=0&amount=50&query=" + encodeURIComponent(query));
-                    if (response.ok) maps.push(...(await (response).json()));
-                } catch (e) { }
+                    response = await fetch(
+                        "https://api.chimu.moe/cheesegull/search?mode=0&amount=50&query=" +
+                            encodeURIComponent(query),
+                    );
+                    if (response.ok) maps.push(...(await response.json()));
+                } catch (e) {}
             }
             resolve(maps);
         });
     }
 
     function getOSZ(id) {
-        return new Promise(async resolve => {
+        return new Promise(async (resolve) => {
             var response;
             if (isOnline.direct) {
                 try {
                     response = await fetch("https://osu.direct/api/d/" + id);
                     if (response.ok) {
-                        response = await (response).arrayBuffer();
+                        response = await response.arrayBuffer();
                         try {
-                            console.error(JSON.parse(new TextDecoder().decode(response)));
-                        }
-                        catch(e) {
+                            console.error(
+                                JSON.parse(new TextDecoder().decode(response)),
+                            );
+                        } catch (e) {
                             return resolve(response);
                         }
                     }
-                } catch(e) {
+                } catch (e) {
                     console.error(e);
                 }
             }
             if (isOnline.chimu) {
                 try {
-                    response = await fetch("https://api.chimu.moe/v1/download/" + id);
-                    if (response.ok) return resolve(await (response).arrayBuffer());
-                } catch(e) {
+                    response = await fetch(
+                        "https://api.chimu.moe/v1/download/" + id,
+                    );
+                    if (response.ok)
+                        return resolve(await response.arrayBuffer());
+                } catch (e) {
                     console.error(e);
                 }
             }
             if (isOnline.nerinyan) {
                 try {
-                    response = await fetch("https://api.allorigins.win/raw?url=https://api.nerinyan.moe/d/" + id);
-                    if (response.ok) return resolve(await (response).arrayBuffer());
-                } catch(e) {
+                    response = await fetch(
+                        "https://api.allorigins.win/raw?url=https://api.nerinyan.moe/d/" +
+                            id,
+                    );
+                    if (response.ok)
+                        return resolve(await response.arrayBuffer());
+                } catch (e) {
                     console.error(e);
                 }
             }
@@ -595,8 +725,9 @@ const inject = (async () => {
         console.log(map.SetID);
         img.src = `https://assets.ppy.sh/beatmaps/${map.SetID}/covers/list.jpg`;
         img.onerror = () => {
-            img.src = "https://osu.ppy.sh/assets/images/default-bg.7594e945.png";
-        }
+            img.src =
+                "https://osu.ppy.sh/assets/images/default-bg.7594e945.png";
+        };
         // const audio = document.createElement("audio");
         // audio.controls = true;
         // audio.hidden = true;
@@ -631,67 +762,110 @@ const inject = (async () => {
                 var osz = await getOSZ(map.SetID);
                 overlay.innerText = "Loading...\nReading .osz File";
                 osz = await new JSZip().loadAsync(osz);
-                const osu = (await Object.values(osz.files).find(e => e.name.endsWith(".osu")).async("text")).replaceAll("\r", "").split("\n");
+                const osu = (
+                    await Object.values(osz.files)
+                        .find((e) => e.name.endsWith(".osu"))
+                        .async("text")
+                )
+                    .replaceAll("\r", "")
+                    .split("\n");
                 console.log(osz);
-                const audioName = osu.find(e => e.startsWith("AudioFilename:")).replace("AudioFilename:", "").trim();
+                const audioName = osu
+                    .find((e) => e.startsWith("AudioFilename:"))
+                    .replace("AudioFilename:", "")
+                    .trim();
                 overlay.innerText = "Loading...\nAdding Audio";
                 await addAudio(
                     AudioFiles,
                     await osz.file(audioName).async("Uint8Array"),
-                    map.SetID
+                    map.SetID,
                 );
                 overlay.innerText = "Loading...\nAdding SFX";
                 for (let name of SoundsForSFX) {
-                    if (osz.file(name) && !customSFX.value.includes(name.split(".")[0] + map.SetID)) {
+                    if (
+                        osz.file(name) &&
+                        !customSFX.value.includes(
+                            name.split(".")[0] + map.SetID,
+                        )
+                    ) {
                         await addAudio(
                             SFX,
                             await osz.file(name).async("Uint8Array"),
-                            name.split(".")[0] + map.SetID
+                            name.split(".")[0] + map.SetID,
                         );
                         customSFX.value.push(name.split(".")[0] + map.SetID);
                     }
                 }
                 for (let name of SoundsForHitObject) {
-                    if (osz.file(name) && !customSFX.value.includes(name.split(".")[0] + map.SetID)) {
+                    if (
+                        osz.file(name) &&
+                        !customSFX.value.includes(
+                            name.split(".")[0] + map.SetID,
+                        )
+                    ) {
                         await addAudio(
                             HitObject,
                             await osz.file(name).async("Uint8Array"),
-                            name.split(".")[0] + map.SetID
+                            name.split(".")[0] + map.SetID,
                         );
                         customSFX.value.push(name.split(".")[0] + map.SetID);
                         await addAudio(
                             HitObject,
                             await osz.file(name).async("Uint8Array"),
-                            name.split(".")[0] + "2" + map.SetID
+                            name.split(".")[0] + "2" + map.SetID,
                         );
-                        customSFX.value.push(name.split(".")[0] + "2" + map.SetID);
+                        customSFX.value.push(
+                            name.split(".")[0] + "2" + map.SetID,
+                        );
                     }
                 }
                 overlay.innerText = "Loading...\nAdding Background";
-                const bgName = osu.find(e => e.indexOf("0,0,\"") > -1 && e.indexOf("\",0,0") > -1);
-                if (bgName) var bg = "data:image/jpg;base64," + await osz.file(bgName.replace("0,0,\"", "").replace("\",0,0", "").trim()).async("base64");
-                else var bg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAMAAAD8CC+4AAABDlBMVEU2NjY1NTU1NTQ0NTU0NDQzNDQzNDMzMzQzMzMyMzMyMjMyMjIxMjIxMTIxMTExMTAwMTEwMTAxMDAwMDEwMDAwMC8vMDAwLzAvLzAvLy8uLy8vLi8uLi8uLi4tLi4tLS4tLS0sLS0tLC0sLC0sLCwsLCsrLCwsKysrKywrKysqKysrKisqKiwqKisqKiopKioqKSopKSopKSkoKSkpKCgoKCkoKCgoKCcnKCgoJygoJycnJygnJycmJycnJicnJiYmJicmJiYlJiYmJSYmJSUlJSYlJSUlJCUlJCQkJCUkJCQjJCQkIyQkIyMjIyQjIyMiIyIjIiMjIiIiIiMiIiIiIiEiISIiISEhISEgICBKKlz0AABJQElEQVR42u19e3/cRpYdOumN6fQOoqw7CqEIImQiCouTLobFJUa2Kx7CmoEpmBGymtYu5vt/kfy6G0Djcavq1gNoWOH9a0aW2E0c3Kpz7tOLpcYSXeN/24JWEn+taWFiaDxF/Xz/XbkVWCb9+SwQfOHYvfU/ao/Iu5gMvpPg3+et3+qn6s88+UcS/SeewY/xy8dzXdCpKehJhPyETIQ6N/vxI4De/6woSRIax3H/4RCB17Z/q4KgQDdw9aQQuDrz14EO5pEx5gT5CX5s5OhU+ANfT+Dq9E97p37X+04IR99uOQ50A1dPBU+yCKJUA/OAmWLO0O+Wz0FXL+Q/P5S8qO5Bvxxcepv9n28630nwj5Peb0ZRoMcGZ+xvAlfnabnBX+zE2NFjDdoAHkup8TkSjODq/XfsLXAIbwQu2//1MhzosQGP2grtUzA6i0uYBnnwWanr6PJz5GL8Az4aHsIiFjc8dG9xoF8743I7b0/80VnchQ5xCHJdFic/R8Z39dcA3xKwODr83XIc6AZPnxdiX49wqF8YY061FIJPSk25pjhHRpdtAN8SOfoj8PwTDOjvTB78L2JXx3G5c2MWJ6NZKNlWcLtzZGTZFgL+KHD0e5CkknGInFi27SzGuHo8ulxrXD3qfb9fLM+RV6O6egDwLYpkcRVLHUWyyWQbMkgzhVxrUE9KN3JtRNkWC374tUyuifg0HSM4oyDwJfVHlGuXa23ryjZQrnGdc2RMLhcA8AgO940wxDwW6E9i0LdFMKJc08e8K9tyEPN/+VnnHHkz3gEfDQ9ivFyrjXlMjvmd49N95+o/+aPJtdAA9I5sA1lcVn7SiemP4epvBNKAiRz9VgxA7hUU85nMGY9DyDbzoPvGBPO1H5dSucbrUx97jowk2yLydsi5blBB96555V8wH9m9ZG+NgzMY2WbO4pJgbWZpKZNrTzW/Q58jl6PINkbxfz2RAeDVQXgN5XarcHz+eatAXZpbN5drsSHmjWxLxXdVpnOOjHHAv47v8X+ZFArQHzE/5aqTupWz68etynKJSwbJdHKtJ9sK2V3Fdc6REWQbuSf4v8y3CtC393quThUhG67EfJ9bdy/XorWxBYXQ0T80UWudn+cedHZPCCHR0WJCRK8B3SpBL1Cv0F07dSsLzn5Sg74tQvdyTRAs81FGhHKtuasudeq9IrqDiOzuwTh0YfHgxT5nXCS9MjXodUEFjsttZNFZFsnl2jG3LnqCt+Y3OviwojjCWFwI5FpzV5WZ1tHBqlNP758pZWz7CrvgmBopEejbDV62MZmI4xcLusXZ975juSa8bEqUSeSaUWlnXAuZyHeBeQTFBK8M5NoR9BTv6kQWlGdni5clCnOBA1QOQhxinyLfwuK96q7KdYhilSfkyT+5wLwlY0NlQi/ZokA/FFRguByTxWt4sFguGBJ10G/iWm/fukO9wIGeKt8YGf0UkRNzRSGSsVQVAyIFEvQcp/jb0X3A1elyuVyskA8Z8pug0dvh1K5eYF6Y0Ne9hWMnmAdQqDnQDrr3QN8mGNA3ndTtgMu99xc71AnS1QG/2Ry9g7hDPcd8HY4ILYrpp8jVmRsWt4GSSm+M5FobdJxsY0RSMsnjHebL5VmGQ307oNtRS5YELrmc2jLcP4x1UCeGCSCVjI2ljp7hQcfJNnnJ5GqP+XIRllju1DPevrRid6irn8PfeJJzdWhRU7Zp1usJjUGRx8hMrnVA31KDIFHHLcKDoy+XC45FHfS20DrvMrh3lDQjY2k5cPYHswqQls5y4+iXUEnYa0O51gU9MwgHt7/JzdmyBn1thHnl6GQEyZ4qWdwPQHCmMKoAaR/LoWO51uJyRkH3AehbZuXqfF07+hIt2yDN1NI4iFoKSpzItpRlwzBsale4v177qZNoHCSTzOVaD/TcxtV/vF62bJUbOPogPYqQbRRZrSt3gN+q/55iivfRETY/MunPxiUjYmO51gMdJ9sEubeDXGtcPS4NHT1hLcNUPF8p/jtFcDnOckCr88rama3oIsKf72mpF8TTqB27166REoFeEH3U76sHFLUxXy6/yXRRzw1z6HJXZ7WjiGYlHFhcTdk+WLbGDXpn9IJ4Gq0+FN3SogAdF4IHD/i7VQfz5eK/6YLOTZsb4jt5ip2oXL3gzZUPlUsxyozstpDnkLVC+NDvjWxpUYFuLNuOcm1pKNsy43IZWRkPbUV5hBTnF5baf42hfTQI4mnUjt2YsrgB6KayjZ4t+6D7eizuvXnthKRiL2w9N+GshA5l464w54ocsvVkBmIm14agm8g22pVrDeq01GdxemiTg4ldnXQe3G8yudY00LsO+NsVURDZEYdtaVGBbiDbrhJOloDpyLbC4Kneq5ssg06UB3aE/I5bv36APZjVXvj/iK8du9YPusOgm4TgabLyFi2rQPeifxuVxRHltIy4p3oy+KNz6/dPHg3SkW1nS41WHyO5BoFuINtI7Lff5cBfHczPx2RxrJvzlVZEh+Jwy1GuOeVyqVnthb9cnuFrx6h20F0AupFs+ylvFZs1rw3Bfo2/2To6XLF3Mbgaf5HJNZdcrvd6oWsvdnzYx7f6EJ0aKRnoJlwugf89G5HGUWUbPQVIcDFkcR8G3+bRdS63/BkJ+h/25Qj4Vh9mINf2oOd9M3B12sqJZwbUwuAevVJ2WIZAdjKVyrXaHpxXbSBrLw7Cd4Vv9Tm6+v2nHLB+C0Jx+ONhf/pVbBGC7x45dLRLnSonZhCwDiGXyTVnXC43q72ooprf4Ft9VKdy/+3Lr5Bz5LAlkxAa6Uj0nSln4/SrUEPIBzPGnUUNpDlZVO3Fi0bs4lt95A0LG3C2VBx76iAyhs839PmdWWAwt2FxkGy7FCSrsu6rBk/MKH5wXXONqb04RjV9dKsPC4PGLgbIZcAhtvtzz/oI6dypG926e6N7lCkr9pgoLd2+wzOWus4EtDseNWsv/GNc6wxfN0Qkqj4V/WaekVeJsm3MqGRL+x4lyoq9UJi6SNsfWbjO+YmTuMrai39cHe0FvkIwFMfvCtFv5rlx9OqRE6PiTN17lCor9qgkd1HIWZxVdn9/gRSQbf/kKLsmU6YEURj4hAGdaGTbmFkZNmZQI6ZWiMkcvTkw06Ncc3XdJGDFTceOxNLHyDeNBp8LQa00L2BL1aBTHdlGzBouNO/RjbJiTyCLu1yOs0fHKSCc8zCmp4F1jmKqfPk452rQdWTbjXlRrsY9ytSPStCSftWWbcOgu1PZJhHxWXJq89wc7nv6TCyqcvH3KFFX7CGCpH/jirLogidfrXlOWJz5dCvte5Q5mGRbyOTaCJVTvy/QiZNwnVPZRhwMOUyrlpZxSjV/56BTNzFamrXt+LDzrGeIx0ydDK0uZHKtLW7+PwT9yg3o8Q2YgjIiyK5oL0Avi8m43JxBd+Toff+rfex/W5dOKIYc6iTCdu/g49iyrX7hZgz6nbvBdxQoKyn+N9e1FKEgaar+MRzqQk6H3v9hHMxPLgy8sVkcoKXQCVejqp4CE/wrQBaZTSLbnspstqAzh5j3DvjCEHNUUY862p9Ccu0B+mKPIzzx9PTCwJvE0XtaytDVP/cCsFFkNHQFrJHK4S82AjqFXT5nVNCpU8x7rp4bgd6vyX8ZGI1XAuVahW6/qOyT8weeuSnDGwf0d46HGFOFYELEbnpnTygatiM/SPotLZ3wGx9btlXzhYtZgr5xjHlvbnRmz+Ii4VgtebSf3z9J6qPGlm2PowoDO9BZ7Nw6rv5en8v92vt5gXhSZiKfIyVLqQ22Urhl2nwW+RxvChbnhMvRoaMLJ+iJOUPxg0Cu1fZhVC5XzCKf403l6LayLYUcXeTqTMLi/qpIrYwp29Jtf1LijEAfw9HtXB1gcbLFSJmOXHtMpF/MIdPuFrDMC3Q6CuaCEDzO+gFYxbYUkWx7AOTa597zf5ooBD8z0OORzEK29S6c16rFSPBPf2RcXS0xumybJejXY4Eem7t63k3ztho7Qg3ZxoGtQoUgfuKs4eV3ATobDfPe8IDCJhxnUqSlkGu9NODXWznlTcXibLmc9ogMKGMOvGdPgpzI11w55U3p6FayTbdv/lYr6J5Iv1gnQZLyrw/0MR29PyJei8vdan5UOkieIFjcwR5ksq0ovjrQ6aiY28g23XFnm8HY30egngK2XMz2st8/ne+Dfh+PbFRKmbS0usq4Yo7UFtgoUtlnId3jX4Fy9yY93Aey7ZcxuVxHthXcuGCnkyB5/ArovDchi7PmcrqyrT0V+QPjRW5uRdq57fnXBPr4jm4VgtclHL86j6UW4xXPnQp0OgHmmpVTT21/03T1iBaOQ6npCFmYU4N+NQXoeiH4X//StlTTCvvJEjDxLL4a0Cdx9H4XSradwBzdwR+/jixMG/S7eCKzkG1m5optt7stvxLQyVSgO6mCN9Fbz9YHfQy5RihozFy2GXXGPOMsAp2MztRVlHgsR3+GWQQ6Hf/6Flk+LugPzzCLQB/n9n6HUkKjYp7PHgQH+6O1ZlY1oG+mYOpCVvw7kGvjGbVfFf+gRVa90YPumNf4fTF/uTaeoUflSKPDmT7oZKKo65RcrrxNy1lVNd6CLr1BT8WSPz6uCzqbSpQrEhlOMc/W8bzkWvgdcNmxODZ2dbppxbeedEEfMy5zMlePfZ/PSa5RcNDv4dHfGP3EIGhTolQPdDpd1HUyT9/vSArnxOJCaDEL0/CMwftyGBHOdeMR3ohyDS6WmYy+77ahRTPCnIC71oiOyum9L8Hh5z3pclZviqD7RinUOzVpTmI1+72HAZsP5tXE96gv15oyH+2feHn4eam2OvUmqZFSPfvHbinco4uQTKCzH2ECi4BB/O0zVvuAr/bUsEK7rdqbJLtGdCJy9xF14Oi7XcbBjDBn4NIGoqtyehRhvfZZqR1x9hLBbP4pXf1Tf8xI6kCu4dbZTcriBptWmLbK6WiBPUko9HNL3jRpdIKXa1R3cyho3/tai1BGt01rg5AosUlNHD0p9bPI3kQ1UhQr11LlqCCMo3Mfu85uIgugTUw3Bsmphgzs99T4kUlbtcemKYaMkXKtbmiwY/BFuHYr12xVQAwtCxvUoeq4evWc/mKSavCmqpEiOBaXKEcFnUSuhdTunQmgZWHULGLdtr+YJBWZF09lTCrX/uXXXpNiNie5Rnw7fhBBy8LuDSPWikCmunyATAc6EWWC976ZhL3RMnRGcm3nqDZKgIK79ohpckoRyFTJNhpPB7rgxqom/od7vZlJ2svxmKfQtllbR7W5LYYLIYkgJKb3anGjksB3U4J+JZZru0s4yLu9auayLXIs1w5xlUu7oHtv8atIKWu9q48mxb80nhJ06BeqOh12l7BPSq4cFYRx9J/8QbDTBOnB5tb6D7Tn/kG702NmnJzq3YyaZf67z50S9PhOcCntL+H1OqWqUUEouRZYuWVzpId9R63/oNCstIzhtckCu7ZicWrZRqYGncCX0uESHg5/ZGYsbuX79nKNHllB0F3Qm2qWWjJ4b3JgVWiUyOtOuNTRpwV98Avlx0sYmu5rItuKhDFmz+LCxrPj3n7rQnNNHxjxfBuGlzaFRkkiXSH5JI/pTAs6AeXaT/Xm6/M+CTBy9bL8v9b1MqTJjLTjKnF9IdkW3v2J2NYUKupOUukbOC3oPS5XHC9h2NUNuyCsW1oOSO8viagbP+VOGqUcbAnmRp1c8SlA7+QUDvP0S9pacf+29/sbyTb7lpa4CZfSXvy0UkmW2zjI6K1g8BfcnAT09i90kGtfPp5L6M1RtmnAb324s/OmyqUXV7n/V3hcuCZLtK4pFMo1qWyrD5ipQW/dWFldqNzxpRiWbUWCrqGyb2m5qL/NRT+ukpUu9j04KBovTJ4CORXoBJZrIle/bZgJ9n63b2mha4H5tHRxnFxrqxwduSb+gg2TmBz05hd66so1EZdLG2KCFHD2LS2hCPT1Q/6xnin5EXtVUC0Wp3b13ZZ5zMiWT2ImMT3opBN0T3qYr1/2y6c/b0WbUJG/q4NQeW3n6/P/rvfD+JuVHotTcbmHf82Q738qZBLTg179QgcEn4Zx6deAbMuxZ5oLFhesZaYZ7GNniwuu6+iyNfDFdss5MkwlYhInAD1uBd03/vCxRkPZJtiECm1pcZJHlZlWFRYPFsszpu3oYlffvfjFkwmjJacF/bpuaTkUKqui0vdlhgpI2EspSai8X/aC5YTL5XIRcA25Jk5OJdrz17jggDkF6DGr9VfsQ0/1ovfX/8JRoUc3ci1Ugq6Rqn/vL5bL5bLV1nWvrXLwsVfpsUdODTo5fPlDobLa1Sn6RbdvTN6s1YYub+HxHvPFS655uItkGzeOR3eqrU8Cekz3KaJC5FWh8J3/MLZcCxCg47ncark38qMWixO7um6FwdEJrk4P+t7V94XKa3WFAUNHop6sMY/XGEOWt/Dw4OhrE0eHuJx+2WAKMonTgB7TpChzsVe9Er7x6SnlWiPXca5+c7b387MbbRYnaHjRTz9V4ckekzgR6DF7KK99iS5qkffuL/40JouLm72OctQvUI6+Pjh6axqGXjfRZjeBuLVNyKSm5OP+X5J5gE4SLr02hYccH3PsL2sssJZtP14fLvRVYuboO8/42dFUtXgeoMfstb8z0VN9I6Qz2RRjf2N72VbJtUXcvIvao9U3jibx0LmAHsdk51FRKDChcBHJNpdzpNR3O8HKNf+9EYszrwwFvCGeDeiUb8syV94C6LSiy7G/kb1su6vkGk0M5Jptu8cWagSeA+hX92lOVbccQxcQuBz7e4tg8BFOrgXc3NH5SI5+yuOd8is/UkbpsaVCLgfGhRjdJnd1Wsk1ZsziqqTy1+Xp8TsqKfmXFovl4479JSixHmLkWsTRNVIDczZEk88I9DgCCmVQ+UU+Qo2UZih2vV5LpuNxMpBr2qPVb92NUZwRe4/jQNLTJS0ayk4p14CBQQM7yLUl4cYsLna47iKbE+hRL+KKLg/st/RMK9eUIXgeHQ73FxYsLtk6NDYj0PeuHplUB6anlGtK2ca+nYtcq6XNnECPjds3C7c1Uoj6Z7xs29VIzUSu9ec3zQL0sBVxHaYbsB0ek8u12m6FNVI7Fmch16hbzHuy7cSg7w74AJlY7NrjKeWaVLbxFwO5xnTN+dKydE6gX4hkmyqPxU/M4oQh+EquLXyLrzHCngs6I9BFsk1dh5adUq7JZNugRkrfRtho8+ucQI9gLsfQT+aTS0c/1wR9KNv4xaBGSts+jLDnoi3bTg56/BqSbQR/BrpkcRe6mA9lG6uC7hYTUMZZLp5fzQh0ULbdYR7O0ynlmkC21XLNZmPQSKtn+ZxAD4dcDucm3PVq9NAA9F7lVC3X7iy+Rta2MWTbDEDfcbnuiKEr7NOxngNiIddA2TaskbK0bAzZNgfQB9k27H3ITyrXANkG1EjZmdvA3O2MQN/Ltrd6LK7yA5dyLTLDvMPlKrl2/aOj7/S0HSMEPwvQ33a53GmWqbG1qcWSlhY7cx2kuZ8R6HsuF+k7ulMLjUFvGl5uBjVSllaME4KfB+jxecvVT4P5Zm1uF60aqX+/7I+emFOQhs8J9JZsoyfB/D6wAP1QOXVoaQnPVq6+0xhBGjoj0Hdc7uUpD/dbq29P6hqpxQseOpNruttHM6qwrKqcmgvoUT1iaEYrcTX9cl8j5fCc4kZerMrS384I9LpyivxeMd+3tHTHy1jaJ+Mwq6weJ58T6JcH2fb7dfSdXDtz+PVT4yirvPIumRHoh8opOkcXRm0237W0tItlpGEgzLtRmGlwZY1tQWYE+r5yao6OTjYYR18vsMUyP15jcnCZYbRNXU3P5wT6m5ltuT8WNapfxUONFEE5+nt/0ZpI4orFIeXHrm+GevTZ1eUCHicjd3INF33dJWXUf/XRNIOmsnS7zbyPZDagR45XIbs53DE6ci/XzhgK9EPjuiIl8zACizt0XOy4nFfy+bj6q5ktPW9aU1Suvq+ROkOdU4ekjCr5WriXa6TIa9nmoV6SCSunwhk6uio2XNVIeRiVXjWuy8ssdOVajhhbxavaSFJsPY3rYBrZNmF4hig9k7azQMK/PWxpkbJ8ZUHVD7qOjmiVow3DZzvQtzPjchPycuUL1njQdZIQ0SH0ftjSIpRrVeO6vHRSV65liCebHW+BRy/v1sHPoOElIgpzFMHZ8fIbpKPvuFzgE4lcQ6r0qnFdWiTtPuheD6o6XOXM280qu5+Vq68j1S/g7rq+QrC4ytWvhIISXyNVNa4v5fU1+QhyLW//VS9KtnPictFaOYjG0aXP1AyN9Eq6wNhR1dKyrBydtVKZw89cLVsmiOU87PYCuZZrnRiOV0XmZmOvla7u0NGHo2dFjr6Xk+Ak4KqlpT6uq5KpnQ3IfMXya1f33QTkECOMjiMOHivQ2Xb7eTMf1F8qXP3aFYtTnhukdwKBk4BrIGtiVhVHgqVydNkxCfN7cht0T7t5Ge9A7GYm22QzpxxR93fKg4P2uQY0Cbge+9uSYCsRpFXj+tG+ZQ50OlKutS8Dr1VQMR8udy75Bdw6usTV+8kgcAxB1dLSCrY0DQ8Clt92dVE0p3Ar137tBe+8VkHFjLhcOAmLk75GG8jR+7GjCuFOWLV6D4Y0bbUcGLXW6Wi51tjmAHpVUDEn2fZ2Eha3t3dqFheKepPrsb8dvUZBQdaWa42rv+CWLA5Bwa/y/tngtQoq5mJvxbJtBEcXuDrplXKBvck1a+tCvN/AR0Usv2uQbHt0K9cG79BtlU+fl2wLhbJtBEeHfyqDD/feJOBan/WKItjZMMjKgwVkZ3ZpVS251vB97/Cu3M4rBH8ucPWNaxYnPD8AuTbkcnX2pA8xvxjKNeaDtrqyYXGacq02r0zreHw2L1cHuNw7R3JNfYBQsaMfJwE32ZN+T8ubG+jG4KBZyTWE5oLmCnuVh29wim9KLjeaXLsWUIXWqnMBi9uTjWMecCDXKmlmM3zkB8dyLYdBz+J5yrbXk7C41usUBeCd3504FfPQjzt0fFAF4y8sxgzpyDVEHPV+C4PeFFTMTbZFk7C4Js5Hm4QKkzg6S9j6v7BO9oQOpJl5hzp3XSMlAj2v34mZVU4Fkzn6PqIfNiJcwuJ2XyL2o7Zc64XVDtKMGKLeOY1z93KtAb3y8HxeIfggCLqufjeio8fxYZ7YXoTfiFncnrmzYFe+SeG8yiEBYzoktC3XyjS0bWkRzBX2ju/MzGTb6EH3XtzqVZNQkTj64UsQPzzKtV5ehSozaOgq2MhnpWQ5OrZGSgB65eHprGRbH5Sx5Fr36g6lcq2OxoU+Fci193UmbWXCQNpyrUz8dZA7l2tH0A8evrv12Vfu6KJ78PLoy1IWV7nzd8EKjKMeM2kmXcud0RNFsF77pHRQIyUCfY6ybToW1/bokPToJDj992K9ggvdVqoMGlaulXS/hzYrHdRICUCvPHxeIfip5Fr36g57tVvgnG8WfPcNJNcuFooMGlauffm4Dw/4sWu51ga9roOflWxz7uhU6ejr9fpSJtcaarB39UWYdmKq3Uyarmzr1EjFh4XTPi9Ng+5iye91X515VU45r5GigkL6CN7dHkh2dwTrs+XyLIqjlsXrTtp0ZcHifq6XjIeFgxopEegHD59Z5ZRjFie86XscvXb0oG1h94Yh/v767iZK0YWPSrl2UYMOyjZ0S4sC9KNse/xaD3ehXfaGvaJePH+xVJnWCJr2pMCS+cdvk7uokRKAfvBwMq+GF6csTujog2neiBumKYOVmI5s68i1vHX0ALLNRq71QM9nWDk1iqOzXqBnMBX2HHPDNP2nMsPfS+0aqfKPfvvrpKVDudYDvfLw+ck2144edXefA0s8QsyLd3OmdnX04Pc21S6zzpfxIxc1UiLQq55GXKJ2Ort2jDntEXFo/HOEePGOvSzwha614uETINca1H8qHdRICUA/yrZZheBdX+Fht1EFXMUWoG6YlQz0H/fH/8pArnG/f/AU7uTaAPSDh89MtrmWa6QbXBMs8YgQNwwnYldfRH9PFvi1TZ2g++Do8Wlp0dKiAn2OIXjHNK4COT5e8Gu1qxMGDVUmkfhWX+Vluc+sq0fG9YPuzB+uEfj4RUeu3W91QD/KtuRrdfW4mzC7FS5hUn+xVxIGR8ptmWF3e3QCpjlw9Phx6SToDoM+R9l2NYomj8Qsrkqpqc0Xs/bPO589NLqpJ1R05BrxoW9TyzbzGikx6MfKKf51unrY3X0uWcX2Wv3FhMf7ItljlK8Usi3nwxopuCcixMu1zWdd0GdZOXXnUq518ieyJR6R+outRZG4g1+W/2shlW1pmQ+C7nkKWZYVjuQaBPosZRsZwdH3mVLp5uwA8c0Ert6UPhxk252Ysz8MWlpK2KxrpGSgz7LhhbmUa8eaCECuBa3WhjfqLxaAjt7QrpLLZNsuxVJotbTYBt2FoH/Fsq0H8hUg12is5+orUK5tP1e23Uft4IaXQ4olzbZffs6+OGtpSbYmoM+y4UXF5XBHgXqxZti55hGy7Q0UgF03BOyfVmLZlh1LIONy3JYWNehzbHh5p3JhqiPXpHuxib1sG5ZVAJVTvF0CmWJQdyLXBKBXHv44q8opOaiRH2qyOAFh7/01xAEfqXNtcMNLnWL5kp0PE2mOW1oQoM9StskO8NtW0ziSxUn2I1Mnsk1VOZW2lPl67SdqV7doaUGAPsuGF6JwYfXwaPVizXhw9QdmVG5og5Fxx7u33GVSA/UWNssaKRXos2x4YQoXjlFBdxnyAUDylVwuQGE+qJzKeiXu/qacRq6JQc+dyzYyoqsHwKwvgVzzH+DQdmesSKIj286WSKPCFMuhmSUr7VlciQQ9B831zClSsNG4XAzM+hLINT8u83OJXANugtDBjT5seOlODdtl0IW9LPige5zlOPMUV4Qj2cZLB2eGKuJyqwy6n3/8UvWIAdY6KTZgw4spdx/Ktt7UsPInX9jLorNr7wr5ID0VGXQi2zZbF6Gea0XEJVTJtX0FShFI5Bqg7gKj5CoUqBP0NRxa0dd+aDn2F2+eUva5qJxKt07ODCbPm0l2/hy4XlDUbiWSa1AcRyLbQg3Ml4sLDlTEVbJN1MuiUSPlCvQdWg7O5Vu9JYFaVC6E20ohrleL4QhCnQgjtoGtXOs3vAApln3phGQEAZ0SdDcNL7mbb86UEZdYxvXqsNferSQsDi/bAi3MG9kGRVBy6QgCx6FR1YLdY+VUeGFMwDRCSpqO3subCWRb9bfqAHcZ+lDQXfg2vRR8obdnS02jwqlhh3JIgWxznQTxVGjWsu0tKtMoT/zcO3f0WMbGenKt9iPI0y+k90ZoKde6DS85WC6xjdZr/3tzuaYHugLNuuElQGUa5YkfqzeWovJmVCbXqm8xvNOhhTzKEHyk7ej7yqkfsr193m45a1skHEHgvLDB243YCBWyLauGMpiBpZcQ1kquhsq7+fi3gnp0QCgMunftQsHl/KW+rY75ljJbd2ofxSMInHeeeG9UaO5AY2/3t+Irk0/INEs/NBydqll463buPF0EFWDnUld/ZYB5Uzm1I/DfA98Ekm3us17eWonmLgQfoTON8sSPMQ0l2AT5AECmzq4ReXwXdvWVCeh1w0sGdKyJRhA4z2+HnhpNUpR1e5UBl8vdHFUMnSCP5WMmwCctMFnDS2CEeVU5xaGONcEIAvcNCGsPgWZyjFe/0f2AxA0pIRrVT0y3Rgpl9iyuteInBzvWwBEE7mvWXtegy9HkgU6BKCzX7OQHtBwTbCqklFagHzjxXegI9F7Dy3emmO8qpx7gjjVwBIHz6tRo3YAuRTP4Tw3/0ZRtqZtAg2Zj0/4O2c+GCqO1K+vcgNHS2BYkL0Qda8MRBO7r0IMj6FI0I5alvJ6VZirXLO4o7bL3/Yu1dmuBPYs7VMquCjgS3HxQMaZc26k1D5U3ptvSKLmXuUke3OiCvv+uoWPUWzdgeKa2JfinK99fsRLO+QAjCNIxHL0FeqCSbQaf8OAkTWjQ30JiYMuSS1fvX5MA84M+3o+L4vNnQXZ3OILA/bbrvSd4rW9JxEbNGl5I4aIgwKSTTYjFuhue0zGp9wxDg+D9sg+0FvLX8Vg5lRKp7Z6w+D/1sdjbugu6HxUS+2xGwe639rFko0Y2Knf1yLn3AEkA8OPDYiuu2BqMIJDaznkY/J/yIVa0KIrtgT96vZfQtghXEZsxkSHmQ74Dmy5kvL0UFF+BwSOfSWozRZPjJGVzcOHFD6CSqgfUecLJVW7qN26t88OGcyhYa+n5wC7HdvRDMDiEA61E5eiohpfqlrxFn6WkKKsBdZ4i2t+xXw0eSWp5Zhh3KW/Ejh46dfRIGAuGpxhhQgeIhpdM8oBB1vSW/9kferp0T4xhTWZ0VdidGcbzCO7fTHO4Q64eoHujRa6ubHhpHiFAlnNBrLL2Ak8e7e//tCu8h9aflFnJNvNxBOLs2hvHoA+PFILP8IlM0fDSinFhlzb+WxPu96TRfvNwmqo5no3t6GIvc+3oQ/IQymeQolw9xveqIzvYjuF+T482oikYR1FPpZkvTKe2co0SY1dnOq2yItTlWioRliyIrBXu92TRfnMKtnExSsNqGLAwCPsKe68wUy4XqDQ8yqRaKldHu/uYt+aJe7Jov+HiP9TXQJ0Z5mMDic0kyOpe0XD1V2vnJtVSt8q81hbonBKB3hk4bHwuI2aZYc6MMVhciCeQOlrFPegyLZVidHHX0dvVWZ5s4LBxETaKWtyOyOJiWxbHEtkaN2QoFn2SB7jKKWF9qXqmVKc6y9OljZhzGZxlVhS6M1QsHF0Y6ES26VT3ypUxl9MyRvVkG8c98eESTxHoDmQb+N6VdHBx3I/n6PUutdav9XL/JzgEr9ppG5xdWNTkCGinqOEFcjv52fqlG+73pNH+IjcJp3FYJf7XXO/McDD8mRnKc9rJy4/s6rs4PdWRbZCzMKxcE3h6K9qfJoV+OI0KPlazutfFmPfQLOJOuiU45iF4XJ2tOJQEyrZHbb3Ur87yZNH+J6B/Xk3BMuHHDi6OzbiOvlFuW1PeKxqu/tqQxUnkBijbbvGuBsg1EehNtJ9DkzJUso0JP3YY78vGYHHCcFio7ehJotNo+9IIdCrTG+f5F6zUFcdAy8RXe3pNGzNgJo5atuVilThME9+OwOKEug17q98PSnD6J/mudGpYThWYO7ooYDu8EoVESCzbBtVZnjjaX3Bg+pWSgiUylTiI9+UjOvrgxIw0WZzwgN/9LFcF9Qy+i4Raius9+YFcE3v6njZ+AObcKcNpArnmi+J9Ccbb3KTZAv3Dfb9dE+Tp5+duML9UZAv6V2KuHRLbD6RUg/7dnjYW0NIwpWxL5R87iPcJzgwHLG5QtvLWsMieuKLpih5bhqmcYvrB79jHgH622tHGB/HUMzEFg+Xa8WOH8T4+FosLzYPuQOeEo9ibtEk6Uje8ZPq66edhRR4A+mr5zXodpPAiUMUr96tSJQ5kGx2HxfXTbOf6cg12dZeNMyEiS9S5Eql+QvsCA/qL3ZSM7sieT1jZxpQqESXbRpBr5o5edU6M4ugUkQ/218cNL6rMJBdMrVKCvm+89jtfiCNl21WuVolD2cbmJNfEnRMjOPpgplUEjkYg6FzXkEaDLdHDLFu1e6Zz9CBlG8eoxOBJdWZcz0auDQ/4y5FYXOVdOdiugs9q9zuKyj/6GNCrCQt+h2TwAiPb5HJNXN2bOKuRci3XhlzO5eEO/KK5bf3Ko7BGSgL6qlkz1XkRP2BkW6oozRKliXtnhgO5Rg1bWpi0C9a1XFPtVzapIL5VyTUI9G+aiWfdN7FQN7zcIlXiULals5VrfVcfTa5JgyI6vQKpqEZKDPpxwsI/dOcopurEbo5UiUCamI4r14LY0tF3TVLjyrXaJEs4cRUd7TtWMMGqX/fe3i/U/V5PKi4Hh35DH5MmzsYNuiNbWjaqhnfDPJrA0ZsBobxtmW2fCZfLtSHonTlZCNnGVSwO/thhmjiZrVxryzbXA02gg++zbZvJ8cQVTrDyRI4+kG2ZvCyTJPeACb4p6f215Na+pUVcFWkn145cLlqPYyFmPyq+p5/BNVIi0HsD8f5gINtsbQQW98qWxdVcLhgJdGWvgeb0jky8y2AI+mqwHbgj2wwqp7RtDLnmqlUyXo9lQH2MzXOmW/HWkgHow0HV3RB8YfkGjtnSMqJcU3bH2bt67GL9Yle2ieRaD/Rvh5Puuh2YD3Z3zaiNydZy7e50jq7uNdAcLbYj1YXkHfUELA7kcvnI+0VsHZ04D7prTRC3cPXI0ViARj5LJ1h5zeh7cKxxLwTv4gvZeJuq4plyw6C7usg+GtPRFZOF9B2ryL/zxebVg/HOF+BM+jCMVbKNzoXFBX5I1yM5+q1uYF3378tkWyfyGWB+pX9Oolg8BdGrlwWdL7/55pv/MEA95sogoat1E1cOYjLBPFicH//sULb92i3cQR1eWSmxepV2sV8h9CAanj6UbUXieg+opaNDl+5LVwSSaGKYlbGvKdvELeK011GBiSpT1P703Rvw5Wflo925+p7P8Sh1K9tsWVxkN4FAr/hK4bak/JKf68o2lFwLsTyFY0BvWlrktpNt4Y/ljlsco+3JDOQatZhAcO9Yru1mSKgHwPZR/xmxfjFCv8uyOQVt0AuOeLiPZeKHRXnfzqu5kG3EcUzmhHLtkE8qNIM5/gUi6B7gg4wJDvQU83B5Hq591htG6yAEf+82JuOgRspYrh0SKLKQ2Brdotq9OyOd3yzHgF7g785g06t4pjNkcdY1UuqRdPJUaeTr3wryGqlA5wy7xYD+gL87g35LRXbiw51Gw47Ck8m17VaV5hLyP7keDvUOsVQNeq5xd14OhAE7KYtz3NJiK9eUCW3lPz2ypZZPv+280Upnj4Rc7gg6xz/acCgM8pM6ukVLy7VrFteKsuSBrWzL2iGT9gjacypaS9eyTAV6hn+0ASQM+IkdfZQaqc4PRlZLhRZjCmQDYcscH6xXWBOR+wH/aN9AwsBGts2vpQUovgqxhK6/HttV5VQ3xhfk9qCn+EcbwMLAQrbNr6XlaBetZsPxyijksg1SgMrZ/GrQNeRaz4du7Sun5lwjRdtl6rejgy5x4EExeVpagq4h116JOuEfT8jixq+RYuMn1WUOPCwmx610koD+qPFoxZ3w97ORa4FzuXY5fvmM1IEBISCdzV+oQTeSawPZZsbl+t5Gw3m0tHR+cF0VHI/v6hFizqeS9RW8UIGembI4F7Kt5218vSBcE/RLM0d/h6eHxCzHat/wIms5lhRepCxVgF5oPNoLaSf8xprF/Uj2a+VnIteGzYab8c93yIG/97UKLz4JZsa0QEfKNbEPPZqH4Afe5i+Wi0jP1RllHSPOWRydovpd7MCihJ2wXp7LW929w2uBZXGgD0XUXLb1vI1Hu/rMMztu54rFNV4dQd4/ng2H7YV6rO/Ayx9loHO8XAuisGvRvm3xeJTkaW3CfHzatv5ns31r1SLgFphfu66R6s6GmUC29RxY2HIsYH2fD0+PfxaDnpsp4epTU4sQ8PBm4WFViG0Rr8Hm+/AtLfF0XQ+gA0vyNmAIPlNNtfAKbqSEFTU+SOu/cLQqvF68eG+u2V3XSAWWqVZb2SbN0AKbeAtp8+Ee9J/NCLI6WIwxPpBrdb094eM6+pWBXJuQy7UcWF6LAWziTeV9xttt4ZnXF9tne3rxAU5aDbOndvTboVwzLJ8yCsEXwrUMqsKLT61ZJrBsSz28XNMLFiOs6J/hrQb5xYWZq9Mx5dog8zaBbCt/8vUKLz63xg6CVO4p8SxYnKjGx5TFRe12OjPZdu886B7JcuwjWv1UCxVvVGzihe5Uz4LFHSoGVqbZnn4gkHX6Zs1km6u4DIPlmqz5oV07cd6xg/ju/aHCviOitQyDzw2171TP8lHuImC5GxYX9Ppmr38Ez2/mQK7hbwkqj/8c4xZRKyTIP7Yt35W8BH/NP2pZLlrLYMmld2rNS+ws33W8umBxjVxrXN1/D8JKJmBxBkdLp030S8sOyRKf/X37Rcekcz4tuPTuTrUFXRz2Udjfeo7+/kW/QX4Rc/Ah0/FZnL5ClOyRPiRLlIuLMVv07Ln0/k61BT3JHMm1eDgUYXUHPmOxxL6arGpj4OpCZ6uTJcrFxZgtevZc+sEJ6EnhhMUlq+EYjEXIwUdM5+PotauLuwWPyRL9iPVgi57I1b/XC4Hag57iQFbItQto+snZDQwrHDa/i0/g6If8jrgv+JgsMYhYP2HD/GjZxh2BDo4KHn7ab53/+1vvZ9yAY44Waw6SZmLD4jaJY5NOAGglS7T7E8oNunA+LHTuVAegc9SncWTQvWvkRzBpysaUa9pBwEg866OTLAme9DDPXNTLt0/ZuqPFAegILrcLuGZiFvfjNQx5r3KKSa/l6eVa88kZjn37f9RzdZ2xNTLZxh97d6oL0LnybEm7f6ufzn3vL0SotyuniAy6k7A45VHXY986EWu9oQYS2dacsg159kCf0fytP6CoeipkcbEI8+VyxeDze7QaKaMIFZJ9a8k23fElInGw87Cs29ECgP7+xZnu6MYClVkpBHLtbiXEvC3biIyObU7n6GJXHyRLNJIj4hopncqp+uEXnY6WIeicQAJZbg+oOEyqqJGCjcLnNzNicaM4uojVAMmSEB3VyLXbnOGGl+MpyyWg78IkZ9TRAdel6jlcI3Umw7yWbfdSnz0dixOzGihZgk6O6E+xEEwarc70T2WLPA9A34dJBgLZRrZlvb+FlWvdyikic1qko79LxrIUy76RyREduSZteMmb1zKRgF6FSXRr1DJUwDWT10gJuBwMK5mPo4OsBk6WYJMj3+sPNABzOg2MXAJ65XfarUVi2da+wd8XwwmFvsLRD7KNyCCkp2RxQlYD7LBen+Nkm/YMOpE4gLsUPUGYRLe1SBiC71L1tJTWSMF2xmBYdy5OTi3XRKwGTpaQCNVWXhgW3PZlm2CojCcKk3zLrA846Abvv3pspcR8uXgNJ01JwoLAZUuLS9kGJkvChAUI2aYr14SyTdBn5InCJNo1ag+o+phEUSMFu7potGi8XsccK9fuRwW9x2rgHdY0SWJfKdu0J0iLcjqiLkVPHCZB0x4qlm2q/hm6RNkanpN2va9cvD45i9tbZwECzL73lbWBcg2bgVyDczocA3onTLJ4gXR1VpWGQ7Ltg8LRXyxwqMNiInQ6XsapbAPl2v7G3Hy3lq9h0x4vKmp4EQ6V8SRhEqRsC/1QJNsU4w7Uck3a8EJ0JhDcjA56awwAzL7j+nnJ17D9LVz5xvafj1zuM8eA3g+T4FqL6PHXKbY4IiGrkRJwOajhJZiVo7ePOpB9B83JKK2c+vLr/9wQU9tcJV/UdKoF+o8E86TBM7ZqCUgVTakJpkZKwOWGnho7Hfvrwh6l7Lt571SyrbQxzCnrycIkmNYi0m7++SSVawMycIbGHAgMs7k5+rEePIfl2vGbW012NWsag0EHwiQI2Vb3/9wCXM6JXBM2vEROx/66lG0w+75tOYofFGNj/pRgQAfDJEqdE3Xf40e5XKOxvlwTNLxQp3OkXIbgJXLtyH3p2K7OMaCDfge3FrXstndjtRteUsC3lzeIGikB6t2Gl9Dp2F+nsi0SyrXmjf1ubdLwYtE0BoNOlgvIFCH4sM9NMwmR+PG6dTXLaqQEsu1uQCUuZ8TiDvYkl2tHV49HxVweFKtB529gcRggWFzn1yp62ft+YL+5mleamHfreebH4mrZJpVrzV16LlrD5sbkQbEWkQNN/isGwwMsFcq1vW/XF4aiRgqWbbQr14J4do6eJDko1wYdFrHliCbBpMgcFRSzKoGOIaryJCISh8B+dTXfnGlj3robDprB1dhfpwZOqQgB1WM3oknA3rjolHUGen/kVDsEPyQStW/vr2ZljZS84WWOcm3AcloGnDXEtxnRBNtjxalUowFtQI/g9zmDs/e1b++uZmFLi0q2zVmutb6aTK4duRyxdvVuCHQXbN/n+vh4oFNBoHFXOQXItca3z6i2XOs1vITQhokZsDiBo8Nza6jFiKZal0XZgL2liEnunsvfr+ZyJSDXSPtqjswwrxperr5zuaXFqYEjmQTvXWQt27qtk0Utn/h4oBOxGi2AMZRt345XhpgfAsP7IsnLOTo6PFgzhC3QnwbWo23d1ZrV6fqzepK75/T3Oz/41fBVM/dtQWCYzdLRdSdEhzYh+P32lOM4hCf81zQGHd5mciF6Rfq+vTA0r+JyZI4sTnsWvJVsS7qDT/j4oLPXAWjwUx6EYsxLQ3yauBz7W7MqJyeCfuGyhWzLu9sQs2R80HneDCD9ubNLA36mg4hqyk1tDEdnTu5+g5ngFrKtXqLBUBWoTkBvlUv8i/LzgFCM3bnruqWFOLn8Axf9CWiJ3t2GmCbjg55qFEtA9Y/oUlsBoXDL4qgTmh876U/QYXHHJfZFMgHohU5ZFJhQIxaoE8eOfuWC84nXfIShyyHOR7nW2ob4MAHoGb40RyTXVhaPF7sJCmv4v36fiiwTy7W3ceBatnWWXZLiKRkfdK5V6sz+AdRe4fuRHX0MSw0aysM4vtBtK1dZ971P/jwB6I86TQ08hssz1neGmN+cDvNbg/lf+yLtQLOtXGG/2kUjTEB/0CzJMinPmKejK8f+wo4ex5HGGjZM0N0sGmEDOnAJfebJVEZPh3n8V+EdG4hiSVXWP5TFm3S5XGoZdjQAPRXk76ex+xNi3toVPyhEFFlz70riTZkFizMRm/qgCwaNTOXq5JSgiyf/irqMGqf8CdOKpBN0Pzr6PhCamsXeOS40+lFQk8d5+pNcabmIb7OTYi6Z8a10SmfFUTn4xT5/MgN93GLrJIp+947e3hWv65S3rkCH3/v7P5sd75nlt0lV1VX0d83iervitZ0ydYN5Zl854ClouY6jK/OOoTXo704OOjV2ys1nJ6BT+xohT8nL0fagzjuS372jazlshmSBpkF3U+XmiRKm+vwCkXcMftcsTpvLUTsWiJBrZjEaTx5Ud9Qb2+QdFZ0HPJR2xJM5gC7ZzCSPoWizQIRcM3N1TxFVR9vnx64lCWsPQ2nKgSuDvyA9k1VXzMLR8eILcMpfR5Frjd2Zgc7dkI3t9mO30qFJOAQyssnXC1lHPJkJ6MzYKbVY4F8LqNLdRQFBPyL3wQ3mBe/sWmjlGyLxF9w3RIDLNmfD4loFSkZOqcECcwZ8TJ4BlnNpgSIiDOtmGEraPYvDY7lsKLmB9g0RK8saqbnItltLFsjxWPxkG3t3EkIoMGexoMJGtEtk4x68yPQfIh5SZskCMzwWaWILevLkAPQHDOnaCBoizm4mYnHRt6aoIxyWWrLAH9BYFIk96GrZpswK5TjS1b2CmklH8C6REVicv/BxxG1oyludW7LAFC+hHxyArg7BK5fvcRzpIqKGiP7IuHEcPVwul5hhFuQvgKVy+7P4HeUpxvDpENUEguQmRoCuwjRfK0r5Mizpart6ayA0tEtkBEff3SareJZ2yZBYIAoZOnPcxEUUcv5QEv9cPLu65Gz73qAwvdMQMRxkNoJcC/YfFcwS9OOD+QVD+OT5iuF96SGL4Dq1vrIOrHCd4s9iKmiIWN2NLteiM+nSiBNn7dESWsni3r9YDO5LL9F19f3yKFEHVpn4fpziz2JBQ0Rfto1wuK/rpREzxJziJTQs1wjrnKD9MCdcIyfWFYdaX2EH1qddvDXRP8f6A6G7KyDHkGvf1J8UzfhwT1TLLWFHZ63E1goYserhWliOnxJCG2KaV2Lj794IDZBYV67Bk75HcPR/PLbKzw50hpfQMIsL/Xq2UT1Sv3tfeqhmtSOq9c5YcHZ13dvDiOZbTaUNjiOwuFetTwpn7ehS2ZYJ61Wi7gnavS8FoL+H+cNxeRTcgVX19oQaxek38EDotmy7GkeuNaxx1o4uk22CStSgmeTYmeOmrntPRXJN0oF17O0hVOe9BgdCH2XbaHKttnnJtms8r/5FUq8Stvdp9u5LT6N3qbM8ChiCdpx/HGhwOSoYCF3vErkbTa4tZ8nl8BK6kPbJk94JSrgadPD1ao+vH8yuLtmxPVWHyyWhB/YyB3y0oHt/199M5ZrC1WG5FjWO1zlB2/elhx08MNgZO5xdnbVa9DMN4kIF+6ZGk2uDAQnzZXESLpeL2guaSY4r+L6UgM6B1kzFELR2e5YGl/tnWS/zSEH3jr2aD+gML6G5qL2gdvUuc2mtTPbQM0aOcg01BK0glm/3JHJtdvSdwWNPch25VttKtHvLQ/ehf/nYH1/v/7E0qspH3WPjtbT01wt8M7+Y3JD3IOVad9rRmWCOm4dvRAcGbEhnV+Prm95N6ejr5YxpnNByHIvrjjXzBXPcPOzIifJnHxicoVXrr+/qY7C4/ut/Fv0eQGdack3k6pVs89BTpC583SFot7b8ZQq5tgz+x+8B9H4tJuzogylW8Bw3+SSKrCXCfd0haGVuy+VGqpHqOno9fn3mDk+15JqIyx1WJnvIUSN5oJhdnXPep5waeRfY1aeQa7MNwfeN68g10QF/CHMqZs78Mgy6w7Kt19LiJCgxetB9tmodfEKFjlyr7Q+QbFMNGioU8xDryilEjVQYanI59w/urWwb3NnMXf0o24r3GBYnlm0q0FPFPMSqcgrT0qLYtTP46OsR5NpCuutv5qhnchZ3CXslsDJZOVIsl89DrCqnEI7+WrFVazOBXHsh3Rmxfvv7kG0CudbaCdT+rc6Gy6mVoPNOzhRCPSkxLS2Rcn8em2dj8vxkm6p3Tb4laYUZHphtS7qSOUhQYFpaAuWmTDLLCQTz43LKSnd2plhOrQadF+2cKTDoPC0QLS1vDsfCG7SrPzu6SLapW1rk69DOmKduZE+3pdwwLC7oDaJQuTp9RlgQgke0tKgWGnpro6nPsgkEoFzrDMJWy7b7Z3zhw7BUt7Qo99j+gzfsG9PsbUPKtaaeAyXbng93kasrWVys3nXp/bv/qJ5JlCvaJm+Qhzv6gH9mcRoxrJ4h9th6wnEf2CaLDFGYHrUME4J/dnStHEVnEt8CA3qvb0yr4WW73f6NuyRd5JnFSe1aOYHgbIkCHR73gWl4OTj6vfPj6+oZXWysejiJDwc6ZjFeajVHSsOunh3d4kZvtbSoQIfGfWBlW+qadNExWlq+loicvVw7ejpCtgm43G/uSdfds6Mbs7h4gfb0dh28Jpfj7s/id8/gmjr63WqpAfoiMHP1zKAw/U3wDN8J5doRdMw+8wzsj9Z39GAdPuM3SlyGni21QF+8eG/A5UxY3C4Kf/mMoMG150autT3dRLYZyTVlKPbZzBy9M4kPCTpin/knB47+aq2soHk2IxaX+Att0Ks6eA0ulxs4eoTIujybEYuLFvqe3oz7QHM5MxaHSKs/m4Gjs2+XBqBjZFthMva3Ldc6m+SfTSNkZVkjJQAdI9ta42mL9waF6cF6/ezq48i15dIIdNmipKFsM5Vrtb19RhJvyj17rcHpmp4uXpQ0lG0mcq3TgvHM5U4j1wagr/Iiz3OgDTbd/3me54WNo3d7rZ5lmwaNg4xmSfLxgMr/8RemoC8X9O+CDopiGHQ3lWvPru7K3tdy6u90sTQH/Swv4Rk26SC7Zuvoz1zOXsXVgZP8TBP0VdvOrkpB40wxGGel244+7Id7xs1SxT3WwwPOVlrm5V0TDTrgwyk3mt/xfAD662fgrMjdQxMb1TQPrI14kkfjUoOaVajx9ZnLWak44w2pHnbWbCsaVxi0oUTg7JJn7Cwc3XxBqoeeKv3LYMqNDpeD5xRdPINnzOJ+KFyDvv0g5nKZQcdZJBhT9IyeobEk2zoHXSzbWv+FWTr6s2yzl2suQd8+ivoYfzHoIhePL3nGz8juk3wM0EWyrXvbIxuQxBNr5jy8jc22j7Il19yC/gmWbanBfL/XkjlF0YyP0GnaLq6Z/jczl2ty0GHZlhtM8owkmM+Yy933fjs6kuMz7eAms5BrCtALyNW5wbS3QAb6+s1sj9Dub/dOPXvB8EDRDW4SzIZtQ9ChEHxqMLT3jRTzubo66f92dKRZCffawU0ruaYCXTm8CjcSSO7oc6VyN72lcGSkqShUO7h5bSXXlKA/IkBXvqWhHPP1nB299duxccaiEP3gZpI8jQn69gGDOjGVa3MOz7CeKB1rSdxN9yEiVg1QSxanBL3AgH5jc7jP9Ea/7h9k94f/txnpQKnukUj9PGzlmhp05exZpatHCkefacql/9vRkWbQs+7LFajjFiz5sB0Z9OKH7v0N78f86hyd9kQpGWl86XU3uBmqn4gLR1eB3pNt2r+VisXNMx5H+gfZzUiDinuE+PxAcqIx5RoG9I5ss2lpEdC44GBGEZooOLLA+geZ2GDX5X1Pn9Du/5Ma34/GTrQPlCR5OKzPCLhk5DZP+OcJQM9tRrCrHN2y4aUN+trcApa4swO1ZvoHSsLDagHW32Uu+LidAPSWbLNraRnhcr+8xJ8pMrt0CPr++M00WVxn87lkb3HK+HYS0AtzR9cBwvZ2jyxAX7t09R0s1MDRm3VLflyKofg0DeiNbGO6RvQO2SCwCtTYuHro1NVLbuTox/W4aSly9HQ7EegFN/ztVffsy5dOI7I2rk5dujpu3egG+KdBawEWRK9+KKYCXb1AIkEvBOye6G+cRmStuJxLV6facq33yHYLsEAWl20nA31r5OosUHO3wGmgxuaAj91hzgzkWu9wDArQ9/h2QtCfTH73S4RKe+OUy72Zh2wjRizuYLeVq9OhqxfvrYohtUHHheB77/sak16bj6tH0x7uonesFiEZwOIetpOCXrhnceeA0HpzStl26wj0KwtHb8k2AIJiWtD1uRxFOXqvUNba1V+fXrbhHF08LKoSIT7vHfDckVzTAP0zd+zoASi0rCsqbFyduMD8zoLFtWXbOuxPBODF1KDjKqeGYQZ1AC60V+rHZEt4bgH6ZjIWJx0WtalcnZXd9UjZdnLQ9WQbRq6B7CuYmrU7Pt6ZtaMfZVubq2d3fHsC0D/p/O5KRiVkX6HKol79xu6PnIDOTi3XerrHJ2WbxeWnAF1Htt3Cj/XMB+/uwEZasWDtxmKXLC6ITOTaQLaVNkH39NEB6L3KKX0Wt1qegYf4W6sgSuwGczfBmYanBOaODsi23wzk2idJuQUedLxsg4Pu3+2GyoN6PLRySDeu7oS6b44aIpS3tKAeYCPbONMvhuSSvZme3s/BHXJg9aS/Gy8eg3WUeM4dCNnujFjcK+mYa4o/KivZZiLXMtkyPR3Qc5t8435M8eINh9hOaOWQ0n8d4X52EMbOWFwkDTmgjhTalm2FgVw7pMNTB6CDDS8U5yTVbsDdMl9qHjQPdaP8gTo06Cyjzrq/zFszFnewi5Zs+8WgRqoaGfTkAHQoBB/6mHe33g24W+ZrETSnugIxVscGneVbSDdqEJg7epKw80a2mQTdC3gBSwN6Z5Tgp0JuKXSjoohvsxvwiprnxwTIMGH98+5kuN3/r7oiS/QX7ck77f8qkbmjtyunUpYWutbglMETI03ewx53VheTtnYD+sS4btZcVlUiyAlFV8o1WXTxWvMb+1Fu963AnJ+nTy2HL6QSjNYq95eRXq2TTyLfOn4Sj1AU1bPr4dsb4mqk5LqXuDl/ZKDHRh6k4nLt3YBn3+qJqfM8s65ja8J28WiYM+ieMpJr/RC85cVDEKDrpZoiFPXtrXLXQt2nZUl8yyxYNEovi1iuicZca3ktddOJwRCgxzqP5RYZ2+gtm/B1oibFdpsHlvET4r4oqn9/wYQ0Mn+2x1fVvat7scXbGKKimIPdgGcajv5Tud2WzLf83cNRCtyHTzaUNmtpXs/1pRQ6d3UvNnd1giPWbLDK/Q9ozA9l/0Vo6aNsnF6WAV06l85c0H1tYzcvKkWAjn8fjw1MScKFlg1XueNd/dDgU3JffRunvc/t/Mcjqab9v5faY34vlCCBhTI6Vk5Zfr13atANvhwvSmFwqMyAVe4rpKM3dQSRmncXskTBMe0ebkvrSt/OTz4e7m+lc5TeGVwabkQHRYBu8BGS4HAZQpuEkDm1XCPXw6UpweYq6taemdX0d96mzZ+YLKxo4UujyTbPJmx0NGEaqOTg9ijUAd/GJ9X8DpmQy/Xavy0jXrEf1HGZSDob0SjIcutGdDAE6DEzOOBFoX/fW9SmK9vaVcCI1lku7bSlwzvDvE+vkxiJ5PmDyPSZtmXbrVNX9yxSQW37RZjYbYhTGqz8oyEcvVPvn2m5eirLxWWldUduJwVapwoFZu7oZrJNPf/Li924ujD9V9b291Qv/trv7OEa36GQxWLb7d/FeyvMKXq67Z3p9aEdgke02HixI1dXlmsWuv3jWal7+aZSBtCUULbavy31Wohtt6W2H4FPPMSmoJt8SUVhdpn4eo5OSv1BtZ+kZ3YwIAuWco1gWzSubA8TvGwj5qAjSjY1ZNveUTWrVoczlgr0d0jrsEt3xFs0kAWWLC7AtttS+9MEKdtQLTaeTf0eUrbtHZ1oOjorTdotOt+hjH35G1VwhSGTd4jZnvavVuTM0YWgu5Rt+7icJou7MJt41P4OZSohiaV9+S9Dt9sSamKkJwUxx4VoIjfDge6Yy8Wajv5zadZu0ZaOkTKobzVWq0NML91PqI0MavMFjp5sCQp0k3uoEMfltFlcbcayTcocRVO7NK6TzejjrF9rd+EI5BopyhQH+pVDV9eWa0lWTcDtlHMWmcZ3KKTMUTC1S4M4BuPPs9YtDBXt09nx21sU6Caunrm50XegVKaf/alYf3ktP1yCws7R4wkm14eanbWCw53up0rgQDfhco6udJuaB457z6CpXTosLphiGU3vQ86ZkVw7uOI9DnR3su3LR8O5ICaJhgz5mmU27ZqRYFzWuFzuwsTRWXVbERToDkPwJTVydaOU4k62IZjjcGqXhlK4ldZLjObqUtkmCrrXUS6OA92hbCtM2sgNiwdSHHMcTO3qzWdEy7URudxbwXXHMFVRtVyrbYMC3aFsK/l3040EKQ71szr5ej0WR1TTk0bjcvV+OIaXa83v9Nf6z/4fb98hLfJ+PakAAAAASUVORK5CYII=";
+                const bgName = osu.find(
+                    (e) => e.indexOf('0,0,"') > -1 && e.indexOf('",0,0') > -1,
+                );
+                if (bgName)
+                    var bg =
+                        "data:image/jpg;base64," +
+                        (await osz
+                            .file(
+                                bgName
+                                    .replace('0,0,"', "")
+                                    .replace('",0,0', "")
+                                    .trim(),
+                            )
+                            .async("base64"));
+                else
+                    var bg =
+                        "data:image/png;base64,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";
                 let dataURL = await cropImageToStage(await loadImage(bg));
                 await addCostume(
                     Background,
                     new Uint8Array(await (await fetch(dataURL)).arrayBuffer()),
                     map.SetID,
-                    dataURL
+                    dataURL,
                 );
                 await osz.forEach(async (name, file) => {
                     if (name.endsWith(".osu")) {
                         overlay.innerText = "Loading...\nFetching Beatmap";
-                        var beatmap = (await file.async("text")).replaceAll("\r", "");
-                        var BeatmapID = beatmap.split("\n").find(e => e.startsWith("BeatmapID:")).replace("BeatmapID:").trim();
+                        var beatmap = (await file.async("text")).replaceAll(
+                            "\r",
+                            "",
+                        );
+                        var BeatmapID = beatmap
+                            .split("\n")
+                            .find((e) => e.startsWith("BeatmapID:"))
+                            .replace("BeatmapID:")
+                            .trim();
                         overlay.innerText = "Loading...\nParsing Beatmap";
                         const beatmapData = {};
                         var key = "";
-                        beatmap.split("\n").forEach(e => {
+                        beatmap.split("\n").forEach((e) => {
                             if (e.startsWith("[")) {
                                 beatmapData[e.trim()] = [];
                                 key = e.trim();
                                 console.log(key);
-                            } else if (beatmapData[key]) beatmapData[key].push(e);
+                            } else if (beatmapData[key])
+                                beatmapData[key].push(e);
                         });
                         beatmap_artist.value.push(map.Artist);
                         beatmap_audio.value.push(map.SetID.toString());
@@ -703,7 +877,7 @@ const inject = (async () => {
                         beatmap_leaderboards.value.push("0");
                         beatmap_localOffset.value.push("0");
                         let objectCount = [0, 0, 0, 0];
-                        beatmapData["[HitObjects]"].forEach(e => {
+                        beatmapData["[HitObjects]"].forEach((e) => {
                             var e = parseInt(e.split(",")[3]).toString(2);
                             while (e.length < 8) e = "0" + e;
                             var type = 0;
@@ -715,14 +889,22 @@ const inject = (async () => {
                             else if (type == 2) objectCount[2]++;
                             else if (type == 8) objectCount[3]++;
                         });
-                        objectCount[0] = objectCount[1] + objectCount[2] + objectCount[3];
+                        objectCount[0] =
+                            objectCount[1] + objectCount[2] + objectCount[3];
                         beatmap_objectCount.value.push(objectCount.join(","));
                         beatmap_onlineIndex.value.push("0");
                         beatmap_setID.value.push(map.SetID);
-                        beatmap_starRating.value.push(getBeatmapStarRatings(beatmap));
+                        beatmap_starRating.value.push(
+                            getBeatmapStarRatings(beatmap),
+                        );
                         beatmap_thumbnail.value.push(map.SetID.toString());
                         beatmap_title.value.push(map.Title);
-                        beatmap_version.value.push(beatmapData["[Metadata]"].find(e => e.startsWith("Version:")).replace("Version:", "").trim());
+                        beatmap_version.value.push(
+                            beatmapData["[Metadata]"]
+                                .find((e) => e.startsWith("Version:"))
+                                .replace("Version:", "")
+                                .trim(),
+                        );
                     }
                 });
                 overlay.innerText = "Loading...\nDone!";
@@ -738,7 +920,7 @@ const inject = (async () => {
                     overlay.hidden = true;
                 }, 1000);
             }
-        }
+        };
         container.appendChild(img);
         info.appendChild(title);
         info.appendChild(artist);
@@ -749,51 +931,54 @@ const inject = (async () => {
     }
 
     function addAudio(sprite, uint8array, SetID) {
-        return new Promise(async resolve => {
+        return new Promise(async (resolve) => {
             const md5 = MD5(uint8array);
-            await vm.addSound(await deserializeSound({
-                assetId: md5,
-                data: null,
-                dataFormat: "mp3",
-                format: undefined,
-                md5: md5 + ".mp3",
-                name: SetID.toString()
-            },
-                vm.runtime,
-                uint8array,
-                md5 + ".mp3"
-            ),
-                sprite.id
+            await vm.addSound(
+                await deserializeSound(
+                    {
+                        assetId: md5,
+                        data: null,
+                        dataFormat: "mp3",
+                        format: undefined,
+                        md5: md5 + ".mp3",
+                        name: SetID.toString(),
+                    },
+                    vm.runtime,
+                    uint8array,
+                    md5 + ".mp3",
+                ),
+                sprite.id,
             );
             resolve();
         });
     }
 
     function addCostume(sprite, uint8array, SetID, dataURL) {
-        return new Promise(async resolve => {
+        return new Promise(async (resolve) => {
             const md5 = MD5(uint8array);
             let img = await loadImage(dataURL);
             const w = img.width,
                 h = img.height;
             await vm.addCostume(
                 md5 + ".png",
-                await deserializeCostume({
-                    assetId: md5,
-                    data: null,
-                    dataFormat: "png",
-                    format: undefined,
-                    md5: md5 + ".png",
-                    name: SetID.toString(),
-                    bitmapResolution: 1,
-                    rotationCenterX: w / 2,
-                    rotationCenterY: h / 2,
-                    size: [w, h]
-                },
+                await deserializeCostume(
+                    {
+                        assetId: md5,
+                        data: null,
+                        dataFormat: "png",
+                        format: undefined,
+                        md5: md5 + ".png",
+                        name: SetID.toString(),
+                        bitmapResolution: 1,
+                        rotationCenterX: w / 2,
+                        rotationCenterY: h / 2,
+                        size: [w, h],
+                    },
                     vm.runtime,
                     uint8array,
                     md5 + ".jpg",
                 ),
-                sprite.id
+                sprite.id,
             );
             resolve();
         });
@@ -946,19 +1131,19 @@ const inject = (async () => {
     const input = document.createElement("input");
     input.classList.add("osuSearch");
     input.placeholder = "Search Beatmaps";
-    input.addEventListener("keypress", async e => {
+    input.addEventListener("keypress", async (e) => {
         if (e.key == "Enter") {
-            [...innerContainer.children].forEach(e => e.remove());
+            [...innerContainer.children].forEach((e) => e.remove());
             maps = await search(input.value);
             console.log(maps);
-            maps.forEach(map => innerContainer.appendChild(beatmap(map)));
+            maps.forEach((map) => innerContainer.appendChild(beatmap(map)));
         }
     });
     input.addEventListener("change", async () => {
-        [...innerContainer.children].forEach(e => e.remove());
+        [...innerContainer.children].forEach((e) => e.remove());
         maps = await search(input.value);
         console.log(maps);
-        maps.forEach(map => innerContainer.appendChild(beatmap(map)));
+        maps.forEach((map) => innerContainer.appendChild(beatmap(map)));
     });
     toggle.onclick = () => {
         if (toggle.innerText == "⏶") {
@@ -970,7 +1155,7 @@ const inject = (async () => {
             container.style.width = "750px";
             container.style.height = "100%";
         }
-    }
+    };
     const optionsHeader = document.createElement("span");
     optionsHeader.classList.add("osuOptionsHeader");
     optionsHeader.innerText = "Options";
@@ -978,7 +1163,7 @@ const inject = (async () => {
     optionsContainer.classList.add("osuOptionsContainer");
     const hideCursor = document.createElement("input");
     hideCursor.checked = true;
-    hideCursor.type = "checkbox"
+    hideCursor.type = "checkbox";
     hideCursor.classList.add("osuCheckbox");
     const hideCursorText = document.createElement("span");
     hideCursorText.innerText = "Show Computer Cursor";
@@ -991,16 +1176,23 @@ const inject = (async () => {
     container.appendChild(optionsHeader);
     container.appendChild(optionsContainer);
     maps = await search("");
-    maps.forEach(map => innerContainer.appendChild(beatmap(map)));
+    maps.forEach((map) => innerContainer.appendChild(beatmap(map)));
     document.body.insertBefore(container, document.body.firstChild);
 
     setInterval(updateCursor, 100);
 
     function updateCursor() {
         vm.renderer.canvas.style.cursor =
-        (!hideCursor.checked && !(_mode.value == "gameplay" && (_mod_auto.value == "1" || _mod_autopilot.value == "1") && _game_hasEnded.value == "0" && _timer.value < hitObject_endTime.value.slice(-1) && _game_hasFailed.value == "0")) ?
-        "none" :
-        "default"
+            !hideCursor.checked &&
+            !(
+                _mode.value == "gameplay" &&
+                (_mod_auto.value == "1" || _mod_autopilot.value == "1") &&
+                _game_hasEnded.value == "0" &&
+                _timer.value < hitObject_endTime.value.slice(-1) &&
+                _game_hasFailed.value == "0"
+            )
+                ? "none"
+                : "default";
     }
 
     function packBeatmap(data) {
@@ -1021,14 +1213,14 @@ const inject = (async () => {
                 "CountdownOffset",
                 "SpecialStyle",
                 "WidescreenStoryboard",
-                "SamplesMatchPlaybackRate"
+                "SamplesMatchPlaybackRate",
             ],
             "[Editor]": [
                 "Bookmarks",
                 "DistanceSpacing",
                 "BeatDivisor",
                 "GridSize",
-                "TimelineZoom"
+                "TimelineZoom",
             ],
             "[Metadata]": [
                 "Title",
@@ -1040,7 +1232,7 @@ const inject = (async () => {
                 "Source",
                 "Tags",
                 "BeatmapID",
-                "BeatmapSetID"
+                "BeatmapSetID",
             ],
             "[Difficulty]": [
                 "HPDrainRate",
@@ -1048,7 +1240,7 @@ const inject = (async () => {
                 "OverallDifficulty",
                 "ApproachRate",
                 "SliderMultiplier",
-                "SliderTickRate"
+                "SliderTickRate",
             ],
             "[Colours]": [
                 "Combo1 ",
@@ -1060,9 +1252,9 @@ const inject = (async () => {
                 "Combo7 ",
                 "Combo8 ",
                 "SliderTrackOverride ",
-                "SliderBorder "
-            ]
-        }
+                "SliderBorder ",
+            ],
+        };
         const defaults = {
             "[General]": [
                 "",
@@ -1080,15 +1272,9 @@ const inject = (async () => {
                 "0",
                 "0",
                 "0",
-                "0"
+                "0",
             ],
-            "[Editor]": [
-                "",
-                "1",
-                "4",
-                "64",
-                "3"
-            ],
+            "[Editor]": ["", "1", "4", "64", "3"],
             "[Colours]": [
                 "255,142,165",
                 "255,169,187",
@@ -1099,59 +1285,68 @@ const inject = (async () => {
                 "",
                 "",
                 "16,16,16",
-                "192,192,192"
-            ]
-        }
+                "192,192,192",
+            ],
+        };
         const beatmap = {};
-        Object.keys(defaults).forEach(key => {
+        Object.keys(defaults).forEach((key) => {
             beatmap[key] = {};
             for (var i = 0; i < defaults[key].length; i++) {
                 beatmap[key][keys[key][i]] = defaults[key][i];
             }
         });
-        Object.keys(data).forEach(key => {
+        Object.keys(data).forEach((key) => {
             if (key in keys) {
                 if (!(key in beatmap)) beatmap[key] = {};
-                data[key].map(e => e.replaceAll("\r", "")).forEach(e => {
-                    if (e) beatmap[key][e.split(":")[0].trim()] = e.split(":")[1].trim();
-                });
+                data[key]
+                    .map((e) => e.replaceAll("\r", ""))
+                    .forEach((e) => {
+                        if (e)
+                            beatmap[key][e.split(":")[0].trim()] = e
+                                .split(":")[1]
+                                .trim();
+                    });
             } else beatmap[key] = data[key];
         });
         var currentCode = "osu file format v14";
         currentCode += ";;[General]";
-        keys["[General]"].forEach(e => {
-            if (beatmap["[General]"][e] != "") currentCode += `;${e}:${beatmap["[General]"][e]}`;
+        keys["[General]"].forEach((e) => {
+            if (beatmap["[General]"][e] != "")
+                currentCode += `;${e}:${beatmap["[General]"][e]}`;
         });
         currentCode += ";;[Editor]";
-        keys["[Editor]"].forEach(e => {
-            if (beatmap["[Editor]"][e] != "") currentCode += `;${e}:${beatmap["[Editor]"][e]}`;
+        keys["[Editor]"].forEach((e) => {
+            if (beatmap["[Editor]"][e] != "")
+                currentCode += `;${e}:${beatmap["[Editor]"][e]}`;
         });
         currentCode += ";;[Metadata]";
-        keys["[Metadata]"].forEach(e => {
-            if (beatmap["[Metadata]"][e] != "") currentCode += `;${e}:${beatmap["[Metadata]"][e]}`;
+        keys["[Metadata]"].forEach((e) => {
+            if (beatmap["[Metadata]"][e] != "")
+                currentCode += `;${e}:${beatmap["[Metadata]"][e]}`;
         });
         currentCode += ";;[Difficulty]";
         var Difficulty = [];
-        keys["[Difficulty]"].forEach(e => {
+        keys["[Difficulty]"].forEach((e) => {
             if (beatmap["[Difficulty]"][e] != "") {
                 Difficulty.push(beatmap["[Difficulty]"][e]);
                 currentCode += `;${e}:${beatmap["[Difficulty]"][e]}`;
             }
         });
         currentCode += ";;[Events]";
-        beatmap["[Events]"].forEach(e => {
+        beatmap["[Events]"].forEach((e) => {
             if (e != "") currentCode += ";" + e;
         });
         currentCode += ";;[TimingPoints]";
-        beatmap["[TimingPoints]"].forEach(e => {
+        beatmap["[TimingPoints]"].forEach((e) => {
             if (e != "") currentCode += ";" + e;
         });
         currentCode += ";;;[Colours]";
-        keys["[Colours]"].forEach(e => {
-            if (beatmap["[Colours]"][e] != "") currentCode += `;${e}:${beatmap["[Colours]"][e]}`;
+        keys["[Colours]"].forEach((e) => {
+            if (beatmap["[Colours]"][e] != "")
+                currentCode += `;${e}:${beatmap["[Colours]"][e]}`;
         });
         currentCode += ";;[HitObjects]";
-        beatmap["[HitObjects]"].forEach(e => {
+        beatmap["[HitObjects]"].forEach((e) => {
             if (e != "") currentCode += ";" + e;
         });
         currentCode += ";";
@@ -1159,7 +1354,7 @@ const inject = (async () => {
     }
 
     function loadImage(src) {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             let img = new Image();
             img.onload = () => resolve(img);
             img.src = src;
@@ -1173,15 +1368,43 @@ const inject = (async () => {
 
     function cropImageToStage(img) {
         const s = Math.max(480 / img.width, 360 / img.height);
-        ctx.drawImage(img, 0, 0, img.width, img.height, (480 - img.width * s) / 2, (360 - img.height * s) / 2, img.width * s, img.height * s);
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            img.width,
+            img.height,
+            (480 - img.width * s) / 2,
+            (360 - img.height * s) / 2,
+            img.width * s,
+            img.height * s,
+        );
         return canvas.toDataURL();
     }
-});
+};
 (async () => {
     if (window.osuHackInjected) return;
-    if (window.location.origin == "https://scratch-hacks.terrariamodsscr.repl.co" || window.location.origin == "https://terrariamods-scratch.github.io") alert("Drag the link into your bookmarks/favorites bar\nClick it when on osu! Full Remake");
-    else if (window.location.pathname.match(/(\d+)/)[0] == "613688710") inject();
-    else if ((await (await fetch("https://trampoline.turbowarp.org/proxy/projects/" + window.location.pathname.match(/(\d+)/)[0])).json()).remix.parent == 613688710) inject();
+    if (
+        window.location.origin ==
+            "https://scratch-hacks.terrariamodsscr.repl.co" ||
+        window.location.origin == "https://terrariamods-scratch.github.io"
+    )
+        alert(
+            "Drag the link into your bookmarks/favorites bar\nClick it when on osu! Full Remake",
+        );
+    else if (window.location.pathname.match(/(\d+)/)[0] == "613688710")
+        inject();
+    else if (
+        (
+            await (
+                await fetch(
+                    "https://trampoline.turbowarp.org/proxy/projects/" +
+                        window.location.pathname.match(/(\d+)/)[0],
+                )
+            ).json()
+        ).remix.parent == 613688710
+    )
+        inject();
     else alert("Wrong Project");
 })();
 
@@ -1198,8 +1421,8 @@ getBeatmapStarRatings = (() => {
                 OverallDifficulty: 0,
                 ApproachRate: 0,
                 SliderMultiplier: 0,
-                SliderTickRate: 0
-            }
+                SliderTickRate: 0,
+            };
             this.HitObjects = [];
             this.TimingPoints = [];
             this.DifficultyTimingPoints = [];
@@ -1228,7 +1451,7 @@ getBeatmapStarRatings = (() => {
             return this.x * vector.x + this.y * vector.y;
         }
         length() {
-            return Math.sqrt((this.x * this.x) + (this.y * this.y));
+            return Math.sqrt(this.x * this.x + this.y * this.y);
         }
         lengthSquared() {
             return Math.pow(this.length(), 2);
@@ -1255,11 +1478,22 @@ getBeatmapStarRatings = (() => {
         }
     }
     class Precision {
-        static almostEqualsNumber(value1, value2, acceptableDifference = this.FLOAT_EPSILON) {
+        static almostEqualsNumber(
+            value1,
+            value2,
+            acceptableDifference = this.FLOAT_EPSILON,
+        ) {
             return Math.abs(value1 - value2) <= acceptableDifference;
         }
-        static almostEqualsVector(vec1, vec2, acceptableDifference = this.FLOAT_EPSILON) {
-            return this.almostEqualsNumber(vec1.x, vec2.x, acceptableDifference) && this.almostEqualsNumber(vec1.y, vec2.y, acceptableDifference);
+        static almostEqualsVector(
+            vec1,
+            vec2,
+            acceptableDifference = this.FLOAT_EPSILON,
+        ) {
+            return (
+                this.almostEqualsNumber(vec1.x, vec2.x, acceptableDifference) &&
+                this.almostEqualsNumber(vec1.y, vec2.y, acceptableDifference)
+            );
         }
     }
     Precision.FLOAT_EPSILON = 1e-3;
@@ -1271,14 +1505,14 @@ getBeatmapStarRatings = (() => {
         ComboSkip1: 16,
         Comboskip2: 32,
         ComboSkip3: 64,
-        Hold: 128
-    }
+        Hold: 128,
+    };
     const PathType = {
         Catmull: 0,
         Bezier: 1,
         Linear: 2,
-        PerfectCurve: 3
-    }
+        PerfectCurve: 3,
+    };
     function getCircleSize(mods) {
         if (mods.indexOf("HR") > -1)
             return Math.min(this.beatmap.Difficulty.CircleSize * 1.3, 10);
@@ -1295,8 +1529,7 @@ getBeatmapStarRatings = (() => {
         approximateBezier(controlPoints) {
             let output = [];
             let count = controlPoints.length;
-            if (count === 0)
-                return output;
+            if (count === 0) return output;
             let subdivisionBuffer1 = [];
             let subdivisionBuffer2 = [];
             for (let i = 0; i < count; i++) {
@@ -1308,7 +1541,7 @@ getBeatmapStarRatings = (() => {
             let toFlatten = [];
             let freeBuffers = [];
             const deepCopy = [];
-            controlPoints.forEach(c => {
+            controlPoints.forEach((c) => {
                 deepCopy.push(new Vector2(c.x, c.y));
             });
             toFlatten.push(deepCopy);
@@ -1316,19 +1549,30 @@ getBeatmapStarRatings = (() => {
             while (toFlatten.length > 0) {
                 let parent = toFlatten.pop();
                 if (this.bezierIsFlatEnough(parent)) {
-                    this.bezierApproximate(parent, output, subdivisionBuffer1, subdivisionBuffer2, count);
+                    this.bezierApproximate(
+                        parent,
+                        output,
+                        subdivisionBuffer1,
+                        subdivisionBuffer2,
+                        count,
+                    );
                     freeBuffers.push(parent);
                     continue;
                 }
                 let rightChild = [];
-                if (freeBuffers.length > 0)
-                    rightChild = freeBuffers.pop();
+                if (freeBuffers.length > 0) rightChild = freeBuffers.pop();
                 else {
                     for (let i = 0; i < count; i++) {
                         rightChild.push(new Vector2(0, 0));
                     }
                 }
-                this.bezierSubdivide(parent, leftChild, rightChild, subdivisionBuffer1, count);
+                this.bezierSubdivide(
+                    parent,
+                    leftChild,
+                    rightChild,
+                    subdivisionBuffer1,
+                    count,
+                );
                 for (let i = 0; i < count; i++) {
                     parent[i] = leftChild[i];
                 }
@@ -1343,11 +1587,33 @@ getBeatmapStarRatings = (() => {
             for (let i = 0; i < controlPoints.length - 1; i++) {
                 const v1 = i > 0 ? controlPoints[i - 1] : controlPoints[i];
                 const v2 = controlPoints[i];
-                const v3 = i < controlPoints.length - 1 ? controlPoints[i + 1] : v2.add(v2).subtract(v1);
-                const v4 = i < controlPoints.length - 2 ? controlPoints[i + 2] : v3.add(v3).subtract(v2);
+                const v3 =
+                    i < controlPoints.length - 1
+                        ? controlPoints[i + 1]
+                        : v2.add(v2).subtract(v1);
+                const v4 =
+                    i < controlPoints.length - 2
+                        ? controlPoints[i + 2]
+                        : v3.add(v3).subtract(v2);
                 for (let c = 0; c < this.catmull_detail; c++) {
-                    result.push(this.catmullFindPoint(v1, v2, v3, v4, c / this.catmull_detail));
-                    result.push(this.catmullFindPoint(v1, v2, v3, v4, (c + 1) / this.catmull_detail));
+                    result.push(
+                        this.catmullFindPoint(
+                            v1,
+                            v2,
+                            v3,
+                            v4,
+                            c / this.catmull_detail,
+                        ),
+                    );
+                    result.push(
+                        this.catmullFindPoint(
+                            v1,
+                            v2,
+                            v3,
+                            v4,
+                            (c + 1) / this.catmull_detail,
+                        ),
+                    );
                 }
             }
             return result;
@@ -1356,18 +1622,25 @@ getBeatmapStarRatings = (() => {
             const a = controlPoints[0];
             const b = controlPoints[1];
             const c = controlPoints[2];
-            const aSq = (b.subtract(c)).lengthSquared();
-            const bSq = (a.subtract(c)).lengthSquared();
-            const cSq = (a.subtract(b)).lengthSquared();
-            if (Precision.almostEqualsNumber(aSq, 0) || Precision.almostEqualsNumber(bSq, 0) || Precision.almostEqualsNumber(cSq, 0))
+            const aSq = b.subtract(c).lengthSquared();
+            const bSq = a.subtract(c).lengthSquared();
+            const cSq = a.subtract(b).lengthSquared();
+            if (
+                Precision.almostEqualsNumber(aSq, 0) ||
+                Precision.almostEqualsNumber(bSq, 0) ||
+                Precision.almostEqualsNumber(cSq, 0)
+            )
                 return [];
             const s = aSq * (bSq + cSq - aSq);
             const t = bSq * (aSq + cSq - bSq);
             const u = cSq * (aSq + bSq - cSq);
             const sum = s + t + u;
-            if (Precision.almostEqualsNumber(sum, 0))
-                return [];
-            const centre = (a.scale(s).add(b.scale(t)).add(c.scale(u))).divide(sum);
+            if (Precision.almostEqualsNumber(sum, 0)) return [];
+            const centre = a
+                .scale(s)
+                .add(b.scale(t))
+                .add(c.scale(u))
+                .divide(sum);
             const dA = a.subtract(centre);
             const dC = c.subtract(centre);
             const r = dA.length();
@@ -1384,12 +1657,26 @@ getBeatmapStarRatings = (() => {
                 dir = -dir;
                 thetaRange = 2 * Math.PI - thetaRange;
             }
-            const amountPoints = 2 * r <= this.circular_arc_tolerance ? 2 : Math.max(2, Math.ceil(thetaRange / (2 * Math.acos(1 - this.circular_arc_tolerance / r))));
+            const amountPoints =
+                2 * r <= this.circular_arc_tolerance
+                    ? 2
+                    : Math.max(
+                          2,
+                          Math.ceil(
+                              thetaRange /
+                                  (2 *
+                                      Math.acos(
+                                          1 - this.circular_arc_tolerance / r,
+                                      )),
+                          ),
+                      );
             let output = [];
             for (let i = 0; i < amountPoints; i++) {
                 const fract = i / (amountPoints - 1);
                 const theta = thetaStart + dir * fract * thetaRange;
-                const o = new Vector2(Math.cos(theta), Math.sin(theta)).scale(r);
+                const o = new Vector2(Math.cos(theta), Math.sin(theta)).scale(
+                    r,
+                );
                 output.push(centre.add(o));
             }
             return output;
@@ -1399,23 +1686,44 @@ getBeatmapStarRatings = (() => {
         }
         bezierIsFlatEnough(controlPoints) {
             for (let i = 1; i < controlPoints.length - 1; i++) {
-                if ((controlPoints[i - 1].subtract(controlPoints[i].scale(2)).add(controlPoints[i + 1])).lengthSquared() > this.bezier_tolerance * this.bezier_tolerance * 4) {
+                if (
+                    controlPoints[i - 1]
+                        .subtract(controlPoints[i].scale(2))
+                        .add(controlPoints[i + 1])
+                        .lengthSquared() >
+                    this.bezier_tolerance * this.bezier_tolerance * 4
+                ) {
                     return false;
                 }
             }
             return true;
         }
-        bezierApproximate(controlPoints, output, subdivisionBuffer1, subdivisionBuffer2, count) {
+        bezierApproximate(
+            controlPoints,
+            output,
+            subdivisionBuffer1,
+            subdivisionBuffer2,
+            count,
+        ) {
             let l = subdivisionBuffer2;
             let r = subdivisionBuffer1;
-            this.bezierSubdivide(controlPoints, l, r, subdivisionBuffer1, count);
+            this.bezierSubdivide(
+                controlPoints,
+                l,
+                r,
+                subdivisionBuffer1,
+                count,
+            );
             for (let i = 0; i < count - 1; i++) {
                 l[count + i] = r[i + 1];
             }
             output.push(controlPoints[0]);
             for (let i = 1; i < count - 1; i++) {
                 const index = 2 * i;
-                const p = (l[index - 1].add(l[index].scale(2)).add(l[index + 1])).scale(0.25);
+                const p = l[index - 1]
+                    .add(l[index].scale(2))
+                    .add(l[index + 1])
+                    .scale(0.25);
                 output.push(p);
             }
         }
@@ -1428,14 +1736,25 @@ getBeatmapStarRatings = (() => {
                 l[i] = midpoints[0];
                 r[count - i - 1] = midpoints[count - i - 1];
                 for (let j = 0; j < count - i - 1; j++) {
-                    midpoints[j] = (midpoints[j].add(midpoints[j + 1])).divide(2);
+                    midpoints[j] = midpoints[j].add(midpoints[j + 1]).divide(2);
                 }
             }
         }
         catmullFindPoint(vec1, vec2, vec3, vec4, t) {
             const t2 = t * t;
             const t3 = t * t2;
-            let result = new Vector2(0.5 * (2 * vec2.x + (-vec1.x + vec3.x) * t + (2 * vec1.x - 5 * vec2.x + 4 * vec3.x - vec4.x) * t2 + (-vec1.x + 3 * vec2.x - 3 * vec3.x + vec4.x) * t3), 0.5 * (2 * vec2.y + (-vec1.y + vec3.y) * t + (2 * vec1.y - 5 * vec2.y + 4 * vec3.y - vec4.y) * t2 + (-vec1.y + 3 * vec2.y - 3 * vec3.y + vec4.y) * t3));
+            let result = new Vector2(
+                0.5 *
+                    (2 * vec2.x +
+                        (-vec1.x + vec3.x) * t +
+                        (2 * vec1.x - 5 * vec2.x + 4 * vec3.x - vec4.x) * t2 +
+                        (-vec1.x + 3 * vec2.x - 3 * vec3.x + vec4.x) * t3),
+                0.5 *
+                    (2 * vec2.y +
+                        (-vec1.y + vec3.y) * t +
+                        (2 * vec1.y - 5 * vec2.y + 4 * vec3.y - vec4.y) * t2 +
+                        (-vec1.y + 3 * vec2.y - 3 * vec3.y + vec4.y) * t3),
+            );
             return result;
         }
     }
@@ -1449,10 +1768,10 @@ getBeatmapStarRatings = (() => {
             this.ensureInitialised();
         }
         ensureInitialised() {
-            if (this.isInitialised)
-                return;
+            if (this.isInitialised) return;
             this.isInitialised = true;
-            this.controlPoints = this.controlPoints !== null ? this.controlPoints : [];
+            this.controlPoints =
+                this.controlPoints !== null ? this.controlPoints : [];
             this.calculatedPath = [];
             this.cumulativeLength = [];
             this.calculatePath();
@@ -1464,10 +1783,20 @@ getBeatmapStarRatings = (() => {
             let end = 0;
             for (let i = 0; i < this.controlPoints.length; i++) {
                 end++;
-                if (i === this.controlPoints.length - 1 || (this.controlPoints[i].x === this.controlPoints[i + 1].x && this.controlPoints[i].y === this.controlPoints[i + 1].y)) {
+                if (
+                    i === this.controlPoints.length - 1 ||
+                    (this.controlPoints[i].x === this.controlPoints[i + 1].x &&
+                        this.controlPoints[i].y === this.controlPoints[i + 1].y)
+                ) {
                     let cpSpan = this.controlPoints.slice(start, end);
-                    this.calculateSubPath(cpSpan).forEach(t => {
-                        if (this.calculatedPath.length === 0 || this.calculatedPath[this.calculatedPath.length - 1].x !== t.x || this.calculatedPath[this.calculatedPath.length - 1].y !== t.y) {
+                    this.calculateSubPath(cpSpan).forEach((t) => {
+                        if (
+                            this.calculatedPath.length === 0 ||
+                            this.calculatedPath[this.calculatedPath.length - 1]
+                                .x !== t.x ||
+                            this.calculatedPath[this.calculatedPath.length - 1]
+                                .y !== t.y
+                        ) {
                             this.calculatedPath.push(new Vector2(t.x, t.y));
                         }
                     });
@@ -1478,16 +1807,25 @@ getBeatmapStarRatings = (() => {
         calculateSubPath(subControlPoints) {
             switch (this.pathType) {
                 case PathType.Linear:
-                    return this.pathApproximator.approximateLinear(subControlPoints);
+                    return this.pathApproximator.approximateLinear(
+                        subControlPoints,
+                    );
                 case PathType.PerfectCurve:
-                    if (this.controlPoints.length !== 3 || subControlPoints.length !== 3)
+                    if (
+                        this.controlPoints.length !== 3 ||
+                        subControlPoints.length !== 3
+                    )
                         break;
-                    const subPath = this.pathApproximator.approximateCircularArc(subControlPoints);
-                    if (subPath.length === 0)
-                        break;
+                    const subPath =
+                        this.pathApproximator.approximateCircularArc(
+                            subControlPoints,
+                        );
+                    if (subPath.length === 0) break;
                     return subPath;
                 case PathType.Catmull:
-                    return this.pathApproximator.approximateCatmull(subControlPoints);
+                    return this.pathApproximator.approximateCatmull(
+                        subControlPoints,
+                    );
             }
             return this.pathApproximator.approximateBezier(subControlPoints);
         }
@@ -1496,11 +1834,22 @@ getBeatmapStarRatings = (() => {
             this.cumulativeLength = [];
             this.cumulativeLength.push(l);
             for (let i = 0; i < this.calculatedPath.length - 1; i++) {
-                let diff = this.calculatedPath[i + 1].subtract(this.calculatedPath[i]);
+                let diff = this.calculatedPath[i + 1].subtract(
+                    this.calculatedPath[i],
+                );
                 let d = diff.length();
-                if (this.expectedDistance !== null && this.expectedDistance !== undefined && this.expectedDistance - l < d) {
-                    this.calculatedPath[i + 1] = this.calculatedPath[i].add(diff.scale((this.expectedDistance - l) / d));
-                    this.calculatedPath.splice(i + 2, this.calculatedPath.length - 2 - i);
+                if (
+                    this.expectedDistance !== null &&
+                    this.expectedDistance !== undefined &&
+                    this.expectedDistance - l < d
+                ) {
+                    this.calculatedPath[i + 1] = this.calculatedPath[i].add(
+                        diff.scale((this.expectedDistance - l) / d),
+                    );
+                    this.calculatedPath.splice(
+                        i + 2,
+                        this.calculatedPath.length - 2 - i,
+                    );
                     l = this.expectedDistance;
                     this.cumulativeLength.push(l);
                     break;
@@ -1508,13 +1857,22 @@ getBeatmapStarRatings = (() => {
                 l += d;
                 this.cumulativeLength.push(l);
             }
-            if (this.expectedDistance !== undefined && this.expectedDistance !== null && l < this.expectedDistance && this.calculatedPath.length > 1) {
-                let diff = this.calculatedPath[this.calculatedPath.length - 1].subtract(this.calculatedPath[this.calculatedPath.length - 2]);
+            if (
+                this.expectedDistance !== undefined &&
+                this.expectedDistance !== null &&
+                l < this.expectedDistance &&
+                this.calculatedPath.length > 1
+            ) {
+                let diff = this.calculatedPath[
+                    this.calculatedPath.length - 1
+                ].subtract(this.calculatedPath[this.calculatedPath.length - 2]);
                 let d = diff.length();
-                if (d <= 0)
-                    return;
-                this.calculatedPath[this.calculatedPath.length - 1].add(diff.scale((this.expectedDistance - l) / d));
-                this.cumulativeLength[this.calculatedPath.length - 1] = this.expectedDistance;
+                if (d <= 0) return;
+                this.calculatedPath[this.calculatedPath.length - 1].add(
+                    diff.scale((this.expectedDistance - l) / d),
+                );
+                this.cumulativeLength[this.calculatedPath.length - 1] =
+                    this.expectedDistance;
             }
         }
         PositionAt(progress) {
@@ -1526,23 +1884,19 @@ getBeatmapStarRatings = (() => {
             return Math.min(Math.max(progress, 0), 1) * this.expectedDistance;
         }
         interpolateVertices(i, d) {
-            if (this.calculatedPath.length === 0)
-                return new Vector2(0, 0);
-            if (i <= 0)
-                return this.calculatedPath[0];
+            if (this.calculatedPath.length === 0) return new Vector2(0, 0);
+            if (i <= 0) return this.calculatedPath[0];
             if (i >= this.calculatedPath.length)
                 return this.calculatedPath[this.calculatedPath.length - 1];
             const p0 = this.calculatedPath[i - 1];
             const p1 = this.calculatedPath[i];
             const d0 = this.cumulativeLength[i - 1];
             const d1 = this.cumulativeLength[i];
-            if (Precision.almostEqualsNumber(d0, d1))
-                return p0;
+            if (Precision.almostEqualsNumber(d0, d1)) return p0;
             const w = (d - d0) / (d1 - d0);
             let result = p0.add(p1.subtract(p0).scale(w));
             return result;
         }
-        ;
         indexOfDistance(d) {
             let index = this.cumulativeLength.indexOf(d);
             if (index < 0) {
@@ -1558,18 +1912,18 @@ getBeatmapStarRatings = (() => {
     }
     class BeatmapParser {
         parseBeatmap(data, mods) {
-            if (!data)
-                throw new Error('No beatmap found');
+            if (!data) throw new Error("No beatmap found");
             this.beatmap = new Beatmap();
             let section = null;
-            let lines = data.split('\n').map(line => line.trim());
+            let lines = data.split("\n").map((line) => line.trim());
             for (let line of lines) {
-                if (line.startsWith('//'))
-                    continue;
-                if (!line)
-                    continue;
-                if (!section && line.indexOf('osu file format v') > -1) {
-                    this.beatmap.Version = parseInt(line.split('osu file format v')[1], 10);
+                if (line.startsWith("//")) continue;
+                if (!line) continue;
+                if (!section && line.indexOf("osu file format v") > -1) {
+                    this.beatmap.Version = parseInt(
+                        line.split("osu file format v")[1],
+                        10,
+                    );
                     continue;
                 }
                 if (/^\s*\[(.+?)\]\s*$/.test(line)) {
@@ -1577,48 +1931,52 @@ getBeatmapStarRatings = (() => {
                     continue;
                 }
                 switch (section) {
-                    case 'General': {
-                        let [key, value] = line.split(':').map(v => v.trim());
-                        if (key === 'StackLeniency')
+                    case "General": {
+                        let [key, value] = line.split(":").map((v) => v.trim());
+                        if (key === "StackLeniency")
                             this.beatmap.StackLeniency = parseFloat(value);
                         break;
                     }
-                    case 'Difficulty': {
-                        let [key, value] = line.split(':').map(v => v.trim());
+                    case "Difficulty": {
+                        let [key, value] = line.split(":").map((v) => v.trim());
                         this.beatmap[section][key] = parseFloat(value);
                         break;
                     }
-                    case 'TimingPoints': {
-                        let split = line.split(',');
-                        const time = +split[0] + (this.beatmap.Version < 5 ? 24 : 0);
+                    case "TimingPoints": {
+                        let split = line.split(",");
+                        const time =
+                            +split[0] + (this.beatmap.Version < 5 ? 24 : 0);
                         const beatLength = +split[1];
-                        const speedMultiplier = beatLength < 0 ? 100 / -beatLength : 1;
+                        const speedMultiplier =
+                            beatLength < 0 ? 100 / -beatLength : 1;
                         let timeSignature = 4;
                         if (split.length >= 3)
-                            timeSignature = split[2][0] === '0' ? 4 : +split[2];
+                            timeSignature = split[2][0] === "0" ? 4 : +split[2];
                         let timingChange = true;
                         if (split.length >= 7)
-                            timingChange = split[6][0] === '1';
+                            timingChange = split[6][0] === "1";
                         if (timingChange) {
                             this.beatmap.TimingPoints.push({
                                 Time: time,
                                 BeatLength: beatLength,
-                                TimeSignature: timeSignature
+                                TimeSignature: timeSignature,
                             });
                         }
                         this.beatmap.DifficultyTimingPoints.push({
                             Time: time,
-                            SpeedMultiplier: speedMultiplier
+                            SpeedMultiplier: speedMultiplier,
                         });
                         break;
                     }
-                    case 'HitObjects': {
-                        let split = line.split(',');
+                    case "HitObjects": {
+                        let split = line.split(",");
                         const pos = new Vector2(+split[0], +split[1]);
                         const startTime = +split[2];
                         const hitType = +split[3];
                         let result = null;
-                        const scale = (1 - 0.7 * (this.getCircleSize(mods) - 5) / 5) / 2;
+                        const scale =
+                            (1 - (0.7 * (this.getCircleSize(mods) - 5)) / 5) /
+                            2;
                         const radius = 64 * scale;
                         if (hitType & HitType.Normal) {
                             result = this.createCircle(pos, startTime, radius);
@@ -1626,21 +1984,21 @@ getBeatmapStarRatings = (() => {
                         if (hitType & HitType.Slider) {
                             let pathType;
                             let length = 0;
-                            let pointSplit = split[5].split('|');
+                            let pointSplit = split[5].split("|");
                             let points = [new Vector2(0, 0)];
-                            pointSplit.forEach(point => {
+                            pointSplit.forEach((point) => {
                                 if (point.length === 1) {
                                     switch (point) {
-                                        case 'C':
+                                        case "C":
                                             pathType = PathType.Catmull;
                                             break;
-                                        case 'B':
+                                        case "B":
                                             pathType = PathType.Bezier;
                                             break;
-                                        case 'L':
+                                        case "L":
                                             pathType = PathType.Linear;
                                             break;
-                                        case 'P':
+                                        case "P":
                                             pathType = PathType.PerfectCurve;
                                             break;
                                         default:
@@ -1649,33 +2007,58 @@ getBeatmapStarRatings = (() => {
                                     }
                                     return;
                                 }
-                                const temp = point.split(':');
-                                points.push(new Vector2(+temp[0], +temp[1]).subtract(pos));
+                                const temp = point.split(":");
+                                points.push(
+                                    new Vector2(+temp[0], +temp[1]).subtract(
+                                        pos,
+                                    ),
+                                );
                             });
-                            function isLinear(p) { return Precision.almostEqualsNumber(0, (p[1].y - p[0].y) * (p[2].x - p[0].x) - (p[1].x - p[0].x) * (p[2].y - p[0].y)); }
-                            if (points.length === 3 && pathType === PathType.PerfectCurve && isLinear(points))
+                            function isLinear(p) {
+                                return Precision.almostEqualsNumber(
+                                    0,
+                                    (p[1].y - p[0].y) * (p[2].x - p[0].x) -
+                                        (p[1].x - p[0].x) * (p[2].y - p[0].y),
+                                );
+                            }
+                            if (
+                                points.length === 3 &&
+                                pathType === PathType.PerfectCurve &&
+                                isLinear(points)
+                            )
                                 pathType = PathType.Linear;
                             let repeatCount = +split[6];
                             repeatCount = Math.max(0, repeatCount - 1);
-                            if (split.length > 7)
-                                length = +split[7];
-                            const slider = this.createSlider(pos, points, length, pathType, repeatCount, startTime, radius);
+                            if (split.length > 7) length = +split[7];
+                            const slider = this.createSlider(
+                                pos,
+                                points,
+                                length,
+                                pathType,
+                                repeatCount,
+                                startTime,
+                                radius,
+                            );
                             result = slider;
                         }
                         if (hitType & HitType.Spinner) {
                             const endTime = +split[5];
-                            result = this.createSpinner(pos, startTime, endTime);
+                            result = this.createSpinner(
+                                pos,
+                                startTime,
+                                endTime,
+                            );
                         }
                         this.beatmap.HitObjects.push(result);
                     }
                 }
             }
-            this.beatmap.HitObjects.forEach(h => {
+            this.beatmap.HitObjects.forEach((h) => {
                 h.StackHeight = 0;
             });
             this.applyStacking(0, this.beatmap.HitObjects.length - 1);
-            const scale = (1 - 0.7 * (this.getCircleSize(mods) - 5) / 5) / 2;
-            this.beatmap.HitObjects.forEach(hitObject => {
+            const scale = (1 - (0.7 * (this.getCircleSize(mods) - 5)) / 5) / 2;
+            this.beatmap.HitObjects.forEach((hitObject) => {
                 hitObject.calculateStackedPosition(scale);
             });
             return this.beatmap;
@@ -1683,21 +2066,44 @@ getBeatmapStarRatings = (() => {
         createCircle(pos, startTime, radius) {
             return new HitCircle(pos, startTime, radius);
         }
-        createSlider(pos, points, length, pathType, repeatCount, startTime, radius) {
+        createSlider(
+            pos,
+            points,
+            length,
+            pathType,
+            repeatCount,
+            startTime,
+            radius,
+        ) {
             const path = new SliderPath(pathType, points, Math.max(0, length));
             const speedMultiplier = this.getSpeedMultiplier(startTime);
             const beatLength = this.getBeatLength(startTime);
-            return new Slider(pos, startTime, path, repeatCount, speedMultiplier, beatLength, this.beatmap.Difficulty, radius);
+            return new Slider(
+                pos,
+                startTime,
+                path,
+                repeatCount,
+                speedMultiplier,
+                beatLength,
+                this.beatmap.Difficulty,
+                radius,
+            );
         }
         createSpinner(pos, startTime, endTime) {
             return new Spinner(pos, startTime, endTime);
         }
         getSpeedMultiplier(startTime) {
-            const currentTimingPoint = this.getTimingPoints(startTime, this.beatmap.DifficultyTimingPoints);
+            const currentTimingPoint = this.getTimingPoints(
+                startTime,
+                this.beatmap.DifficultyTimingPoints,
+            );
             return currentTimingPoint.SpeedMultiplier;
         }
         getBeatLength(startTime) {
-            const currentTimingPoint = this.getTimingPoints(startTime, this.beatmap.TimingPoints);
+            const currentTimingPoint = this.getTimingPoints(
+                startTime,
+                this.beatmap.TimingPoints,
+            );
             return currentTimingPoint.BeatLength;
         }
         getTimingPoints(startTime, timingPoints) {
@@ -1712,7 +2118,11 @@ getBeatmapStarRatings = (() => {
                 }
             }
             if (currentTimingPoint < 0) {
-                console.warn("Warning: first timing point after current hit object (", startTime, "). Defaulting to first timing point of the map");
+                console.warn(
+                    "Warning: first timing point after current hit object (",
+                    startTime,
+                    "). Defaulting to first timing point of the map",
+                );
                 currentTimingPoint = 0;
             }
             if (currentTimingPoint === undefined)
@@ -1723,35 +2133,61 @@ getBeatmapStarRatings = (() => {
             const stack_distance = 3;
             let TimePreempt = 600;
             if (this.beatmap.Difficulty.ApproachRate > 5)
-                TimePreempt = 1200 + (450 - 1200) * (this.beatmap.Difficulty.ApproachRate - 5) / 5;
+                TimePreempt =
+                    1200 +
+                    ((450 - 1200) *
+                        (this.beatmap.Difficulty.ApproachRate - 5)) /
+                        5;
             else if (this.beatmap.Difficulty.ApproachRate < 5)
-                TimePreempt = 1200 - (1200 - 1800) * (5 - this.beatmap.Difficulty.ApproachRate) / 5;
-            else
-                TimePreempt = 1200;
+                TimePreempt =
+                    1200 -
+                    ((1200 - 1800) *
+                        (5 - this.beatmap.Difficulty.ApproachRate)) /
+                        5;
+            else TimePreempt = 1200;
             let extendedEndIndex = endIndex;
             if (endIndex < this.beatmap.HitObjects.length - 1) {
                 for (let i = endIndex; i >= startIndex; i--) {
                     let stackBaseIndex = i;
-                    for (let n = stackBaseIndex + 1; n < this.beatmap.HitObjects.length; n++) {
-                        const stackBaseObject = this.beatmap.HitObjects[stackBaseIndex];
-                        if (stackBaseObject instanceof Spinner)
-                            break;
+                    for (
+                        let n = stackBaseIndex + 1;
+                        n < this.beatmap.HitObjects.length;
+                        n++
+                    ) {
+                        const stackBaseObject =
+                            this.beatmap.HitObjects[stackBaseIndex];
+                        if (stackBaseObject instanceof Spinner) break;
                         const objectN = this.beatmap.HitObjects[n];
-                        if (objectN instanceof Spinner)
-                            continue;
-                        const endTime = stackBaseObject instanceof HitCircle ? stackBaseObject.StartTime : stackBaseObject.EndTime;
-                        const stackThresHold = TimePreempt * this.beatmap.StackLeniency;
-                        if (objectN.StartTime - endTime > stackThresHold)
-                            break;
-                        const endPositionDistanceCheck = stackBaseObject instanceof Slider ? stackBaseObject.EndPosition.distance(objectN.Position) < stack_distance : false;
-                        if (stackBaseObject.Position.distance(objectN.Position) < stack_distance || endPositionDistanceCheck) {
+                        if (objectN instanceof Spinner) continue;
+                        const endTime =
+                            stackBaseObject instanceof HitCircle
+                                ? stackBaseObject.StartTime
+                                : stackBaseObject.EndTime;
+                        const stackThresHold =
+                            TimePreempt * this.beatmap.StackLeniency;
+                        if (objectN.StartTime - endTime > stackThresHold) break;
+                        const endPositionDistanceCheck =
+                            stackBaseObject instanceof Slider
+                                ? stackBaseObject.EndPosition.distance(
+                                      objectN.Position,
+                                  ) < stack_distance
+                                : false;
+                        if (
+                            stackBaseObject.Position.distance(
+                                objectN.Position,
+                            ) < stack_distance ||
+                            endPositionDistanceCheck
+                        ) {
                             stackBaseIndex = n;
                             objectN.StackHeight = 0;
                         }
                     }
                     if (stackBaseIndex > extendedEndIndex) {
                         extendedEndIndex = stackBaseIndex;
-                        if (extendedEndIndex === this.beatmap.HitObjects.length - 1)
+                        if (
+                            extendedEndIndex ===
+                            this.beatmap.HitObjects.length - 1
+                        )
                             break;
                     }
                 }
@@ -1766,41 +2202,62 @@ getBeatmapStarRatings = (() => {
                 if (objectI instanceof HitCircle) {
                     while (--n >= 0) {
                         const objectN = this.beatmap.HitObjects[n];
-                        if (objectN instanceof Spinner)
-                            continue;
-                        const endTime = objectN instanceof HitCircle ? objectN.StartTime : objectN.EndTime;
-                        if (objectI.StartTime - endTime > stackThresHold)
-                            break;
+                        if (objectN instanceof Spinner) continue;
+                        const endTime =
+                            objectN instanceof HitCircle
+                                ? objectN.StartTime
+                                : objectN.EndTime;
+                        if (objectI.StartTime - endTime > stackThresHold) break;
                         if (n < extendedStartIndex) {
                             objectN.StackHeight = 0;
                             extendedStartIndex = n;
                         }
-                        const endPositionDistanceCheck = objectN instanceof Slider ? objectN.EndPosition.distance(objectI.Position) < stack_distance : false;
+                        const endPositionDistanceCheck =
+                            objectN instanceof Slider
+                                ? objectN.EndPosition.distance(
+                                      objectI.Position,
+                                  ) < stack_distance
+                                : false;
                         if (endPositionDistanceCheck) {
-                            const offset = objectI.StackHeight - objectN.StackHeight + 1;
+                            const offset =
+                                objectI.StackHeight - objectN.StackHeight + 1;
                             for (let j = n + 1; j <= i; j++) {
                                 const objectJ = this.beatmap.HitObjects[j];
-                                if (objectN.EndPosition.distance(objectJ.Position) < stack_distance) {
+                                if (
+                                    objectN.EndPosition.distance(
+                                        objectJ.Position,
+                                    ) < stack_distance
+                                ) {
                                     objectJ.StackHeight -= offset;
                                 }
                             }
                             break;
                         }
-                        if (objectN.Position.distance(objectI.Position) < stack_distance) {
+                        if (
+                            objectN.Position.distance(objectI.Position) <
+                            stack_distance
+                        ) {
                             objectN.StackHeight = objectI.StackHeight + 1;
                             objectI = objectN;
                         }
                     }
-                }
-                else if (objectI instanceof Slider) {
+                } else if (objectI instanceof Slider) {
                     while (--n >= startIndex) {
                         const objectN = this.beatmap.HitObjects[n];
-                        if (objectN instanceof Spinner)
-                            continue;
-                        if (objectI.StartTime - objectN.StartTime > stackThresHold)
+                        if (objectN instanceof Spinner) continue;
+                        if (
+                            objectI.StartTime - objectN.StartTime >
+                            stackThresHold
+                        )
                             break;
-                        const objectNEndPosition = objectN instanceof HitCircle ? objectN.Position : objectN.EndPosition;
-                        if (objectNEndPosition.distance(objectI.Position) < stack_distance) {
+                        const objectNEndPosition =
+                            objectN instanceof HitCircle
+                                ? objectN.Position
+                                : objectN.EndPosition;
+                        if (
+                            objectNEndPosition.distance(objectI.Position) <
+                            stack_distance
+                        ) {
                             objectN.StackHeight = objectI.StackHeight + 1;
                             objectI = objectN;
                         }
@@ -1817,10 +2274,8 @@ getBeatmapStarRatings = (() => {
         }
     }
     function getTimeRate(mods) {
-        if (mods.indexOf("DT") > -1)
-            return 1.5;
-        if (mods.indexOf("HT") > -1)
-            return 0.75;
+        if (mods.indexOf("DT") > -1) return 1.5;
+        if (mods.indexOf("HT") > -1) return 0.75;
         return 1;
     }
     class HitObject {
@@ -1837,8 +2292,21 @@ getBeatmapStarRatings = (() => {
         }
     }
     class DifficultyHitObject extends HitObject {
-        constructor(currentObject, lastObject, lastLastObject, travelDistance, jumpDistance, angle, deltaTime, strainTime) {
-            super(currentObject.Position, currentObject.StartTime, currentObject.Radius);
+        constructor(
+            currentObject,
+            lastObject,
+            lastLastObject,
+            travelDistance,
+            jumpDistance,
+            angle,
+            deltaTime,
+            strainTime,
+        ) {
+            super(
+                currentObject.Position,
+                currentObject.StartTime,
+                currentObject.Radius,
+            );
             this.TravelDistance = travelDistance;
             this.JumpDistance = jumpDistance;
             this.Angle = angle;
@@ -1854,10 +2322,8 @@ getBeatmapStarRatings = (() => {
             super(pos, startTime, radius);
         }
     }
-    class HeadCircle extends HitCircle {
-    }
-    class TailCircle extends HitCircle {
-    }
+    class HeadCircle extends HitCircle {}
+    class TailCircle extends HitCircle {}
     class SliderTick extends HitObject {
         constructor(pos, startTime, spanIndex, spanStartTime, radius) {
             super(pos, startTime, radius);
@@ -1873,22 +2339,48 @@ getBeatmapStarRatings = (() => {
         }
     }
     class Slider extends HitObject {
-        constructor(pos, startTime, path, repeatCount, speedMultiplier, beatLength, mapDifficulty, radius) {
+        constructor(
+            pos,
+            startTime,
+            path,
+            repeatCount,
+            speedMultiplier,
+            beatLength,
+            mapDifficulty,
+            radius,
+        ) {
             super(pos, startTime, radius);
             this.LegacyLastTickOffset = 36;
             this.Path = path;
             this.EndPosition = this.Position.add(this.Path.PositionAt(1));
-            this.calculateEndTimeAndTickDistance(speedMultiplier, beatLength, mapDifficulty, repeatCount, startTime, path.expectedDistance);
+            this.calculateEndTimeAndTickDistance(
+                speedMultiplier,
+                beatLength,
+                mapDifficulty,
+                repeatCount,
+                startTime,
+                path.expectedDistance,
+            );
             this.Duration = this.EndTime - startTime;
             this.RepeatCount = repeatCount;
             this.createNestedHitObjects();
         }
-        calculateEndTimeAndTickDistance(speedMultiplier, beatLength, mapDifficulty, repeatCount, startTime, expectedDistance) {
-            const scoringDistance = 100 * mapDifficulty.SliderMultiplier * speedMultiplier;
+        calculateEndTimeAndTickDistance(
+            speedMultiplier,
+            beatLength,
+            mapDifficulty,
+            repeatCount,
+            startTime,
+            expectedDistance,
+        ) {
+            const scoringDistance =
+                100 * mapDifficulty.SliderMultiplier * speedMultiplier;
             this.Velocity = scoringDistance / beatLength;
             this.SpanCount = repeatCount + 1;
-            this.TickDistance = scoringDistance / mapDifficulty.SliderTickRate * 1;
-            this.EndTime = startTime + this.SpanCount * expectedDistance / this.Velocity;
+            this.TickDistance =
+                (scoringDistance / mapDifficulty.SliderTickRate) * 1;
+            this.EndTime =
+                startTime + (this.SpanCount * expectedDistance) / this.Velocity;
         }
         createNestedHitObjects() {
             this.NestedHitObjects = [];
@@ -1898,40 +2390,74 @@ getBeatmapStarRatings = (() => {
             this.NestedHitObjects.sort((a, b) => {
                 return a.StartTime - b.StartTime;
             });
-            this.TailCircle.StartTime = Math.max(this.StartTime + this.Duration / 2, this.TailCircle.StartTime - this.LegacyLastTickOffset);
+            this.TailCircle.StartTime = Math.max(
+                this.StartTime + this.Duration / 2,
+                this.TailCircle.StartTime - this.LegacyLastTickOffset,
+            );
         }
         createSliderEnds() {
-            this.HeadCircle = new HeadCircle(this.Position, this.StartTime, this.Radius);
-            this.TailCircle = new TailCircle(this.EndPosition, this.EndTime, this.Radius);
+            this.HeadCircle = new HeadCircle(
+                this.Position,
+                this.StartTime,
+                this.Radius,
+            );
+            this.TailCircle = new TailCircle(
+                this.EndPosition,
+                this.EndTime,
+                this.Radius,
+            );
             this.NestedHitObjects.push(this.HeadCircle);
             this.NestedHitObjects.push(this.TailCircle);
         }
         createSliderTicks() {
             const max_length = 100000;
             const length = Math.min(max_length, this.Path.expectedDistance);
-            const tickDistance = Math.min(Math.max(this.TickDistance, 0), length);
-            if (tickDistance === 0)
-                return;
+            const tickDistance = Math.min(
+                Math.max(this.TickDistance, 0),
+                length,
+            );
+            if (tickDistance === 0) return;
             const minDistanceFromEnd = this.Velocity * 10;
             this.SpanDuration = this.Duration / this.SpanCount;
             for (let span = 0; span < this.SpanCount; span++) {
                 const spanStartTime = this.StartTime + span * this.SpanDuration;
                 const reversed = span % 2 === 1;
                 for (let d = tickDistance; d <= length; d += tickDistance) {
-                    if (d > length - minDistanceFromEnd)
-                        break;
+                    if (d > length - minDistanceFromEnd) break;
                     const distanceProgress = d / length;
-                    const timeProgress = reversed ? 1 - distanceProgress : distanceProgress;
-                    const sliderTickPosition = this.Position.add(this.Path.PositionAt(distanceProgress));
-                    const sliderTick = new SliderTick(sliderTickPosition, spanStartTime + timeProgress * this.SpanDuration, span, spanStartTime, this.Radius);
+                    const timeProgress = reversed
+                        ? 1 - distanceProgress
+                        : distanceProgress;
+                    const sliderTickPosition = this.Position.add(
+                        this.Path.PositionAt(distanceProgress),
+                    );
+                    const sliderTick = new SliderTick(
+                        sliderTickPosition,
+                        spanStartTime + timeProgress * this.SpanDuration,
+                        span,
+                        spanStartTime,
+                        this.Radius,
+                    );
                     this.NestedHitObjects.push(sliderTick);
                 }
             }
         }
         createRepeatPoints() {
-            for (let repeatIndex = 0, repeat = 1; repeatIndex < this.RepeatCount; repeatIndex++, repeat++) {
-                const repeatPosition = this.Position.add(this.Path.PositionAt(repeat % 2));
-                const repeatPoint = new RepeatPoint(repeatPosition, this.StartTime + repeat * this.SpanDuration, repeatIndex, this.SpanDuration, this.Radius);
+            for (
+                let repeatIndex = 0, repeat = 1;
+                repeatIndex < this.RepeatCount;
+                repeatIndex++, repeat++
+            ) {
+                const repeatPosition = this.Position.add(
+                    this.Path.PositionAt(repeat % 2),
+                );
+                const repeatPoint = new RepeatPoint(
+                    repeatPosition,
+                    this.StartTime + repeat * this.SpanDuration,
+                    repeatIndex,
+                    this.SpanDuration,
+                    this.Radius,
+                );
                 this.NestedHitObjects.push(repeatPoint);
             }
         }
@@ -1957,7 +2483,12 @@ getBeatmapStarRatings = (() => {
                 const lastLast = i > 1 ? hitObjects[i - 2] : null;
                 const last = hitObjects[i - 1];
                 const current = hitObjects[i];
-                const difficultyHitObject = this.createDifficultyHitObject(lastLast, last, current, timeRate);
+                const difficultyHitObject = this.createDifficultyHitObject(
+                    lastLast,
+                    last,
+                    current,
+                    timeRate,
+                );
                 this.difficultyHitObjects.push(difficultyHitObject);
             }
             return this.difficultyHitObjects;
@@ -1969,7 +2500,16 @@ getBeatmapStarRatings = (() => {
             this.timeRate = timeRate;
             this.setDistances();
             this.setTimingValues();
-            return new DifficultyHitObject(this.currentObject, this.lastObject, this.lastLastObject, this.TravelDistance, this.JumpDistance, this.Angle, this.DeltaTime, this.StrainTime);
+            return new DifficultyHitObject(
+                this.currentObject,
+                this.lastObject,
+                this.lastLastObject,
+                this.TravelDistance,
+                this.JumpDistance,
+                this.Angle,
+                this.DeltaTime,
+                this.StrainTime,
+            );
         }
         setDistances() {
             this.TravelDistance = 0;
@@ -1977,55 +2517,86 @@ getBeatmapStarRatings = (() => {
             this.Angle = 0;
             this.DeltaTime = 0;
             this.StrainTime = 0;
-            let scalingFactor = this.normalized_radius / this.currentObject.Radius;
+            let scalingFactor =
+                this.normalized_radius / this.currentObject.Radius;
             if (this.currentObject.Radius < 30) {
-                var smallCircleBonus = Math.min(30 - this.currentObject.Radius, 5) / 50;
+                var smallCircleBonus =
+                    Math.min(30 - this.currentObject.Radius, 5) / 50;
                 scalingFactor *= 1 + smallCircleBonus;
             }
             if (this.lastObject instanceof Slider) {
                 let lastSlider = this.lastObject;
                 this.computeSliderCursorPosition(lastSlider);
-                this.TravelDistance = lastSlider.LazyTravelDistance * scalingFactor;
+                this.TravelDistance =
+                    lastSlider.LazyTravelDistance * scalingFactor;
             }
-            const lastCursorPosition = this.getEndCursorPosition(this.lastObject);
+            const lastCursorPosition = this.getEndCursorPosition(
+                this.lastObject,
+            );
             if (!(this.currentObject instanceof Spinner))
-                this.JumpDistance = this.currentObject.StackedPosition.scale(scalingFactor).subtract(lastCursorPosition.scale(scalingFactor)).length();
+                this.JumpDistance = this.currentObject.StackedPosition.scale(
+                    scalingFactor,
+                )
+                    .subtract(lastCursorPosition.scale(scalingFactor))
+                    .length();
             if (this.lastLastObject !== null) {
-                const lastLastCursorPosition = this.getEndCursorPosition(this.lastLastObject);
-                const v1 = lastLastCursorPosition.subtract(this.lastObject.StackedPosition);
-                const v2 = this.currentObject.StackedPosition.subtract(lastCursorPosition);
+                const lastLastCursorPosition = this.getEndCursorPosition(
+                    this.lastLastObject,
+                );
+                const v1 = lastLastCursorPosition.subtract(
+                    this.lastObject.StackedPosition,
+                );
+                const v2 =
+                    this.currentObject.StackedPosition.subtract(
+                        lastCursorPosition,
+                    );
                 const dot = v1.dot(v2);
                 const det = v1.x * v2.y - v1.y * v2.x;
                 this.Angle = Math.abs(Math.atan2(det, dot));
             }
         }
         setTimingValues() {
-            this.DeltaTime = (this.currentObject.StartTime - this.lastObject.StartTime) / this.timeRate;
+            this.DeltaTime =
+                (this.currentObject.StartTime - this.lastObject.StartTime) /
+                this.timeRate;
             this.StrainTime = Math.max(50, this.DeltaTime);
         }
         computeSliderCursorPosition(slider) {
-            if (slider.LazyEndPosition !== null && slider.LazyEndPosition !== undefined)
+            if (
+                slider.LazyEndPosition !== null &&
+                slider.LazyEndPosition !== undefined
+            )
                 return;
             slider.LazyEndPosition = slider.StackedPosition;
             slider.LazyTravelDistance = 0;
             const approxFollowCircleRadius = slider.Radius * 3;
             function computeVertex(t) {
                 let progress = (t - slider.StartTime) / slider.SpanDuration;
-                if (progress % 2 >= 1)
-                    progress = 1 - progress % 1;
-                else
-                    progress = progress % 1;
-                let diff = slider.StackedPosition.add(slider.Path.PositionAt(progress)).subtract(slider.LazyEndPosition);
+                if (progress % 2 >= 1) progress = 1 - (progress % 1);
+                else progress = progress % 1;
+                let diff = slider.StackedPosition.add(
+                    slider.Path.PositionAt(progress),
+                ).subtract(slider.LazyEndPosition);
                 let dist = diff.length();
                 if (dist > approxFollowCircleRadius) {
                     diff.normalize();
                     dist -= approxFollowCircleRadius;
-                    slider.LazyEndPosition = slider.LazyEndPosition.add(diff.scale(dist));
-                    slider.LazyTravelDistance = slider.LazyTravelDistance === undefined ? dist : slider.LazyTravelDistance += dist;
+                    slider.LazyEndPosition = slider.LazyEndPosition.add(
+                        diff.scale(dist),
+                    );
+                    slider.LazyTravelDistance =
+                        slider.LazyTravelDistance === undefined
+                            ? dist
+                            : (slider.LazyTravelDistance += dist);
                 }
             }
-            const scoringTimes = slider.NestedHitObjects.slice(1, slider.NestedHitObjects.length).map(t => { return t.StartTime; });
-            scoringTimes.forEach(time => {
+            const scoringTimes = slider.NestedHitObjects.slice(
+                1,
+                slider.NestedHitObjects.length,
+            ).map((t) => {
+                return t.StartTime;
+            });
+            scoringTimes.forEach((time) => {
                 computeVertex(time);
             });
         }
@@ -2033,7 +2604,11 @@ getBeatmapStarRatings = (() => {
             let pos = object.StackedPosition;
             if (object instanceof Slider) {
                 this.computeSliderCursorPosition(object);
-                pos = object.LazyEndPosition !== null && object.LazyEndPosition !== undefined ? object.LazyEndPosition : pos;
+                pos =
+                    object.LazyEndPosition !== null &&
+                    object.LazyEndPosition !== undefined
+                        ? object.LazyEndPosition
+                        : pos;
             }
             return pos;
         }
@@ -2051,43 +2626,44 @@ getBeatmapStarRatings = (() => {
             if (this.Previous.length > 0)
                 this.strainPeaks.push(this.currentSectionPeak);
         }
-        ;
         startNewSectionFrom(offset) {
             if (this.Previous.length > 0)
-                this.currentSectionPeak = this.currentStrain * this.strainDecay(offset - this.Previous[0].CurrentObject.StartTime);
+                this.currentSectionPeak =
+                    this.currentStrain *
+                    this.strainDecay(
+                        offset - this.Previous[0].CurrentObject.StartTime,
+                    );
         }
-        ;
         process(currentObject) {
             this.currentStrain *= this.strainDecay(currentObject.DeltaTime);
             if (!(currentObject.CurrentObject instanceof Spinner))
-                this.currentStrain += this.strainValueOf(currentObject) * this.SkillMultiplier;
-            this.currentSectionPeak = Math.max(this.currentStrain, this.currentSectionPeak);
+                this.currentStrain +=
+                    this.strainValueOf(currentObject) * this.SkillMultiplier;
+            this.currentSectionPeak = Math.max(
+                this.currentStrain,
+                this.currentSectionPeak,
+            );
             this.addToHistory(currentObject);
         }
-        ;
         difficultyValue() {
             this.strainPeaks.sort((a, b) => {
                 return b - a;
             });
             let difficulty = 0;
             let weight = 1;
-            this.strainPeaks.forEach(strain => {
+            this.strainPeaks.forEach((strain) => {
                 difficulty += strain * weight;
                 weight *= 0.9;
             });
             return difficulty;
         }
-        ;
         strainDecay(ms) {
             return Math.pow(this.StrainDecayBase, ms / 1000);
         }
-        ;
         addToHistory(currentObject) {
             this.Previous.unshift(currentObject);
-            if (this.Previous.length > 2)
-                this.Previous.pop();
+            if (this.Previous.length > 2) this.Previous.pop();
         }
-        ;
     }
     class Aim extends Skill {
         constructor() {
@@ -2104,23 +2680,58 @@ getBeatmapStarRatings = (() => {
                 return Math.pow(val, 0.99);
             }
             if (this.Previous.length > 0) {
-                if (currentObject.Angle !== null && currentObject.Angle !== undefined && currentObject.Angle > 0 && currentObject.Angle > this.angle_bonus_begin) {
-                    let angleBonus = Math.sqrt(Math.max(this.Previous[0].JumpDistance - scale, 0) *
-                        Math.pow(Math.sin(currentObject.Angle - this.angle_bonus_begin), 2) *
-                        Math.max(currentObject.JumpDistance - scale, 0));
-                    result = 1.5 * applyDiminishingExp(Math.max(0, angleBonus)) / Math.max(this.timing_threshold, this.Previous[0].StrainTime);
+                if (
+                    currentObject.Angle !== null &&
+                    currentObject.Angle !== undefined &&
+                    currentObject.Angle > 0 &&
+                    currentObject.Angle > this.angle_bonus_begin
+                ) {
+                    let angleBonus = Math.sqrt(
+                        Math.max(this.Previous[0].JumpDistance - scale, 0) *
+                            Math.pow(
+                                Math.sin(
+                                    currentObject.Angle -
+                                        this.angle_bonus_begin,
+                                ),
+                                2,
+                            ) *
+                            Math.max(currentObject.JumpDistance - scale, 0),
+                    );
+                    result =
+                        (1.5 * applyDiminishingExp(Math.max(0, angleBonus))) /
+                        Math.max(
+                            this.timing_threshold,
+                            this.Previous[0].StrainTime,
+                        );
                 }
             }
-            const jumpDistanceExp = applyDiminishingExp(currentObject.JumpDistance);
-            const travelDistanceExp = applyDiminishingExp(currentObject.TravelDistance);
-            let returnValue = Math.max(result + (jumpDistanceExp + travelDistanceExp + Math.sqrt(travelDistanceExp * jumpDistanceExp)) / Math.max(currentObject.StrainTime, this.timing_threshold), (Math.sqrt(travelDistanceExp * jumpDistanceExp) + jumpDistanceExp + travelDistanceExp) / currentObject.StrainTime);
+            const jumpDistanceExp = applyDiminishingExp(
+                currentObject.JumpDistance,
+            );
+            const travelDistanceExp = applyDiminishingExp(
+                currentObject.TravelDistance,
+            );
+            let returnValue = Math.max(
+                result +
+                    (jumpDistanceExp +
+                        travelDistanceExp +
+                        Math.sqrt(travelDistanceExp * jumpDistanceExp)) /
+                        Math.max(
+                            currentObject.StrainTime,
+                            this.timing_threshold,
+                        ),
+                (Math.sqrt(travelDistanceExp * jumpDistanceExp) +
+                    jumpDistanceExp +
+                    travelDistanceExp) /
+                    currentObject.StrainTime,
+            );
             return returnValue;
         }
     }
     class Speed extends Skill {
         constructor() {
             super(...arguments);
-            this.angle_bonus_begin = 5 * Math.PI / 6;
+            this.angle_bonus_begin = (5 * Math.PI) / 6;
             this.pi_over_4 = Math.PI / 4;
             this.pi_over_2 = Math.PI / 2;
             this.SkillMultiplier = 1400;
@@ -2130,23 +2741,66 @@ getBeatmapStarRatings = (() => {
             this.speed_balancing_factor = 40;
         }
         strainValueOf(currentObject) {
-            const distance = Math.min(this.SINGLE_SPACING_THRESHOLD, currentObject.TravelDistance + currentObject.JumpDistance);
-            const deltaTime = Math.max(this.max_speed_bonus, currentObject.DeltaTime);
+            const distance = Math.min(
+                this.SINGLE_SPACING_THRESHOLD,
+                currentObject.TravelDistance + currentObject.JumpDistance,
+            );
+            const deltaTime = Math.max(
+                this.max_speed_bonus,
+                currentObject.DeltaTime,
+            );
             let speedBonus = 1.0;
             if (deltaTime < this.min_speed_bonus)
-                speedBonus = 1 + Math.pow((this.min_speed_bonus - deltaTime) / this.speed_balancing_factor, 2);
+                speedBonus =
+                    1 +
+                    Math.pow(
+                        (this.min_speed_bonus - deltaTime) /
+                            this.speed_balancing_factor,
+                        2,
+                    );
             let angleBonus = 1.0;
-            if (currentObject.Angle !== null && currentObject.Angle !== undefined && currentObject.Angle > 0 && currentObject.Angle < this.angle_bonus_begin) {
-                angleBonus = 1 + Math.pow(Math.sin(1.5 * (this.angle_bonus_begin - currentObject.Angle)), 2) / 3.57;
+            if (
+                currentObject.Angle !== null &&
+                currentObject.Angle !== undefined &&
+                currentObject.Angle > 0 &&
+                currentObject.Angle < this.angle_bonus_begin
+            ) {
+                angleBonus =
+                    1 +
+                    Math.pow(
+                        Math.sin(
+                            1.5 *
+                                (this.angle_bonus_begin - currentObject.Angle),
+                        ),
+                        2,
+                    ) /
+                        3.57;
                 if (currentObject.Angle < this.pi_over_2) {
                     angleBonus = 1.28;
                     if (distance < 90 && currentObject.Angle < this.pi_over_4)
-                        angleBonus += (1 - angleBonus) * Math.min((90 - distance) / 10, 1);
+                        angleBonus +=
+                            (1 - angleBonus) *
+                            Math.min((90 - distance) / 10, 1);
                     else if (distance < 90)
-                        angleBonus += (1 - angleBonus) * Math.min((90 - distance) / 10, 1) * Math.sin((this.pi_over_2 - currentObject.Angle) / this.pi_over_4);
+                        angleBonus +=
+                            (1 - angleBonus) *
+                            Math.min((90 - distance) / 10, 1) *
+                            Math.sin(
+                                (this.pi_over_2 - currentObject.Angle) /
+                                    this.pi_over_4,
+                            );
                 }
             }
-            let returnValue = (1 + (speedBonus - 1) * 0.75) * angleBonus * (0.95 + speedBonus * Math.pow(distance / this.SINGLE_SPACING_THRESHOLD, 3.5)) / currentObject.StrainTime;
+            let returnValue =
+                ((1 + (speedBonus - 1) * 0.75) *
+                    angleBonus *
+                    (0.95 +
+                        speedBonus *
+                            Math.pow(
+                                distance / this.SINGLE_SPACING_THRESHOLD,
+                                3.5,
+                            ))) /
+                currentObject.StrainTime;
             return returnValue;
         }
     }
@@ -2161,8 +2815,13 @@ getBeatmapStarRatings = (() => {
             let aimSkill = new Aim();
             let speedSkill = new Speed();
             const sectionLength = this.section_length * timeRate;
-            let currentSectionEnd = Math.ceil((((_a = this.hitObjects[0]) === null || _a === void 0 ? void 0 : _a.StartTime) || 0) / sectionLength) * sectionLength;
-            this.hitObjects.forEach(h => {
+            let currentSectionEnd =
+                Math.ceil(
+                    (((_a = this.hitObjects[0]) === null || _a === void 0
+                        ? void 0
+                        : _a.StartTime) || 0) / sectionLength,
+                ) * sectionLength;
+            this.hitObjects.forEach((h) => {
                 while (h.CurrentObject.StartTime > currentSectionEnd) {
                     aimSkill.saveCurrentPeak();
                     aimSkill.startNewSectionFrom(currentSectionEnd);
@@ -2175,9 +2834,14 @@ getBeatmapStarRatings = (() => {
             });
             aimSkill.saveCurrentPeak();
             speedSkill.saveCurrentPeak();
-            const aimRating = Math.sqrt(aimSkill.difficultyValue()) * this.difficulty_multiplier;
-            const speedRating = Math.sqrt(speedSkill.difficultyValue()) * this.difficulty_multiplier;
-            const starRating = aimRating + speedRating + Math.abs(aimRating - speedRating) / 2;
+            const aimRating =
+                Math.sqrt(aimSkill.difficultyValue()) *
+                this.difficulty_multiplier;
+            const speedRating =
+                Math.sqrt(speedSkill.difficultyValue()) *
+                this.difficulty_multiplier;
+            const starRating =
+                aimRating + speedRating + Math.abs(aimRating - speedRating) / 2;
             return { aim: aimRating, speed: speedRating, total: starRating };
         }
     }
@@ -2188,7 +2852,11 @@ getBeatmapStarRatings = (() => {
     function calculateNextModCombination(map, mods, reParse) {
         if (reParse) beatmap = beatmapParser.parseBeatmap(map, mods);
         const timeRate = getTimeRate(mods);
-        const difficultyHitObjects = difficultyHitObjectCreator.convertToDifficultyHitObjects(beatmap.HitObjects, timeRate);
+        const difficultyHitObjects =
+            difficultyHitObjectCreator.convertToDifficultyHitObjects(
+                beatmap.HitObjects,
+                timeRate,
+            );
         return starRatingCalculator.calculate(difficultyHitObjects, timeRate);
     }
     function getBeatmapStarRatings(map) {
@@ -2202,7 +2870,9 @@ getBeatmapStarRatings = (() => {
             calculateNextModCombination(map, ["EZ"], true),
             calculateNextModCombination(map, ["EZ", "DT"], false),
             calculateNextModCombination(map, ["EZ", "HT"], false),
-        ].map(e => Math.round(e.total * 100) / 100).join(",");
+        ]
+            .map((e) => Math.round(e.total * 100) / 100)
+            .join(",");
     }
     return getBeatmapStarRatings;
 })();

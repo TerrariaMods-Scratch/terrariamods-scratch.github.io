@@ -128,7 +128,8 @@ a.logo img {
     display: flex;
     flex-direction: column;
 }
-.scrollbar-top, .scrollbar-bottom {
+.scrollbar-top,
+.scrollbar-bottom {
     flex: 0 0 auto;
     image-rendering: pixelated;
 }
@@ -144,7 +145,8 @@ a.logo img {
     display: flex;
     flex-direction: column;
 }
-.scrollbar-thumb-top, .scrollbar-thumb-bottom {
+.scrollbar-thumb-top,
+.scrollbar-thumb-bottom {
     flex: 0 0 auto;
     image-rendering: pixelated;
 }

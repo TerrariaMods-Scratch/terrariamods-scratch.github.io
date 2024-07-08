@@ -1,20 +1,54 @@
 (async () => {
-    if (window.location.origin == "https://terrariamods-scratch.github.io") alert("Drag the link into your bookmarks/favorites bar\nClick it when on Massive Multiplayer Platformer v1.3");
+    if (window.location.origin == "https://terrariamods-scratch.github.io")
+        alert(
+            "Drag the link into your bookmarks/favorites bar\nClick it when on Massive Multiplayer Platformer v1.3",
+        );
     else if (window.location.pathname.match(/(\d+)/) == "612229554") inject();
-    else if ((await (await fetch("https://trampoline.turbowarp.org/proxy/projects/" + window.location.pathname.match(/(\d+)/))).json()).remix.parent == 612229554) inject();
+    else if (
+        (
+            await (
+                await fetch(
+                    "https://trampoline.turbowarp.org/proxy/projects/" +
+                        window.location.pathname.match(/(\d+)/),
+                )
+            ).json()
+        ).remix.parent == 612229554
+    )
+        inject();
     else alert("Wrong Project");
 })();
 const inject = (async () => {
-    const _ = function(e) { return document.querySelector("#MMOModMenu" + e) };
-    const vm = window.vm || (() => {
-        const app = document.querySelector("#app");
-        return app[Object.keys(app).find(value => value.startsWith("__reactContainer"))].child.stateNode.store.getState().scratchGui.vm;
-    })();
-    
-    const PlayerUsernames = vm.runtime.targets[0].lookupOrCreateList("Mod-PlayerUsername", "ModMenuUsernames");
-    const PlayerSkins = vm.runtime.targets[0].lookupOrCreateList("Mod-PlayerSkin", "ModMenuSkins");
-    const PlayerColors = vm.runtime.targets[0].lookupOrCreateList("Mod-PlayerColor", "ModMenuColors");
-    const Data = await (await fetch("https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/main/hacks/mmo/data.json")).json();
+    const _ = function (e) {
+        return document.querySelector("#MMOModMenu" + e);
+    };
+    const vm =
+        window.vm ||
+        (() => {
+            const app = document.querySelector("#app");
+            return app[
+                Object.keys(app).find((value) =>
+                    value.startsWith("__reactContainer"),
+                )
+            ].child.stateNode.store.getState().scratchGui.vm;
+        })();
+
+    const PlayerUsernames = vm.runtime.targets[0].lookupOrCreateList(
+        "Mod-PlayerUsername",
+        "ModMenuUsernames",
+    );
+    const PlayerSkins = vm.runtime.targets[0].lookupOrCreateList(
+        "Mod-PlayerSkin",
+        "ModMenuSkins",
+    );
+    const PlayerColors = vm.runtime.targets[0].lookupOrCreateList(
+        "Mod-PlayerColor",
+        "ModMenuColors",
+    );
+    const Data = await (
+        await fetch(
+            "https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/main/hacks/mmo/data.json",
+        )
+    ).json();
     const TargetPatches = Object.values(Data.targets);
 
     const skinData = [
@@ -22,23 +56,39 @@ const inject = (async () => {
         ["EoC", "e83a54817d2b9d114025b1b550af966f.svg"],
         ["Cat", "65017286152bef4172225f601185ea9d.svg"],
         ["GradientOutline", "f876eeee8adca5045c82136348e9fe50.svg"],
-        ["Creeper", "13452bc1e70d1829a30b034dfcf51811.svg"]
+        ["Creeper", "13452bc1e70d1829a30b034dfcf51811.svg"],
     ];
 
     //Establish Connection to Turbowarp
     const ws = new WebSocket("wss://clouddata.turbowarp.org");
     ws.onopen = () => {
-        ws.send(JSON.stringify({
-            method: "handshake",
-            project_id: "https://terrariamods-scratch.github.io/hacks/mmo/",
-            user: vm.runtime.ioDevices.userData.getUsername()
-        }));
+        ws.send(
+            JSON.stringify({
+                method: "handshake",
+                project_id: "https://terrariamods-scratch.github.io/hacks/mmo/",
+                user: vm.runtime.ioDevices.userData.getUsername(),
+            }),
+        );
         setInterval(() => {
-            ws.send(JSON.stringify({
-                method: "set",
-                name: JSON.stringify([window.location.host, vm.runtime.ioDevices.userData.getUsername(), vm.runtime.getSpriteTargetByName("Player").lookupOrCreateVariable("MMOModMenuSkinID", "skinID").value, _("ColorBlack").checked ? "Infinity" : _("ColorSelector").value]),
-                value: daysSince2000()
-            }));
+            ws.send(
+                JSON.stringify({
+                    method: "set",
+                    name: JSON.stringify([
+                        window.location.host,
+                        vm.runtime.ioDevices.userData.getUsername(),
+                        vm.runtime
+                            .getSpriteTargetByName("Player")
+                            .lookupOrCreateVariable(
+                                "MMOModMenuSkinID",
+                                "skinID",
+                            ).value,
+                        _("ColorBlack").checked
+                            ? "Infinity"
+                            : _("ColorSelector").value,
+                    ]),
+                    value: daysSince2000(),
+                }),
+            );
         }, 1000);
     };
     ws.onmessage = (e) => {
@@ -50,8 +100,12 @@ const inject = (async () => {
                     if (window.location.host == obj[0]) {
                         console.log(obj[2]);
                         if (PlayerUsernames.value.indexOf(obj[1]) > -1) {
-                            PlayerSkins.value[PlayerUsernames.value.indexOf(obj[1])] = obj[2];
-                            PlayerColors.value[PlayerUsernames.value.indexOf(obj[1])] = obj[3];
+                            PlayerSkins.value[
+                                PlayerUsernames.value.indexOf(obj[1])
+                            ] = obj[2];
+                            PlayerColors.value[
+                                PlayerUsernames.value.indexOf(obj[1])
+                            ] = obj[3];
                         } else {
                             PlayerUsernames.value.push(obj[1]);
                             PlayerSkins.value.push(obj[2]);
@@ -64,20 +118,38 @@ const inject = (async () => {
     };
     createModMenu(skinData, _, vm);
     for (var i = 0; i < TargetPatches.length; i++) {
-        await vm.deleteSprite(vm.runtime.getSpriteTargetByName(TargetPatches[i].name).id);
-        try { await vm.addSprite(TargetPatches[i]); } catch (e) { console.error(e) }
+        await vm.deleteSprite(
+            vm.runtime.getSpriteTargetByName(TargetPatches[i].name).id,
+        );
+        try {
+            await vm.addSprite(TargetPatches[i]);
+        } catch (e) {
+            console.error(e);
+        }
     }
     const Player = vm.runtime.getSpriteTargetByName("Player");
 
     //Custom Color
-    Object.defineProperty(vm.runtime.targets[0].lookupOrCreateVariable("ModMenu-Color", "Player Color (TerrariaMods Bookmarklet)"), "value", {
-        get: () => {
-            return _("ColorBlack").checked ? Infinity : _("ColorSelector").value;
-        }
-    });
+    Object.defineProperty(
+        vm.runtime.targets[0].lookupOrCreateVariable(
+            "ModMenu-Color",
+            "Player Color (TerrariaMods Bookmarklet)",
+        ),
+        "value",
+        {
+            get: () => {
+                return _("ColorBlack").checked
+                    ? Infinity
+                    : _("ColorSelector").value;
+            },
+        },
+    );
     const blocks = Player.blocks;
-    Object.values(blocks._blocks).forEach(a => {
-        if (a.opcode == "looks_seteffectto" && a.fields.EFFECT.value == "COLOR") {
+    Object.values(blocks._blocks).forEach((a) => {
+        if (
+            a.opcode == "looks_seteffectto" &&
+            a.fields.EFFECT.value == "COLOR"
+        ) {
             let b = blocks.getBlock(a.inputs.VALUE.block);
             if (b.opcode == "math_number" && b.fields.NUM.value == "0") {
                 b.opcode = "data_variable";
@@ -86,9 +158,9 @@ const inject = (async () => {
                         name: "VARIABLE",
                         id: "Mod-Color",
                         value: "Player Color (TerrariaMods Bookmarklet)",
-                        variableType: ""
-                    }
-                }
+                        variableType: "",
+                    },
+                };
             }
         }
     });
@@ -111,7 +183,7 @@ const inject = (async () => {
             }
             return pasteStr.join("");
         },
-        set: () => { }
+        set: () => {},
     });
     alert("Successfully Injected Mod Menu!");
 })();
@@ -261,26 +333,51 @@ function createModMenu(skinData, _, vm) {
         updateSkin();
     });
     function updateSkin() {
-        _("SelectedSkin").src = "https://assets.scratch.mit.edu/" + skinData[skinID][1];
-        vm.runtime.getSpriteTargetByName("Player").lookupOrCreateVariable("MMOModMenuSkinID", "skinID").value = skinData[skinID][0];
+        _("SelectedSkin").src =
+            "https://assets.scratch.mit.edu/" + skinData[skinID][1];
+        vm.runtime
+            .getSpriteTargetByName("Player")
+            .lookupOrCreateVariable("MMOModMenuSkinID", "skinID").value =
+            skinData[skinID][0];
     }
-    document.querySelector(':root').style.setProperty("--Color", "#ff9500");
+    document.querySelector(":root").style.setProperty("--Color", "#ff9500");
     _("ColorSelector").addEventListener("input", (e) => {
-        document.querySelector(':root').style.setProperty("--Color", _("ColorBlack").checked ? "Black" : skinColor(_("ColorSelector").value * 1.8 + 35, 1, 1));
+        document
+            .querySelector(":root")
+            .style.setProperty(
+                "--Color",
+                _("ColorBlack").checked
+                    ? "Black"
+                    : skinColor(_("ColorSelector").value * 1.8 + 35, 1, 1),
+            );
     });
     _("ColorBlack").addEventListener("input", (e) => {
-        document.querySelector(':root').style.setProperty("--Color", _("ColorBlack").checked ? "Black" : skinColor(_("ColorSelector").value * 1.8 + 35, 1, 1));
+        document
+            .querySelector(":root")
+            .style.setProperty(
+                "--Color",
+                _("ColorBlack").checked
+                    ? "Black"
+                    : skinColor(_("ColorSelector").value * 1.8 + 35, 1, 1),
+            );
     });
     function skinColor(h, s, v) {
-        let a = (b, c = (b + h / 60) % 6) => v - v * s * Math.max(Math.min(c, 4 - c, 1), 0);
-        let d = (e, f = Math.round(e * 255).toString(16)) => f.length == 1 ? "0" + f : f;
+        let a = (b, c = (b + h / 60) % 6) =>
+            v - v * s * Math.max(Math.min(c, 4 - c, 1), 0);
+        let d = (e, f = Math.round(e * 255).toString(16)) =>
+            f.length == 1 ? "0" + f : f;
         return "#" + [d(a(5)), d(a(3)), d(a(1))].join("");
     }
 
-    
-    _("CustomizationGroup").addEventListener("click", () => _("Customization").hidden = !_("Customization").hidden);
-    _("SpeedrunGroup").addEventListener("click", () => _("Speedrun").hidden = !_("Speedrun").hidden);
-    
+    _("CustomizationGroup").addEventListener(
+        "click",
+        () => (_("Customization").hidden = !_("Customization").hidden),
+    );
+    _("SpeedrunGroup").addEventListener(
+        "click",
+        () => (_("Speedrun").hidden = !_("Speedrun").hidden),
+    );
+
     const Stage = vm.runtime.getTargetForStage();
     const Game = vm.runtime.getSpriteTargetByName("Game");
 
@@ -294,91 +391,109 @@ function createModMenu(skinData, _, vm) {
     injectSpeedrunClient(_);
 
     var clockValue = clock.value;
-    var start = Date.now()-clock.value/30*1000;
+    var start = Date.now() - (clock.value / 30) * 1000;
     Object.defineProperty(clock, "value", {
         get: () => clockValue,
-        set: value => {
+        set: (value) => {
             if (clockValue == 0 || value == 0) start = Date.now();
             clockValue = value;
             renderSpeedrunTimer();
-        }
+        },
     });
     var FastestTimeValue = FastestTime.value;
     Object.defineProperty(FastestTime, "value", {
         get: () => FastestTimeValue,
-        set: value => {
+        set: (value) => {
             FastestTimeValue = value;
             renderServerInfo();
-        }
+        },
     });
     var FastestPlayerValue = FastestPlayer.value;
     Object.defineProperty(FastestPlayer, "value", {
         get: () => FastestPlayerValue,
-        set: value => {
+        set: (value) => {
             FastestPlayerValue = value;
             renderServerInfo();
-        }
+        },
     });
     var ActivePlayersValue = ActivePlayers.value;
     Object.defineProperty(ActivePlayers, "value", {
         get: () => ActivePlayersValue,
-        set: value => {
+        set: (value) => {
             ActivePlayersValue = value;
             renderServerInfo();
-        }
+        },
     });
 
     function renderServerInfo() {
         if (_("CustomUI").checked && _("ServerInfo").checked) {
             if (!_("SpeedrunOverlay")) injectSpeedrunOverlay(_);
             _("SpeedrunOverlayServerInfo").hidden = !_("ServerInfo").checked;
-            _("SpeedrunOverlayServerInfo").innerText = `Active Players: ${ActivePlayersValue}\nFastest Time: ${clockToString(FastestTimeValue)}\nHeld By: ${FastestPlayerValue}`;
+            _("SpeedrunOverlayServerInfo").innerText =
+                `Active Players: ${ActivePlayersValue}\nFastest Time: ${clockToString(FastestTimeValue)}\nHeld By: ${FastestPlayerValue}`;
         }
     }
     function renderSpeedrunTimer() {
         if (_("CustomUI").checked) {
             if (!_("SpeedrunOverlay")) injectSpeedrunOverlay(_);
             _("SpeedrunOverlay").hidden = !_("CustomUI").checked;
-            _("SpeedrunOverlayTimer").innerText = `Speedrun Category: ${_("SpeedrunCategory").value}\n${clockToString(clockValue)} - In Game Time\n${millisecondsToString(Date.now()-start)} - Real Time`;
+            _("SpeedrunOverlayTimer").innerText =
+                `Speedrun Category: ${_("SpeedrunCategory").value}\n${clockToString(clockValue)} - In Game Time\n${millisecondsToString(Date.now() - start)} - Real Time`;
         }
     }
-    
+
     _("CustomUI").addEventListener("input", (e) => {
-        vm.runtime.monitorBlocks.changeBlock({
-            id: TIME.id,
-            element: "checkbox",
-            value: !_("CustomUI").checked
-        }, vm.runtime);
-        vm.runtime.monitorBlocks.changeBlock({
-            id: FASTEST.id,
-            element: "checkbox",
-            value: !_("CustomUI").checked && _("ServerInfo").checked
-        }, vm.runtime);
-        vm.runtime.monitorBlocks.changeBlock({
-            id: ActivePlayers.id,
-            element: "checkbox",
-            value: !_("CustomUI").checked && _("ServerInfo").checked
-        }, vm.runtime);
+        vm.runtime.monitorBlocks.changeBlock(
+            {
+                id: TIME.id,
+                element: "checkbox",
+                value: !_("CustomUI").checked,
+            },
+            vm.runtime,
+        );
+        vm.runtime.monitorBlocks.changeBlock(
+            {
+                id: FASTEST.id,
+                element: "checkbox",
+                value: !_("CustomUI").checked && _("ServerInfo").checked,
+            },
+            vm.runtime,
+        );
+        vm.runtime.monitorBlocks.changeBlock(
+            {
+                id: ActivePlayers.id,
+                element: "checkbox",
+                value: !_("CustomUI").checked && _("ServerInfo").checked,
+            },
+            vm.runtime,
+        );
         _("SpeedrunOverlay").hidden = !_("CustomUI").checked;
         renderSpeedrunTimer();
     });
 
     _("ServerInfo").addEventListener("input", (e) => {
-        vm.runtime.monitorBlocks.changeBlock({
-            id: FASTEST.id,
-            element: "checkbox",
-            value: !_("CustomUI").checked && _("ServerInfo").checked
-        }, vm.runtime);
-        vm.runtime.monitorBlocks.changeBlock({
-            id: ActivePlayers.id,
-            element: "checkbox",
-            value: !_("CustomUI").checked && _("ServerInfo").checked
-        }, vm.runtime);
+        vm.runtime.monitorBlocks.changeBlock(
+            {
+                id: FASTEST.id,
+                element: "checkbox",
+                value: !_("CustomUI").checked && _("ServerInfo").checked,
+            },
+            vm.runtime,
+        );
+        vm.runtime.monitorBlocks.changeBlock(
+            {
+                id: ActivePlayers.id,
+                element: "checkbox",
+                value: !_("CustomUI").checked && _("ServerInfo").checked,
+            },
+            vm.runtime,
+        );
         _("SpeedrunOverlayServerInfo").hidden = !_("ServerInfo").checked;
         renderServerInfo();
     });
 
-    var x = 0, y = 0;
+    var x = 0,
+        y = 0;
     _("Header").addEventListener("mousedown", (e) => {
         e = e || window.event;
         e.preventDefault();
@@ -394,13 +509,13 @@ function createModMenu(skinData, _, vm) {
         y2 = y - e.clientY;
         x = e.clientX;
         y = e.clientY;
-        _("").style.top = (_("").offsetTop - y2) + "px";
-        _("").style.left = (_("").offsetLeft - x2) + "px";
-    }
+        _("").style.top = _("").offsetTop - y2 + "px";
+        _("").style.left = _("").offsetLeft - x2 + "px";
+    };
     const headerMouseUp = (e) => {
         document.removeEventListener("mousemove", headerMouseMove);
         document.removeEventListener("mouseup", headerMouseUp);
-    }
+    };
 }
 
 //https://github.com/LLK/scratch-vm/blob/33f480513d572ac5d7cd9db1f765be68f6e0ad2d/src/blocks/scratch3_sensing.js#L252
@@ -410,12 +525,12 @@ function daysSince2000() {
     const today = new Date();
     const dstAdjust = today.getTimezoneOffset() - start.getTimezoneOffset();
     let mSecsSinceStart = today.valueOf() - start.valueOf();
-    mSecsSinceStart += ((today.getTimezoneOffset() - dstAdjust) * 60 * 1000);
+    mSecsSinceStart += (today.getTimezoneOffset() - dstAdjust) * 60 * 1000;
     return mSecsSinceStart / msPerDay;
 }
 
 function clockToString(clock) {
-    return millisecondsToString(clock / 30 * 1000);
+    return millisecondsToString((clock / 30) * 1000);
 }
 function millisecondsToString(milliseconds) {
     const seconds = Math.floor(milliseconds / 1000);
