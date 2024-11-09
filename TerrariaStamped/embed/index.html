@@ -483,26 +483,15 @@
   
   
     <script>
-      const loadProjectJSON = () => new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-          resolve(xhr.response);
-        };
-        xhr.onerror = () => {
-          if (location.protocol === 'file:') {
-            reject(new Error('Zip environment must be used from a website, not from a file URL.'));
-          } else {
-            reject(new Error('Request to load project data failed.'));
-          }
-        };
-        xhr.onprogress = (e) => {
-          if (e.lengthComputable) {
-            setProgress(interpolate(0.1, 0.2, e.loaded / e.total));
-          }
-        };
-        xhr.responseType = 'arraybuffer';
-        xhr.open('GET', "./assets/project.json");
-        xhr.send();
+      const loadProjectSB3 = () => new Promise(async (resolve, reject) => {
+        const sb3info = JSON.parse(await (await fetch("./sb3/info.json")).text());
+        const parts = await Promise.all(Array.from({ length: sb3info.numparts }, (_, i) => fetch(`./sb3/${sb3info.filename}.sb3.${i}`).then(res => res.blob())));
+        resolve(await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsArrayBuffer(new Blob(parts));
+        }));
       });
       const getProjectData = (function() {
         const storage = scaffolding.storage;
@@ -536,12 +525,12 @@
               setTimeout(async () => {
                   if (input.files.length == 0 && document.getElementById(el.id)) {
                     alert("Load Failed");
-                    resolve(await loadProjectJSON());
+                    resolve(await loadProjectSB3());
                   }
               }, 300);
             }, { once: true });
           });
-        } else return loadProjectJSON();
+        } else return loadProjectSB3();
       });
     </script>
   <script>
