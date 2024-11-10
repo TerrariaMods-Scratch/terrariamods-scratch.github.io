@@ -6,7 +6,14 @@ body {
     position: relative;
     background: #000;
 }
-body, h1, h2, h3, h4, h5, h6, a {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
     color: #00ff00;
 }
 #share {
@@ -29,7 +36,8 @@ body, h1, h2, h3, h4, h5, h6, a {
 .turbowarp {
     color: #ff4d4d;
 }
-div.broken, div.broken * {
+div.broken,
+div.broken * {
     color: red;
 }
 a.broken {

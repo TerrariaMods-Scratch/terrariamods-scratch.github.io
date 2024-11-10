@@ -1,215 +1,707 @@
 <html>
-<head>
-    <title>Terraria (Stamped)</title>
-    <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div id="Background">
-        <div id="ScrollContainer">
-            <div class="scrollbar">
-                <img class="scrollbar-top" src="./scrollbar/Top.png">
-                <img class="scrollbar-middle" src="./scrollbar/Middle.png">
-                <img class="scrollbar-bottom" src="./scrollbar/Bottom.png">
-                <div class="scrollbar-thumb">
-                    <img class="scrollbar-thumb-top" src="./scrollbar/InnerTop.png">
-                    <img class="scrollbar-thumb-middle" src="./scrollbar/InnerMiddle.png">
-                    <img class="scrollbar-thumb-bottom" src="./scrollbar/InnerBottom.png">
+    <head>
+        <title>Terraria (Stamped)</title>
+        <link rel="icon" href="img/favicon.png" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div id="Background">
+            <div id="ScrollContainer">
+                <div class="scrollbar">
+                    <img class="scrollbar-top" src="./scrollbar/Top.png" />
+                    <img
+                        class="scrollbar-middle"
+                        src="./scrollbar/Middle.png"
+                    />
+                    <img
+                        class="scrollbar-bottom"
+                        src="./scrollbar/Bottom.png"
+                    />
+                    <div class="scrollbar-thumb">
+                        <img
+                            class="scrollbar-thumb-top"
+                            src="./scrollbar/InnerTop.png"
+                        />
+                        <img
+                            class="scrollbar-thumb-middle"
+                            src="./scrollbar/InnerMiddle.png"
+                        />
+                        <img
+                            class="scrollbar-thumb-bottom"
+                            src="./scrollbar/InnerBottom.png"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div id="Scroll">
-                <div id="Container">
-                    <br>
-                    <br>
-                    <img id="Title" src="./img/logo.png"><h1>Stamped</h1><br><br><br>
-                    <iframe id="game" src="./embed/" width="510" height="408"></iframe>
-                    <div id="menuBarContainer">
-                        <div id="menuBar">
-                            <table>
-                                <tr>
-                                    <th>
-                                        <a href="https://scratchmodloader.github.io/46587498/">Scratcharia Mod Loader</a>
-                                        <br>
-                                        <a href="https://terrariamods-scratch.github.io/hacks/">Scratch Hacks</a>
-                                        <br>
-                                        <a href="https://discord.gg/fKB3TjxQsc">Discord Server</a>
-                                        <br>
-                                    </th>
-                                    <th>
-                                        <a href="https://scratch.mit.edu/projects/590926828/">View project on Scratch</a>
-                                        <br>
-                                        <a href="./download/1.1.4.sb3" download="Terraria (Stamped) v1.1.4.sb3" class="downloadParts" numParts="3">Download Project</a>
-                                        <br>
-                                        <a id="loadProject">Load Modified Project</a>
-                                    </th>
-                                    <th>
-                                        <a href="https://scratch.mit.edu/users/TerrariaMods/">Scratch Account</a>
-                                        <br>
-                                        <a href="https://github.com/TerrariaMods-Scratch">GitHub Account</a>
-                                        <br>
-                                        <a href="mailto:terrariamods.scratch@gmail.com">terrariamods.scratch@gmail.com</a>
-                                        <br>
-                                    </th>
-                                </tr>
-                            </table>
+                <div id="Scroll">
+                    <div id="Container">
+                        <br />
+                        <br />
+                        <img id="Title" src="./img/logo.png" />
+                        <h1>Stamped</h1>
+                        <br /><br /><br />
+                        <iframe
+                            id="game"
+                            src="./embed/"
+                            width="510"
+                            height="408"
+                        ></iframe>
+                        <div id="menuBarContainer">
+                            <div id="menuBar">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <a
+                                                href="https://scratchmodloader.github.io/46587498/"
+                                                >Scratcharia Mod Loader</a
+                                            >
+                                            <br />
+                                            <a
+                                                href="https://terrariamods-scratch.github.io/hacks/"
+                                                >Scratch Hacks</a
+                                            >
+                                            <br />
+                                            <a
+                                                href="https://discord.gg/fKB3TjxQsc"
+                                                >Discord Server</a
+                                            >
+                                            <br />
+                                        </th>
+                                        <th>
+                                            <a
+                                                href="https://scratch.mit.edu/projects/590926828/"
+                                                >View project on Scratch</a
+                                            >
+                                            <br />
+                                            <a
+                                                href="./download/1.1.4.sb3"
+                                                download="Terraria (Stamped) v1.1.4.sb3"
+                                                class="downloadParts"
+                                                numParts="3"
+                                                >Download Project</a
+                                            >
+                                            <br />
+                                            <a id="loadProject"
+                                                >Load Modified Project</a
+                                            >
+                                        </th>
+                                        <th>
+                                            <a
+                                                href="https://scratch.mit.edu/users/TerrariaMods/"
+                                                >Scratch Account</a
+                                            >
+                                            <br />
+                                            <a
+                                                href="https://github.com/TerrariaMods-Scratch"
+                                                >GitHub Account</a
+                                            >
+                                            <br />
+                                            <a
+                                                href="mailto:terrariamods.scratch@gmail.com"
+                                                >terrariamods.scratch@gmail.com</a
+                                            >
+                                            <br />
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
+                        <div style="width: 50%; margin: 0 auto">
+                            <h1>Changelog</h1>
+                            If you have an unmodified version of an update that
+                            is not available for download here, contact
+                            <a href="https://scratch.mit.edu/users/TerrariaMods"
+                                >@TerrariaMods</a
+                            >
+                            1 July 2024 - Website Update<br />Custom
+                            Scrollbar<br />Fixed Scrolling While Playing<br />Resizable
+                            Game Window<br />Custom Variable Displays<br />Modified
+                            Version Loading<br />Improved Menu Bar<br />Added
+                            Project volume slider by
+                            <a href="https://scratch.mit.edu/users/samq64/"
+                                >samq64</a
+                            >,
+                            <a href="https://scratch.mit.edu/users/GarboMuffin/"
+                                >GarboMuffin</a
+                            >, and
+                            <a href="https://github.com/DNin01">DNin01</a>
+                            <hr />
+                            25 June 2024 - v1.1.4<br />Added 187 New Items<br />Added
+                            Lava<br />Added Underworld<br />Added Ashwood<br />Added
+                            Ruined Houses<br />Added NPC Banners<br />Added
+                            Snails<br />Added Wall of Flesh<br />Added
+                            Chocolate<br />Added Boss Health Bars<br />Added
+                            Explosions<br />Added Bestiary Saving<br />Updated
+                            Creative Menu<br />Improved Meteorite Bullet Code<br />Improved
+                            Bullet Hit Detection<br />Improved Cave
+                            Backgrounds<br />Improved Worm AI<br />Fixed
+                            Treasure Bag Naming<br />Fixed Banana Naming<br />Fixed
+                            Seeds<br />More Bugfixes<br />
+                            <a
+                                href="./download/1.1.4.sb3"
+                                download="Terraria (Stamped) v1.1.4.sb3"
+                                class="downloadParts"
+                                numParts="3"
+                                >Download</a
+                            >
+                            <hr />
+                            17 March 2024 - v1.1.3.5<br />Added Heavy
+                            Workbench<br />Added error<br />Added Ore
+                            Excavator<br />Fixed Objects Rendering Over Map<br />Fixed
+                            Bottle Crafting Station<br />Fixed Tree Placement<br />Fixed
+                            Underwater Torches<br />Updated Save/Load Screen<br />
+                            <a
+                                href="./download/1.1.3.5.sb3"
+                                download="Terraria (Stamped) v1.1.3.5.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            15 October 2023 - v1.1.3<br />Enhanced Visuals<br />Ducks<br />Grasshoppers<br />Gold
+                            Critters<br />Town NPC Drops<br />Painter<br />Zoologist<br />Whip<br />Paintings<br />Sun<br />Moon<br />Halloween<br />Trophies<br />Bugfixes<br />
+                            <a
+                                href="./download/1.1.3.sb3"
+                                download="Terraria (Stamped) v1.1.3.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            27 August 2023 - v1.1.2<br />Added Snow Biome<br />Added
+                            Ice Biome<br />Added Deerclops<br />Added
+                            Butterflies<br />Added Mouse<br />Added Birds<br />Added
+                            Campfires<br />Added Bricks<br />Added Slime
+                            Blocks<br />Added Slime Furniture<br />Added Tree
+                            Shaking<br />Bugfixes<br />
+                            <a
+                                href="./download/1.1.2.sb3"
+                                download="Terraria (Stamped) v1.1.2.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            18 August 2023 - v1.115<br />New Crafting
+                            Mechanics<br />Added Granite Caves (+Pathfinding)<br />Buffed
+                            Copper Bow<br />More Ores<br />More Gems<br />Fixed
+                            Walls<br />
+                            <a
+                                href="./download/1.115.sb3"
+                                download="Terraria (Stamped) v1.115.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            2 August 2023 - v1.11<br />Yoyos<br />Zombie
+                            Overhaul<br />Demon Eye Overhaul<br />Blood Moon<br />New
+                            Loading Screen<br />Fixed Projectile Gore
+                            Collision<br />Evil Grass Walls<br />Evil Seeds<br />Fixed
+                            Door Collision<br />
+                            <a
+                                href="./download/1.11.sb3"
+                                download="Terraria (Stamped) v1.11.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            2 June 2023 - v1.099<br />Enchanted Sword Shrines<br />Copper
+                            Broadsword Nerf<br />
+                            <a
+                                href="./download/1.099.sb3"
+                                download="Terraria (Stamped) v1.099.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            29 May 2023 - v1.098<br />Added Powder + Bugfixes<br />
+                            <hr />
+                            2 April 2023 - v1.09751<br />Removed April Fools
+                            Update<br />
+                            <a
+                                href="./download/1.09751.sb3"
+                                download="Terraria (Stamped) v1.09751.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            1 April 2023 - v1.4.4<br />Journey's End<br />
+                            <a
+                                href="./download/1.4.4.sb3"
+                                download="Terraria (Stamped) v1.4.4 (April Fools).sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            29 August 2022 - v1.09751<br />Unloaded Sprites
+                            Warning<br />
+                            <a
+                                href="./download/1.09751.sb3"
+                                download="Terraria (Stamped) v1.09751.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            3 August 2022 - v1.0975<br />Bug Fixes<br />
+                            <hr />
+                            2 August 2022 - v1.095<br />Purification Powder<br />Bucket<br />
+                            <hr />
+                            8 June 2022 - v1.09<br />Dryad<br />
+                            <hr />
+                            13 May 2022 - v1.08<br />Meteors<br />NPCs drop
+                            items<br />
+                            <hr />
+                            5 May 2022 - v1.075<br />Menu Save Loading<br />
+                            <hr />
+                            5 May 2022 - v1.07<br />Crimson Biome<br />Fixed
+                            Floating Water<br />Mushrooms<br />Biome Music<br />Jester
+                            Arrow Recipe<br />Easier House Requirements<br />Forest
+                            Biome Option<br />Fixed Shadow Orbs<br />
+                            <hr />
+                            15 Apr 2022 - v1.065<br />Easter Content<br />Ebonwood
+                            Items<br />Bug Fixes<br />Set Bonuses<br />Map
+                            Update<br />
+                            <hr />
+                            04 Apr 2022 - v1.06<br />Corruption<br />King Slime
+                            Buff<br />Expert Mode Items<br />
+                            <hr />
+                            18 Nov 2021 - v1.05<br />Arms Dealer<br />Guns<br />NPC
+                            shop update.<br />
+                            <hr />
+                            08 Nov 2021 - v1.04<br />Added Eye of Cthulhu<br />Updated
+                            Scroll Bar<br />Bug Fixes<br />
+                            <hr />
+                            04 Nov 2021 - v1.03<br />Added Traveling Merchant<br />Bug
+                            Fixes<br />
+                            <hr />
+                            02 Nov 2021 - v1.02<br />Added Magic Mirror<br />Accessories<br />
+                            <hr />
+                            28 Oct 2021 - v1.01<br />Added more Halloween
+                            content<br />NPCs can now get hurt<br />Updated
+                            Menu<br />
+                            <hr />
+                            27 Oct 2021 - v1.00<br />World Customization<br />Slime
+                            Hook<br />King Slime Relic<br />Halloween Event<br />Animated
+                            Objects<br />Vanity Slots<br />Shortswords<br />
+                            <hr />
+                            <a href="https://scratch.mit.edu/users/griffpatch"
+                                >@griffpatch</a
+                            >'s version
+                            <a href="https://scratch.mit.edu/projects/322341152"
+                                >v0.65b</a
+                            >
+                            <hr />
+                            04 Dec 2019 - v0.65<br />Grappling<br />Gem Hooks<br />
+                            <a
+                                href="./download/0.65.sb3"
+                                download="Terraria (Stamped) v0.65.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            26 Nov 2019 - v0.64<br />Falling Stars<br />Mana<br />Staves<br />
+                            <a
+                                href="./download/0.64.sb3"
+                                download="Terraria (Stamped) v0.64.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            15 Nov 2019 - v0.63<br />Quick Thumbnail Added<br />
+                            <a
+                                href="./download/0.63.sb3"
+                                download="Terraria (Stamped) v0.63.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            14 Nov 2019 - v0.62<br />Demon Altars<br />Gemstones<br />Platinum
+                            Crown<br />New Weapons<br />
+                            <a
+                                href="./download/0.62.sb3"
+                                download="Terraria (Stamped) v0.62.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            12 Nov 2019 - v0.61<br />NPC health bars<br />Slime
+                            Crown<br />King Slime<br />
+                            <a
+                                href="./download/0.61.sb3"
+                                download="Terraria (Stamped) v0.61.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            10 Nov 2019 - v0.60<br />Boomerang<br />
+                            <a
+                                href="./download/0.60.sb3"
+                                download="Terraria (Stamped) v0.60.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            09 Nov 2019 - v0.59<br />Spears<br />
+                            <a
+                                href="./download/0.59.sb3"
+                                download="Terraria (Stamped) v0.59.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            08 Nov 2019 - v0.58<br />The Bug Net is sold by the
+                            merchant<br />Passive mobs added to the creative
+                            inventory<br />Mouse wheel changes active tool<br />Girl
+                            Hairstyle<br />
+                            <a
+                                href="./download/0.58.sb3"
+                                download="Terraria (Stamped) v0.58.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            03 Nov 2019 - v0.57<br />Nurse NPC<br />Trading<br />New
+                            tool tip font engine<br />
+                            <a
+                                href="./download/0.57.sb3"
+                                download="Terraria (Stamped) v0.57.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            25 Oct 2019 - v0.56<br />Save Game Validation<br />Set
+                            spawn point using a bed<br />Slimes no longer drop
+                            grass<br />
+                            <hr />
+                            24 Oct 2019 - v0.55<br />Piranhas<br />Skeletons<br />removed
+                            zombies from underground<br />
+                            <hr />
+                            23 Oct 2019 - v0.54<br />Flaming Arrows<br />
+                            <hr />
+                            23 Oct 2019 - v0.53<br />Goldfish<br />Squirrels<br />large
+                            re-scripting of NPC code to allow more variation<br />
+                            <a
+                                href="./download/0.53.sb3"
+                                download="Terraria (Stamped) v0.53.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            21 Oct 2019 - v0.51<br />Added the Merchant<br />
+                            <hr />
+                            17 Oct 2019 - v0.50<br />Added lots of new furniture
+                            + the loom so you can make silk (removed silk from
+                            initial inventory)<br />
+                            <hr />
+                            17 Oct 2019 - v0.49<br />Added Night and Underground
+                            music scores. Cobwebs are now also destroyed by
+                            contact, Fixed downing sound<br />
+                            <hr />
+                            16 Oct 2019 - v0.48<br />Webs<br />
+                            <hr />
+                            16 Oct 2019 - v0.47<br />Life Crystals + Heart
+                            drops<br />
+                            <a
+                                href="./download/0.47.sb3"
+                                download="Terraria (Stamped) v0.47.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            15 Oct 2019b - v0.46<br />Added object collection
+                            animation- yay!<br />Fix for random objects<br />
+                            <a
+                                href="./download/0.46.sb3"
+                                download="Terraria (Stamped) v0.46.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            15 Oct 2019 - v0.45<br />Chests now work<br />Added
+                            treasure + pots<br />4 colours of enemy slime<br />Zombie
+                            sounds<br />AI fixes<br />Save chest contents<br />Healing
+                            potions<br />Level objects now clone & despawn as
+                            they are needed allowing more objects on a level.<br />
+                            <hr />
+                            11 Oct 2019 - v0.44<br />Fixed lighting bug<br />Added
+                            coins + lenses<br />bow sound<br />corrected vine
+                            destruction<br />prevent dig under trees and
+                            furniture<br />
+                            <a
+                                href="./download/0.44.sb3"
+                                download="Terraria (Stamped) v0.44.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            10 Oct 2019 - v0.43<br />Added game sounds [U] to
+                            toggle music<br />
+                            <a
+                                href="./download/0.43.sb3"
+                                download="Terraria (Stamped) v0.43.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            10 Oct 2019 - v0.42<br />Added Save & Load
+                            interface<br />
+                            <hr />
+                            10 Oct 2019 - v0.41<br />Faster world gen<br />faster
+                            map drawing<br />experimental save & load<br />
+                            <hr />
+                            7 Oct 2019 - v0.40<br />Improved world gen added
+                            exposed cave<br />F key for map<br />
+                            <a
+                                href="./download/0.40.sb3"
+                                download="Terraria (Stamped) v0.40.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            5 Oct 2019 - v0.39<br />Added Zombies<br />corrected
+                            sword stats<br />Added basic tiles to creative<br />
+                            <hr />
+                            4 Oct 2019 - v0.38<br />Armor done<br />fall damage
+                            and player defense<br />updated land gen<br />more
+                            ore<br />
+                            <a
+                                href="./download/0.38.sb3"
+                                download="Terraria (Stamped) v0.38.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            3 Oct 2019 - v0.37<br />Player sprite update<br />copper
+                            armor (only aesthetic at present)<br />Fixed night
+                            light bug<br />
+                            <hr />
+                            2 Oct 2019 - v0.36<br />Day / Night Cycle<br />Demon
+                            Eyes<br />Guide NPC<br />House detection<br />NPC
+                            spawn points<br />
+                            <a
+                                href="./download/0.36.sb3"
+                                download="Terraria (Stamped) v0.36.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            30 Sep 2019 - v0.35<br />World gen improved & sped
+                            up considerably<br />increased the world size and
+                            added more water<br />
+                            <a
+                                href="./download/0.35.sb3"
+                                download="Terraria (Stamped) v0.35.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            28 Sep 2019 - v0.34<br />Added Health & Breath
+                            Bars<br />Enlarged level a tad<br />prevent spawn on
+                            water<br />fixed change direction using weapon<br />
+                            <a
+                                href="./download/0.34.sb3"
+                                download="Terraria (Stamped) v0.34.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            26 Sep 2019 - v0.33<br />Added Bats<br />
+                            <a
+                                href="./download/0.33.sb3"
+                                download="Terraria (Stamped) v0.33.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            25 Sep 2019 - v0.32<br />Slimes float on water<br />
+                            <a
+                                href="./download/0.32.sb3"
+                                download="Terraria (Stamped) v0.32.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            25 Sep 2019 - v0.31<br />Bows can now fire arrows<br />
+                            <a
+                                href="./download/0.31.sb3"
+                                download="Terraria (Stamped) v0.31.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            19 Sep 2019 - v0.30<br />Player knockback<br />better
+                            inventory management<br />doors now block mobs /
+                            water when closed<br />simplified placement of large
+                            objects<br />
+                            <a
+                                href="./download/0.30.sb3"
+                                download="Terraria (Stamped) v0.30.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            18 Sep 2019 - v0.29<br />Huge update<br />slimes<br />swords<br />new
+                            crafting<br />hp<br />etc<br />
+                            <a
+                                href="./download/0.29.sb3"
+                                download="Terraria (Stamped) v0.29.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            11 Sep 2019 - v0.28<br />Added Tool-tips<br />
+                            <a
+                                href="./download/0.28.sb3"
+                                download="Terraria (Stamped) v0.28.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            11 Sep 2019 - v0.27<br />Added Crafting<br />
+                            <hr />
+                            9 Sep 2019 - v0.26<br />Added breaking animation<br />tool
+                            animation<br />added music<br />other fixes<br />
+                            <a
+                                href="./download/0.26.sb3"
+                                download="Terraria (Stamped) v0.26.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            9 Sep 2019 - v0.25<br />Added Acorns<br />
+                            <hr />
+                            8 Sep 2019 - v0.24<br />inventory<br />
+                            <hr />
+                            3 Sep 2019 - v0.23<br />Completely different tile
+                            shader<br />draft bunny code for fun<br />
+                            <a
+                                href="./download/0.23.sb3"
+                                download="Terraria (Stamped) v0.23.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            2 Sep 2019 - v0.22<br />FIxed start up bug<br />added
+                            vines<br />added sand<br />added copper<br />added
+                            iron<br />added tungsten<br />added platinum
+                            blocks<br />added glass walls<br />
+                            <a
+                                href="./download/0.22.sb3"
+                                download="Terraria (Stamped) v0.22.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            21 Aug 2019 - v0.21<br />Added glass blocks<br />
+                            <a
+                                href="./download/0.21.sb3"
+                                download="Terraria (Stamped) v0.21.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            20 Aug 2019 - v0.20<br />Water is now placeable<br />
+                            <hr />
+                            20 Aug 2019 - v0.19d<br />Bug fixes to water<br />
+                            <a
+                                href="./download/0.19d.sb3"
+                                download="Terraria (Stamped) v0.19d.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            19 Aug 2019 - v0.19<br />Added water<br />ghosted
+                            object placement<br />
+                            <hr />
+                            15 Aug 2019 - v0.18<br />Press 'C' to center screen
+                            on mouse<br />Press '0' to toggle Creative mode<br />Bug
+                            fixes<br />Dig mode has a memory<br />prevent
+                            placement on self<br />Q only switches to torch mode
+                            while held down<br />
+                            <a
+                                href="./download/0.18.sb3"
+                                download="Terraria (Stamped) v0.18.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            15 Aug 2019 - v0.17<br />Added tool range<br />limited
+                            dig speed<br />auto cursor<br />logo<br />underground
+                            background<br />more<br />
+                            <hr />
+                            14 Aug 2019 - v0.16<br />Implemented tree
+                            breaking<br />added many new furniture items<br />
+                            <a
+                                href="./download/0.16.sb3"
+                                download="Terraria (Stamped) v0.16.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            13 Aug 2019 - v0.15<br />Added Wooden Platforms<br />new
+                            collision detection<br />
+                            <a
+                                href="./download/0.15.sb3"
+                                download="Terraria (Stamped) v0.15.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            11 Aug 2019 - v0.14<br />Added Wood tiles & walls<br />tree
+                            branches<br />
+                            <a
+                                href="./download/0.14.sb3"
+                                download="Terraria (Stamped) v0.14.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            10 Aug 2019 - v0.13<br />Added sky tiles (simple
+                            gradient)<br />Changes vertical scroll poin<br />added
+                            extra height<br />fixed sky ceiling bug<br />
+                            <a
+                                href="./download/0.13.sb3"
+                                download="Terraria (Stamped) v0.13.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            9 Aug 2019 - v0.12<br />Added tree tops<br />
+                            <a
+                                href="./download/0.12.sb3"
+                                download="Terraria (Stamped) v0.12.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            9 Aug 2019 - v0.11<br />Super fast world gen<br />
+                            <a
+                                href="./download/0.11.sb3"
+                                download="Terraria (Stamped) v0.11.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            8 Aug 2019 - v0.10<br />(Version 0.9 was not
+                            released)<br />larger map and more world gen<br />
+                            <hr />
+                            8 Aug 2019 - v0.8<br />Hammer tool (press 1 twice)
+                            to remove (background) wall tiles<br />Wall
+                            placement is now done in chunks<br />included wall
+                            edge sprites<br />
+                            <a
+                                href="./download/0.8.sb3"
+                                download="Terraria (Stamped) v0.8.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            7 Aug 2019 - v0.7<br />Vegetation spreads<br />Added
+                            workbench & doors<br />Added placement of walls<br />grass
+                            turns to dirt when it's got no free edges<br />
+                            <a
+                                href="./download/0.7.sb3"
+                                download="Terraria (Stamped) v0.7.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            5 Aug 2019 - v0.6<br />Grass<br />shrubs<br />basic
+                            trees<br />
+                            <a
+                                href="./download/0.6.sb3"
+                                download="Terraria (Stamped) v0.6.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            4 Aug 2019 - v0.5<br />Small level gen<br />
+                            <a
+                                href="./download/0.5.sb3"
+                                download="Terraria (Stamped) v0.5.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            4 Aug 2019 - v0.4<br />Completed dirt tileset<br />Added
+                            good set of stone tiles<br />
+                            <hr />
+                            3 Aug 2019 - v0.3<br />Player has width<br />Prevented
+                            placing torches in invalid locations<br />
+                            <a
+                                href="./download/0.3.sb3"
+                                download="Terraria (Stamped) v0.3.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            2 Aug 2019 - v0.2<br />Place Dirt<br />Remove
+                            torches<br />
+                            <a
+                                href="./download/0.2.sb3"
+                                download="Terraria (Stamped) v0.2.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                            1 Aug 2019 - v0.1<br />Initial Release
+                            (pre-alpha)<br />
+                            <a
+                                href="./download/0.1.sb3"
+                                download="Terraria (Stamped) v0.1.sb3"
+                                >Download</a
+                            >
+                            <hr />
+                        </div>
+                        <br /><br /><br /><br /><br /><br /><br /><br />
                     </div>
-                    <div style="width:50%;margin:0 auto;">
-                        <h1>Changelog</h1>
-                        If you have an unmodified version of an update that is not available for download here, contact <a href="https://scratch.mit.edu/users/TerrariaMods">@TerrariaMods</a>
-                        <p>
-                            1 July 2024 - Website Update<br>Custom Scrollbar<br>Fixed Scrolling While Playing<br>Resizable Game Window<br>Custom Variable Displays<br>Modified Version Loading<br>Improved Menu Bar<br>Added Project volume slider by <a href="https://scratch.mit.edu/users/samq64/">samq64</a>, <a href="https://scratch.mit.edu/users/GarboMuffin/">GarboMuffin</a>, and <a href="https://github.com/DNin01">DNin01</a><hr>
-                            25 June 2024 - v1.1.4<br>Added 187 New Items<br>Added Lava<br>Added Underworld<br>Added Ashwood<br>Added Ruined Houses<br>Added NPC Banners<br>Added Snails<br>Added Wall of Flesh<br>Added Chocolate<br>Added Boss Health Bars<br>Added Explosions<br>Added Bestiary Saving<br>Updated Creative Menu<br>Improved Meteorite Bullet Code<br>Improved Bullet Hit Detection<br>Improved Cave Backgrounds<br>Improved Worm AI<br>Fixed Treasure Bag Naming<br>Fixed Banana Naming<br>Fixed Seeds<br>More Bugfixes<br>
-                            <a href="./download/1.1.4.sb3" download="Terraria (Stamped) v1.1.4.sb3" class="downloadParts" numParts="3">Download</a><hr>
-                            17 March 2024 - v1.1.3.5<br>Added Heavy Workbench<br>Added error<br>Added Ore Excavator<br>Fixed Objects Rendering Over Map<br>Fixed Bottle Crafting Station<br>Fixed Tree Placement<br>Fixed Underwater Torches<br>Updated Save/Load Screen<br>
-                            <a href="./download/1.1.3.5.sb3" download="Terraria (Stamped) v1.1.3.5.sb3">Download</a><hr>
-                            15 October 2023 - v1.1.3<br>Enhanced Visuals<br>Ducks<br>Grasshoppers<br>Gold Critters<br>Town NPC Drops<br>Painter<br>Zoologist<br>Whip<br>Paintings<br>Sun<br>Moon<br>Halloween<br>Trophies<br>Bugfixes<br>
-                            <a href="./download/1.1.3.sb3" download="Terraria (Stamped) v1.1.3.sb3">Download</a><hr>
-                            27 August 2023 - v1.1.2<br>Added Snow Biome<br>Added Ice Biome<br>Added Deerclops<br>Added Butterflies<br>Added Mouse<br>Added Birds<br>Added Campfires<br>Added Bricks<br>Added Slime Blocks<br>Added Slime Furniture<br>Added Tree Shaking<br>Bugfixes<br>
-                            <a href="./download/1.1.2.sb3" download="Terraria (Stamped) v1.1.2.sb3">Download</a><hr>
-                            18 August 2023 - v1.115<br>New Crafting Mechanics<br>Added Granite Caves (+Pathfinding)<br>Buffed Copper Bow<br>More Ores<br>More Gems<br>Fixed Walls<br>
-                            <a href="./download/1.115.sb3" download="Terraria (Stamped) v1.115.sb3">Download</a><hr>
-                            2 August 2023 - v1.11<br>Yoyos<br>Zombie Overhaul<br>Demon Eye Overhaul<br>Blood Moon<br>New Loading Screen<br>Fixed Projectile Gore Collision<br>Evil Grass Walls<br>Evil Seeds<br>Fixed Door Collision<br>
-                            <a href="./download/1.11.sb3" download="Terraria (Stamped) v1.11.sb3">Download</a><hr>
-                            2 June 2023 - v1.099<br>Enchanted Sword Shrines<br>Copper Broadsword Nerf<br>
-                            <a href="./download/1.099.sb3" download="Terraria (Stamped) v1.099.sb3">Download</a><hr>
-                            29 May 2023 - v1.098<br>Added Powder + Bugfixes<br><hr>
-                            2 April 2023 - v1.09751<br>Removed April Fools Update<br>
-                            <a href="./download/1.09751.sb3" download="Terraria (Stamped) v1.09751.sb3">Download</a><hr>
-                            1 April 2023 - v1.4.4<br>Journey's End<br>
-                            <a href="./download/1.4.4.sb3" download="Terraria (Stamped) v1.4.4 (April Fools).sb3">Download</a><hr>
-                            29 August 2022 - v1.09751<br>Unloaded Sprites Warning<br>
-                            <a href="./download/1.09751.sb3" download="Terraria (Stamped) v1.09751.sb3">Download</a><hr>
-                            3 August 2022 - v1.0975<br>Bug Fixes<br><hr>
-                            2 August 2022 - v1.095<br>Purification Powder<br>Bucket<br><hr>
-                            8 June 2022 - v1.09<br>Dryad<br><hr>
-                            13 May 2022 - v1.08<br>Meteors<br>NPCs drop items<br><hr>
-                            5 May 2022 - v1.075<br>Menu Save Loading<br><hr>
-                            5 May 2022 - v1.07<br>Crimson Biome<br>Fixed Floating Water<br>Mushrooms<br>Biome Music<br>Jester Arrow Recipe<br>Easier House Requirements<br>Forest Biome Option<br>Fixed Shadow Orbs<br><hr>
-                            15 Apr 2022 - v1.065<br>Easter Content<br>Ebonwood Items<br>Bug Fixes<br>Set Bonuses<br>Map Update<br><hr>
-                            04 Apr 2022 - v1.06<br>Corruption<br>King Slime Buff<br>Expert Mode Items<br><hr>
-                            18 Nov 2021 - v1.05<br>Arms Dealer<br>Guns<br>NPC shop update.<br><hr>
-                            08 Nov 2021 - v1.04<br>Added Eye of Cthulhu<br>Updated Scroll Bar<br>Bug Fixes<br><hr>
-                            04 Nov 2021 - v1.03<br>Added Traveling Merchant<br>Bug Fixes<br><hr>
-                            02 Nov 2021 -  v1.02<br>Added Magic Mirror<br>Accessories<br><hr>
-                            28 Oct 2021 - v1.01<br>Added more Halloween content<br>NPCs can now get hurt<br>Updated Menu<br><hr>
-                            27 Oct 2021 - v1.00<br>World Customization<br>Slime Hook<br>King Slime Relic<br>Halloween Event<br>Animated Objects<br>Vanity Slots<br>Shortswords<br><hr>
-                            <a href="https://scratch.mit.edu/users/griffpatch">@griffpatch</a>'s version <a href="https://scratch.mit.edu/projects/322341152">v0.65b</a><hr>
-                            04 Dec 2019 - v0.65<br>Grappling<br>Gem Hooks<br>
-                            <a href="./download/0.65.sb3" download="Terraria (Stamped) v0.65.sb3">Download</a><hr>
-                            26 Nov 2019 - v0.64<br>Falling Stars<br>Mana<br>Staves<br>
-                            <a href="./download/0.64.sb3" download="Terraria (Stamped) v0.64.sb3">Download</a><hr>
-                            15 Nov 2019 - v0.63<br>Quick Thumbnail Added<br>
-                            <a href="./download/0.63.sb3" download="Terraria (Stamped) v0.63.sb3">Download</a><hr>
-                            14 Nov 2019 - v0.62<br>Demon Altars<br>Gemstones<br>Platinum Crown<br>New Weapons<br>
-                            <a href="./download/0.62.sb3" download="Terraria (Stamped) v0.62.sb3">Download</a><hr>
-                            12 Nov 2019 - v0.61<br>NPC health bars<br>Slime Crown<br>King Slime<br>
-                            <a href="./download/0.61.sb3" download="Terraria (Stamped) v0.61.sb3">Download</a><hr>
-                            10 Nov 2019 - v0.60<br>Boomerang<br>
-                            <a href="./download/0.60.sb3" download="Terraria (Stamped) v0.60.sb3">Download</a><hr>
-                            09 Nov 2019 - v0.59<br>Spears<br>
-                            <a href="./download/0.59.sb3" download="Terraria (Stamped) v0.59.sb3">Download</a><hr>
-                            08 Nov 2019 - v0.58<br>The Bug Net is sold by the merchant<br>Passive mobs added to the creative inventory<br>Mouse wheel changes active tool<br>Girl Hairstyle<br>
-                            <a href="./download/0.58.sb3" download="Terraria (Stamped) v0.58.sb3">Download</a><hr>
-                            03 Nov 2019 - v0.57<br>Nurse NPC<br>Trading<br>New tool tip font engine<br>
-                            <a href="./download/0.57.sb3" download="Terraria (Stamped) v0.57.sb3">Download</a><hr>
-                            25 Oct 2019 - v0.56<br>Save Game Validation<br>Set spawn point using a bed<br>Slimes no longer drop grass<br><hr>
-                            24 Oct 2019 - v0.55<br>Piranhas<br>Skeletons<br>removed zombies from underground<br><hr>
-                            23 Oct 2019 - v0.54<br>Flaming Arrows<br><hr>
-                            23 Oct 2019 - v0.53<br>Goldfish<br>Squirrels<br>large re-scripting of NPC code to allow more variation<br>
-                            <a href="./download/0.53.sb3" download="Terraria (Stamped) v0.53.sb3">Download</a><hr>
-                            21 Oct 2019 - v0.51<br>Added the Merchant<br><hr>
-                            17 Oct 2019 - v0.50<br>Added lots of new furniture + the loom so you can make silk (removed silk from initial inventory)<br><hr>
-                            17 Oct 2019 - v0.49<br>Added Night and Underground music scores. Cobwebs are now also destroyed by contact, Fixed downing sound<br><hr>
-                            16 Oct 2019 - v0.48<br>Webs<br><hr>
-                            16 Oct 2019 - v0.47<br>Life Crystals + Heart drops<br>
-                            <a href="./download/0.47.sb3" download="Terraria (Stamped) v0.47.sb3">Download</a><hr>
-                            15 Oct 2019b - v0.46<br>Added object collection animation- yay!<br>Fix for random objects<br>
-                            <a href="./download/0.46.sb3" download="Terraria (Stamped) v0.46.sb3">Download</a><hr>
-                            15 Oct 2019 - v0.45<br>Chests now work<br>Added treasure + pots<br>4 colours of enemy slime<br>Zombie sounds<br>AI fixes<br>Save chest contents<br>Healing potions<br>Level objects now clone & despawn as they are needed allowing more objects on a level.<br><hr>
-                            11 Oct 2019 - v0.44<br>Fixed lighting bug<br>Added coins + lenses<br>bow sound<br>corrected vine destruction<br>prevent dig under trees and furniture<br>
-                            <a href="./download/0.44.sb3" download="Terraria (Stamped) v0.44.sb3">Download</a><hr>
-                            10 Oct 2019 - v0.43<br>Added game sounds [U] to toggle music<br>
-                            <a href="./download/0.43.sb3" download="Terraria (Stamped) v0.43.sb3">Download</a><hr>
-                            10 Oct 2019 - v0.42<br>Added Save & Load interface<br><hr>
-                            10 Oct 2019 - v0.41<br>Faster world gen<br>faster map drawing<br>experimental save & load<br><hr>
-                            7 Oct 2019 - v0.40<br>Improved world gen added exposed cave<br>F key for map<br>
-                            <a href="./download/0.40.sb3" download="Terraria (Stamped) v0.40.sb3">Download</a><hr>
-                            5 Oct 2019 - v0.39<br>Added Zombies<br>corrected sword stats<br>Added basic tiles to creative<br><hr>
-                            4 Oct 2019 - v0.38<br>Armor done<br>fall damage and player defense<br>updated land gen<br>more ore<br>
-                            <a href="./download/0.38.sb3" download="Terraria (Stamped) v0.38.sb3">Download</a><hr>
-                            3 Oct 2019 - v0.37<br>Player sprite update<br>copper armor (only aesthetic at present)<br>Fixed night light bug<br><hr>
-                            2 Oct 2019 - v0.36<br>Day / Night Cycle<br>Demon Eyes<br>Guide NPC<br>House detection<br>NPC spawn points<br>
-                            <a href="./download/0.36.sb3" download="Terraria (Stamped) v0.36.sb3">Download</a><hr>
-                            30 Sep 2019 - v0.35<br>World gen improved & sped up considerably<br>increased the world size and added more water<br>
-                            <a href="./download/0.35.sb3" download="Terraria (Stamped) v0.35.sb3">Download</a><hr>
-                            28 Sep 2019 - v0.34<br>Added Health & Breath Bars<br>Enlarged level a tad<br>prevent spawn on water<br>fixed change direction using weapon<br>
-                            <a href="./download/0.34.sb3" download="Terraria (Stamped) v0.34.sb3">Download</a><hr>
-                            26 Sep 2019 - v0.33<br>Added Bats<br>
-                            <a href="./download/0.33.sb3" download="Terraria (Stamped) v0.33.sb3">Download</a><hr>
-                            25 Sep 2019 - v0.32<br>Slimes float on water<br>
-                            <a href="./download/0.32.sb3" download="Terraria (Stamped) v0.32.sb3">Download</a><hr>
-                            25 Sep 2019 - v0.31<br>Bows can now fire arrows<br>
-                            <a href="./download/0.31.sb3" download="Terraria (Stamped) v0.31.sb3">Download</a><hr>
-                            19 Sep 2019 - v0.30<br>Player knockback<br>better inventory management<br>doors now block mobs / water when closed<br>simplified placement of large objects<br>
-                            <a href="./download/0.30.sb3" download="Terraria (Stamped) v0.30.sb3">Download</a><hr>
-                            18 Sep 2019 - v0.29<br>Huge update<br>slimes<br>swords<br>new crafting<br>hp<br>etc<br>
-                            <a href="./download/0.29.sb3" download="Terraria (Stamped) v0.29.sb3">Download</a><hr>
-                            11 Sep 2019 - v0.28<br>Added Tool-tips<br>
-                            <a href="./download/0.28.sb3" download="Terraria (Stamped) v0.28.sb3">Download</a><hr>
-                            11 Sep 2019 - v0.27<br>Added Crafting<br><hr>
-                            9 Sep 2019 - v0.26<br>Added breaking animation<br>tool animation<br>added music<br>other fixes<br>
-                            <a href="./download/0.26.sb3" download="Terraria (Stamped) v0.26.sb3">Download</a><hr>
-                            9 Sep 2019 - v0.25<br>Added Acorns<br><hr>
-                            8 Sep 2019 - v0.24<br>inventory<br><hr>
-                            3 Sep 2019 - v0.23<br>Completely different tile shader<br>draft bunny code for fun<br>
-                            <a href="./download/0.23.sb3" download="Terraria (Stamped) v0.23.sb3">Download</a><hr>
-                            2 Sep 2019 - v0.22<br>FIxed start up bug<br>added vines<br>added sand<br>added copper<br>added iron<br>added tungsten<br>added platinum blocks<br>added glass walls<br>
-                            <a href="./download/0.22.sb3" download="Terraria (Stamped) v0.22.sb3">Download</a><hr>
-                            21 Aug 2019 - v0.21<br>Added glass blocks<br>
-                            <a href="./download/0.21.sb3" download="Terraria (Stamped) v0.21.sb3">Download</a><hr>
-                            20 Aug 2019 - v0.20<br>Water is now placeable<br><hr>
-                            20 Aug 2019 - v0.19d<br>Bug fixes to water<br>
-                            <a href="./download/0.19d.sb3" download="Terraria (Stamped) v0.19d.sb3">Download</a><hr>
-                            19 Aug 2019 - v0.19<br>Added water<br>ghosted object placement<br><hr>
-                            15 Aug 2019 - v0.18<br>Press 'C' to center screen on mouse<br>Press '0' to toggle Creative mode<br>Bug fixes<br>Dig mode has a memory<br>prevent placement on self<br>Q only switches to torch mode while held down<br>
-                            <a href="./download/0.18.sb3" download="Terraria (Stamped) v0.18.sb3">Download</a><hr>
-                            15 Aug 2019 - v0.17<br>Added tool range<br>limited dig speed<br>auto cursor<br>logo<br>underground background<br>more<br><hr>
-                            14 Aug 2019 - v0.16<br>Implemented tree breaking<br>added many new furniture items<br>
-                            <a href="./download/0.16.sb3" download="Terraria (Stamped) v0.16.sb3">Download</a><hr>
-                            13 Aug 2019 - v0.15<br>Added Wooden Platforms<br>new collision detection<br>
-                            <a href="./download/0.15.sb3" download="Terraria (Stamped) v0.15.sb3">Download</a><hr>
-                            11 Aug 2019 - v0.14<br>Added Wood tiles & walls<br>tree branches<br>
-                            <a href="./download/0.14.sb3" download="Terraria (Stamped) v0.14.sb3">Download</a><hr>
-                            10 Aug 2019 - v0.13<br>Added sky tiles (simple gradient)<br>Changes vertical scroll poin<br>added extra height<br>fixed sky ceiling bug<br>
-                            <a href="./download/0.13.sb3" download="Terraria (Stamped) v0.13.sb3">Download</a><hr>
-                            9 Aug 2019 - v0.12<br>Added tree tops<br>
-                            <a href="./download/0.12.sb3" download="Terraria (Stamped) v0.12.sb3">Download</a><hr>
-                            9 Aug 2019 - v0.11<br>Super fast world gen<br>
-                            <a href="./download/0.11.sb3" download="Terraria (Stamped) v0.11.sb3">Download</a><hr>
-                            8 Aug 2019 - v0.10<br>(Version 0.9 was not released)<br>larger map and more world gen<br><hr>
-                            8 Aug 2019 - v0.8<br>Hammer tool (press 1 twice) to remove (background) wall tiles<br>Wall placement is now done in chunks<br>included wall edge sprites<br>
-                            <a href="./download/0.8.sb3" download="Terraria (Stamped) v0.8.sb3">Download</a><hr>
-                            7 Aug 2019 - v0.7<br>Vegetation spreads<br>Added workbench & doors<br>Added placement of walls<br>grass turns to dirt when it's got no free edges<br>
-                            <a href="./download/0.7.sb3" download="Terraria (Stamped) v0.7.sb3">Download</a><hr>
-                            5 Aug 2019 - v0.6<br>Grass<br>shrubs<br>basic trees<br>
-                            <a href="./download/0.6.sb3" download="Terraria (Stamped) v0.6.sb3">Download</a><hr>
-                            4 Aug 2019 - v0.5<br>Small level gen<br>
-                            <a href="./download/0.5.sb3" download="Terraria (Stamped) v0.5.sb3">Download</a><hr>
-                            4 Aug 2019 - v0.4<br>Completed dirt tileset<br>Added good set of stone tiles<br><hr>
-                            3 Aug 2019 - v0.3<br>Player has width<br>Prevented placing torches in invalid locations<br>
-                            <a href="./download/0.3.sb3" download="Terraria (Stamped) v0.3.sb3">Download</a><hr>
-                            2 Aug 2019 - v0.2<br>Place Dirt<br>Remove torches<br>
-                            <a href="./download/0.2.sb3" download="Terraria (Stamped) v0.2.sb3">Download</a><hr>
-                            1 Aug 2019 - v0.1<br>Initial Release (pre-alpha)<br>
-                            <a href="./download/0.1.sb3" download="Terraria (Stamped) v0.1.sb3">Download</a><hr>
-                        </p>
-                    </div>
-                    <br><br><br><br><br><br><br><br>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
