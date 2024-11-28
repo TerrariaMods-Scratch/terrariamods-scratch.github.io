@@ -1586,5 +1586,1143 @@
             "rotationCenterX": 17.244024999999965,
             "rotationCenterY": 16.605819999999994
         }
+    ],
+    "BattleHand": [
+        {
+            "name": "Word_12",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fd8dae000115b14c5e96295917819dac",
+            "md5ext": "fd8dae000115b14c5e96295917819dac.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_11",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6f393d13f60c6364b96f9d01efeaba6d",
+            "md5ext": "6f393d13f60c6364b96f9d01efeaba6d.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_15",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "029167221ef1a3f471126b55517d4d3a",
+            "md5ext": "029167221ef1a3f471126b55517d4d3a.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_19",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "234d078cd3ca75de7abc4dddd4658577",
+            "md5ext": "234d078cd3ca75de7abc4dddd4658577.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_21",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fcf6ab1210df3060b0b60a603a9edaf0",
+            "md5ext": "fcf6ab1210df3060b0b60a603a9edaf0.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_31",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5e4423992fa878d0630601ecfd29de98",
+            "md5ext": "5e4423992fa878d0630601ecfd29de98.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_32",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e6687b432f161aa0cf1b313685582ed7",
+            "md5ext": "e6687b432f161aa0cf1b313685582ed7.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_34",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4af0273381f7393d9cacde3c87620f00",
+            "md5ext": "4af0273381f7393d9cacde3c87620f00.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_39",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "924b8c0cca5b045312f72ea9ce42376a",
+            "md5ext": "924b8c0cca5b045312f72ea9ce42376a.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_41",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d55f1419dcfacc167dacfc8895a5e104",
+            "md5ext": "d55f1419dcfacc167dacfc8895a5e104.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_42",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b3a70c956dcb9c6eeb72dea8a12b1279",
+            "md5ext": "b3a70c956dcb9c6eeb72dea8a12b1279.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_43",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b5f92ebfba8df963a33fd3933972a283",
+            "md5ext": "b5f92ebfba8df963a33fd3933972a283.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_44",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7989a78915ee94733c3e393be0f65804",
+            "md5ext": "7989a78915ee94733c3e393be0f65804.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_46",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "17709ce689d2fcc53a4666f167541b57",
+            "md5ext": "17709ce689d2fcc53a4666f167541b57.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_49",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f2b49563ef9f0cafe1b1c589b5a751c3",
+            "md5ext": "f2b49563ef9f0cafe1b1c589b5a751c3.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_51",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ffe9cae45b94752bc272c7003eab0d2a",
+            "md5ext": "ffe9cae45b94752bc272c7003eab0d2a.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_52",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ee0c95ccfee7c9b1870e4180c5890c67",
+            "md5ext": "ee0c95ccfee7c9b1870e4180c5890c67.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_53",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e24e0d003a67cf17f215059ea65912d1",
+            "md5ext": "e24e0d003a67cf17f215059ea65912d1.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_54",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "09bf5ccc1b866e84bf24dfdf0c287aa0",
+            "md5ext": "09bf5ccc1b866e84bf24dfdf0c287aa0.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_56",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "06b7431e485b8ea1a4ca972ef130e7dd",
+            "md5ext": "06b7431e485b8ea1a4ca972ef130e7dd.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_57",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0ed6be1eb31e036c71aba4a36c163b30",
+            "md5ext": "0ed6be1eb31e036c71aba4a36c163b30.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_58",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "457219911c85cd8cc181fe47bae24420",
+            "md5ext": "457219911c85cd8cc181fe47bae24420.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_59",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b902d451f80e4413380f21e16b0ec769",
+            "md5ext": "b902d451f80e4413380f21e16b0ec769.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "HEAD 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8a0db3d4c7129072a05024dcc2080afb",
+            "md5ext": "8a0db3d4c7129072a05024dcc2080afb.svg",
+            "rotationCenterX": 15.68176544517982,
+            "rotationCenterY": 15.463304487218693
+        },
+        {
+            "name": "HEAD 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d844dd3bd84f2af239c51c124c0793e3",
+            "md5ext": "d844dd3bd84f2af239c51c124c0793e3.svg",
+            "rotationCenterX": 15.681765445179877,
+            "rotationCenterY": 15.337545518185294
+        },
+        {
+            "name": "HEAD 2R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0585955bea1dfee90c51b00d38ce38c3",
+            "md5ext": "0585955bea1dfee90c51b00d38ce38c3.svg",
+            "rotationCenterX": 13.346698187594342,
+            "rotationCenterY": 12.827465235473426
+        },
+        {
+            "name": "HEAD 2L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4b2c86aefb35d0fbf232af583b6711db",
+            "md5ext": "4b2c86aefb35d0fbf232af583b6711db.svg",
+            "rotationCenterX": 13.347604854238938,
+            "rotationCenterY": 12.82753958276274
+        },
+        {
+            "name": "HEAD 5R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "94774ee7d2fd81de29033ba6095ed008",
+            "md5ext": "94774ee7d2fd81de29033ba6095ed008.svg",
+            "rotationCenterX": 16.039223963426934,
+            "rotationCenterY": 14.430922267418282
+        },
+        {
+            "name": "HEAD 5L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0174d30e70c0ac572095aa78ce4e2c4c",
+            "md5ext": "0174d30e70c0ac572095aa78ce4e2c4c.svg",
+            "rotationCenterX": 16.039223963426906,
+            "rotationCenterY": 14.990524626200994
+        },
+        {
+            "name": "HEAD 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "95054912942d9fa17f3a4da30beaaab4",
+            "md5ext": "95054912942d9fa17f3a4da30beaaab4.svg",
+            "rotationCenterX": 13.118584999999996,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e1d5db321160cbcd7b2b7aca91926aa0",
+            "md5ext": "e1d5db321160cbcd7b2b7aca91926aa0.svg",
+            "rotationCenterX": 12.600004999999953,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "SHOULDERS 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "633119c006760122f52877db1e434149",
+            "md5ext": "633119c006760122f52877db1e434149.svg",
+            "rotationCenterX": 26.91390279613279,
+            "rotationCenterY": 59.06404052988523
+        },
+        {
+            "name": "CHEST 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1dcefdd4e681fa30fc8dfc6754fdb87f",
+            "md5ext": "1dcefdd4e681fa30fc8dfc6754fdb87f.svg",
+            "rotationCenterX": 14.439043788281253,
+            "rotationCenterY": 48.62730449254093
+        },
+        {
+            "name": "CHEST 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "aa07cc9711e11e120b67c8de93538b40",
+            "md5ext": "aa07cc9711e11e120b67c8de93538b40.svg",
+            "rotationCenterX": 14.14514480896895,
+            "rotationCenterY": 50.087855435988274
+        },
+        {
+            "name": "CHEST 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5fb79d963667a3117790be02cb6d0424",
+            "md5ext": "5fb79d963667a3117790be02cb6d0424.svg",
+            "rotationCenterX": 28.49336500000001,
+            "rotationCenterY": 49.15276499999999
+        },
+        {
+            "name": "CHEST 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0c74970e09c196acb1bbb29e5a9f6897",
+            "md5ext": "0c74970e09c196acb1bbb29e5a9f6897.svg",
+            "rotationCenterX": 13.581735000000009,
+            "rotationCenterY": 49.12671
+        },
+        {
+            "name": "WHEEL 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c3781082fc0eb6f227cbc4a737c50062",
+            "md5ext": "c3781082fc0eb6f227cbc4a737c50062.svg",
+            "rotationCenterX": 11.131619090909112,
+            "rotationCenterY": 11.131619090909084
+        },
+        {
+            "name": "WHEEL 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "75f3c3aa7af472f7f80c058ae921cdaa",
+            "md5ext": "75f3c3aa7af472f7f80c058ae921cdaa.svg",
+            "rotationCenterX": 12.64214068711928,
+            "rotationCenterY": 12.642140687119308
+        },
+        {
+            "name": "WHEEL 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8360bd8b8442403565377f3a656e9e95",
+            "md5ext": "8360bd8b8442403565377f3a656e9e95.svg",
+            "rotationCenterX": 12.577121380674527,
+            "rotationCenterY": 12.579029277955442
+        },
+        {
+            "name": "WHEEL 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "666245b8441215d0299f6d2aed44dbee",
+            "md5ext": "666245b8441215d0299f6d2aed44dbee.svg",
+            "rotationCenterX": 11.157364084647838,
+            "rotationCenterY": 11.157359128379653
+        },
+        {
+            "name": "WHEEL 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c046bf017125e9311ce229e6c068c728",
+            "md5ext": "c046bf017125e9311ce229e6c068c728.svg",
+            "rotationCenterX": 12.457826781186554,
+            "rotationCenterY": 12.459708333269674
+        },
+        {
+            "name": "WHEEL 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d6413c28483763c24ca4474cbdc5d764",
+            "md5ext": "d6413c28483763c24ca4474cbdc5d764.svg",
+            "rotationCenterX": 11.05841000000001,
+            "rotationCenterY": 11.034770000000009
+        },
+        {
+            "name": "GUN 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "475520ad2f3e19b27b53302f365656e0",
+            "md5ext": "475520ad2f3e19b27b53302f365656e0.svg",
+            "rotationCenterX": 33.716865244696635,
+            "rotationCenterY": 5.436094999999995
+        },
+        {
+            "name": "GUN 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5e170425d0964ca5dc765cf41dbae6f7",
+            "md5ext": "5e170425d0964ca5dc765cf41dbae6f7.svg",
+            "rotationCenterX": 33.71686494765879,
+            "rotationCenterY": 5.686094999999966
+        },
+        {
+            "name": "GUN 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fff08546c1d3fbe50034169999f9f871",
+            "md5ext": "fff08546c1d3fbe50034169999f9f871.svg",
+            "rotationCenterX": 33.71684548939325,
+            "rotationCenterY": 5.43607499999996
+        },
+        {
+            "name": "GUN 2R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8b878729056b16ce9a6fb5dea2a50293",
+            "md5ext": "8b878729056b16ce9a6fb5dea2a50293.svg",
+            "rotationCenterX": 25.82118,
+            "rotationCenterY": 3.927919121475554
+        },
+        {
+            "name": "GUN 2L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c700f0e5cf1cc500d5546f088ae9b307",
+            "md5ext": "c700f0e5cf1cc500d5546f088ae9b307.svg",
+            "rotationCenterX": 25.904903201726114,
+            "rotationCenterY": 4.177919121475554
+        },
+        {
+            "name": "GUN 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "050335b0f167788c8e9a4fa5dd720a75",
+            "md5ext": "050335b0f167788c8e9a4fa5dd720a75.svg",
+            "rotationCenterX": 25.82118,
+            "rotationCenterY": 3.927918242951023
+        },
+        {
+            "name": "GUN 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d2186650cc6e30a89f52467ea406bcc7",
+            "md5ext": "d2186650cc6e30a89f52467ea406bcc7.svg",
+            "rotationCenterX": 33.06998385559021,
+            "rotationCenterY": 12.88494734616765
+        },
+        {
+            "name": "GUN 3R-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "60f8459a84d4ec79a04f81470b5ac2e6",
+            "md5ext": "60f8459a84d4ec79a04f81470b5ac2e6.svg",
+            "rotationCenterX": 33.069979697248215,
+            "rotationCenterY": 12.884943981847954
+        },
+        {
+            "name": "GUN 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6dbe3d8607b5524717cb9743f768c548",
+            "md5ext": "6dbe3d8607b5524717cb9743f768c548.svg",
+            "rotationCenterX": 33.069985934761206,
+            "rotationCenterY": 11.564721666666657
+        },
+        {
+            "name": "GUN 3L-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "440267a75017ae399abbb0c232cd6912",
+            "md5ext": "440267a75017ae399abbb0c232cd6912.svg",
+            "rotationCenterX": 33.06998177641921,
+            "rotationCenterY": 11.564721666666657
+        },
+        {
+            "name": "GUN 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "39dcdbffd0857a610caecfcf0127c3ed",
+            "md5ext": "39dcdbffd0857a610caecfcf0127c3ed.svg",
+            "rotationCenterX": 33.0699780139322,
+            "rotationCenterY": 7.884950710487317
+        },
+        {
+            "name": "GUN 4R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a84a884c6c1936b3de2f3cc3ebfddfce",
+            "md5ext": "a84a884c6c1936b3de2f3cc3ebfddfce.svg",
+            "rotationCenterX": 33.71685524469663,
+            "rotationCenterY": 5.436084999999991
+        },
+        {
+            "name": "GUN 4L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1376c246628fff320d961029549b8ad1",
+            "md5ext": "1376c246628fff320d961029549b8ad1.svg",
+            "rotationCenterX": 33.71685494765879,
+            "rotationCenterY": 5.686084999999963
+        },
+        {
+            "name": "GUN 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8f10872331951aa79c0da702fd1f68ef",
+            "md5ext": "8f10872331951aa79c0da702fd1f68ef.svg",
+            "rotationCenterX": 33.71684548939325,
+            "rotationCenterY": 5.43607499999996
+        },
+        {
+            "name": "GUN 6R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "23abb668229ae7cb1aca6265e2110548",
+            "md5ext": "23abb668229ae7cb1aca6265e2110548.svg",
+            "rotationCenterX": 34.726987301786835,
+            "rotationCenterY": 8.015832584269646
+        },
+        {
+            "name": "GUN 6L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6dbf9e3bdeb92fbd468d8a1094760c41",
+            "md5ext": "6dbf9e3bdeb92fbd468d8a1094760c41.svg",
+            "rotationCenterX": 34.72698561639359,
+            "rotationCenterY": 8.265834999999981
+        },
+        {
+            "name": "GUN 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d71361316144e79f723c3a2673d6d87f",
+            "md5ext": "d71361316144e79f723c3a2673d6d87f.svg",
+            "rotationCenterX": 24.34775590656659,
+            "rotationCenterY": 9.812229044943848
+        },
+        {
+            "name": "GUN 7R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "443d8fd041c979e3bcaac6910d5cb177",
+            "md5ext": "443d8fd041c979e3bcaac6910d5cb177.svg",
+            "rotationCenterX": 21.428126685393238,
+            "rotationCenterY": 11.181233033707855
+        },
+        {
+            "name": "GUN 7L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "87fb2e5b0e0a3ac2ea211c219fdc1dd8",
+            "md5ext": "87fb2e5b0e0a3ac2ea211c219fdc1dd8.svg",
+            "rotationCenterX": 21.428124999999994,
+            "rotationCenterY": 12.181234999999958
+        },
+        {
+            "name": "GUN 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e1ef83b4f5d8ee736a5c88a3c7fe9b82",
+            "md5ext": "e1ef83b4f5d8ee736a5c88a3c7fe9b82.svg",
+            "rotationCenterX": 21.428114999999963,
+            "rotationCenterY": 11.181225000000012
+        },
+        {
+            "name": "GUN 8R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e91491e029738db68d36fe98d7a35380",
+            "md5ext": "e91491e029738db68d36fe98d7a35380.svg",
+            "rotationCenterX": 31.220555786516826,
+            "rotationCenterY": 7.589800828555099
+        },
+        {
+            "name": "GUN 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b881e20ee6d8705adb844c488eca88dd",
+            "md5ext": "b881e20ee6d8705adb844c488eca88dd.svg",
+            "rotationCenterX": 31.220544999999987,
+            "rotationCenterY": 7.589799690818097
+        },
+        {
+            "name": "GUN 8L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "97616515ae4dc82cdb9e9f96917e1007",
+            "md5ext": "97616515ae4dc82cdb9e9f96917e1007.svg",
+            "rotationCenterX": 31.225498675545964,
+            "rotationCenterY": 7.839802345409026
+        },
+        {
+            "name": "GUN 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1793fd10b5a1f2bb48a84936510ad649",
+            "md5ext": "1793fd10b5a1f2bb48a84936510ad649.svg",
+            "rotationCenterX": 9.273232590593182,
+            "rotationCenterY": 5.506750193292305
+        },
+        {
+            "name": "GUN 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9c26ee64e465f140b31a79ca411c299b",
+            "md5ext": "9c26ee64e465f140b31a79ca411c299b.svg",
+            "rotationCenterX": 9.252454999999998,
+            "rotationCenterY": 5.506750000000039
+        },
+        {
+            "name": "GUN 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "be7f43d3591fca12a474e79aa045f821",
+            "md5ext": "be7f43d3591fca12a474e79aa045f821.svg",
+            "rotationCenterX": 9.273236727062113,
+            "rotationCenterY": 5.506750000000011
+        },
+        {
+            "name": "Rocket",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5145652a5205b83c39a43dcd0d715bde",
+            "md5ext": "5145652a5205b83c39a43dcd0d715bde.svg",
+            "rotationCenterX": 16.443077499999987,
+            "rotationCenterY": 4.035783546141602
+        }
+    ],
+    "Science": [
+        {
+            "name": "Word_11",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6f393d13f60c6364b96f9d01efeaba6d",
+            "md5ext": "6f393d13f60c6364b96f9d01efeaba6d.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_13",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "56968ad74775b36fc1f0181cb1a10d1d",
+            "md5ext": "56968ad74775b36fc1f0181cb1a10d1d.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_21",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fcf6ab1210df3060b0b60a603a9edaf0",
+            "md5ext": "fcf6ab1210df3060b0b60a603a9edaf0.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_23",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e6f6b8dcb64eeb5b21d9f7c71efce9a9",
+            "md5ext": "e6f6b8dcb64eeb5b21d9f7c71efce9a9.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_31",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5e4423992fa878d0630601ecfd29de98",
+            "md5ext": "5e4423992fa878d0630601ecfd29de98.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_33",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "474394df4e3f0fd46dc0921a720d7239",
+            "md5ext": "474394df4e3f0fd46dc0921a720d7239.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_41",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d55f1419dcfacc167dacfc8895a5e104",
+            "md5ext": "d55f1419dcfacc167dacfc8895a5e104.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_43",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b5f92ebfba8df963a33fd3933972a283",
+            "md5ext": "b5f92ebfba8df963a33fd3933972a283.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_51",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6a526c8fd70df0002646c991f93aba52",
+            "md5ext": "6a526c8fd70df0002646c991f93aba52.svg",
+            "rotationCenterX": 18.002638333333323,
+            "rotationCenterY": 27.2029050000001
+        },
+        {
+            "name": "Word_52",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1c80e953880e5f12a139b2dd6111332b",
+            "md5ext": "1c80e953880e5f12a139b2dd6111332b.svg",
+            "rotationCenterX": 18.136057857142816,
+            "rotationCenterY": 27.238081428571462
+        },
+        {
+            "name": "Word_53",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1f919c586645a254ed8d1c169b8ae066",
+            "md5ext": "1f919c586645a254ed8d1c169b8ae066.svg",
+            "rotationCenterX": 18.278915000000097,
+            "rotationCenterY": 27.21916037373856
+        },
+        {
+            "name": "Word_54",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0a99fd4db23a44fedd7a37fc01c06f66",
+            "md5ext": "0a99fd4db23a44fedd7a37fc01c06f66.svg",
+            "rotationCenterX": 18.28041650150152,
+            "rotationCenterY": 27.55950999999999
+        },
+        {
+            "name": "Word_55",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4d534883139c65098c8f101a15de650c",
+            "md5ext": "4d534883139c65098c8f101a15de650c.svg",
+            "rotationCenterX": 18.87891499999995,
+            "rotationCenterY": 26.809510000000017
+        },
+        {
+            "name": "Word_56",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a7fa5ddf4d9557e4508e5d5467463191",
+            "md5ext": "a7fa5ddf4d9557e4508e5d5467463191.svg",
+            "rotationCenterX": 18.278915000000012,
+            "rotationCenterY": 27.05950999999999
+        },
+        {
+            "name": "Word_57",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4670406645eee177f21a9bf518d3e668",
+            "md5ext": "4670406645eee177f21a9bf518d3e668.svg",
+            "rotationCenterX": 19.472206666666693,
+            "rotationCenterY": 27.142843333333246
+        },
+        {
+            "name": "Word_58",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b6583a0366a631e5e346591f701c2c53",
+            "md5ext": "b6583a0366a631e5e346591f701c2c53.svg",
+            "rotationCenterX": 17.778915000000012,
+            "rotationCenterY": 27.80950999999999
+        },
+        {
+            "name": "Word_59",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c86d8c935bc96ea1b7e4874a54608cb1",
+            "md5ext": "c86d8c935bc96ea1b7e4874a54608cb1.svg",
+            "rotationCenterX": 18.878915000000035,
+            "rotationCenterY": 27.209509999999938
+        },
+        {
+            "name": "HEAD 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "3b9e898e6addcd550b8bf0f807a163fa",
+            "md5ext": "3b9e898e6addcd550b8bf0f807a163fa.svg",
+            "rotationCenterX": 12.822464816556703,
+            "rotationCenterY": 20.09421642142837
+        },
+        {
+            "name": "HEAD 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "72a180c32eb13b143cbf286acb3db165",
+            "md5ext": "72a180c32eb13b143cbf286acb3db165.svg",
+            "rotationCenterX": 12.822464999999994,
+            "rotationCenterY": 12.572826666666941
+        },
+        {
+            "name": "HEAD 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "44ecc9e1467fd481bc19ab92ffb59ca8",
+            "md5ext": "44ecc9e1467fd481bc19ab92ffb59ca8.svg",
+            "rotationCenterX": 14.029130000000151,
+            "rotationCenterY": 24.865565071681857
+        },
+        {
+            "name": "HEAD 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b6ebeb03faf96cfec01a5a89fbfde3f2",
+            "md5ext": "b6ebeb03faf96cfec01a5a89fbfde3f2.svg",
+            "rotationCenterX": 14.02913000000001,
+            "rotationCenterY": 12.93374007168137
+        },
+        {
+            "name": "SHOULDERS 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1f731d5fa350e34c87742fca57406a7b",
+            "md5ext": "1f731d5fa350e34c87742fca57406a7b.svg",
+            "rotationCenterX": 20.568379484468977,
+            "rotationCenterY": 64.28557050856517
+        },
+        {
+            "name": "SHOULDERS 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "315ff5b7980b68fa3047aa0c17d944b2",
+            "md5ext": "315ff5b7980b68fa3047aa0c17d944b2.svg",
+            "rotationCenterX": 19.961246310140552,
+            "rotationCenterY": 53.110803772346586
+        },
+        {
+            "name": "CHEST 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "65a44a1ba390763802bf74414aa31d16",
+            "md5ext": "65a44a1ba390763802bf74414aa31d16.svg",
+            "rotationCenterX": 13.58176499999999,
+            "rotationCenterY": 49.17522999999983
+        },
+        {
+            "name": "CHEST 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "bcfe32e197aca7c53e9a8088090f2679",
+            "md5ext": "bcfe32e197aca7c53e9a8088090f2679.svg",
+            "rotationCenterX": 13.38851945393094,
+            "rotationCenterY": 49.10724999999999
+        },
+        {
+            "name": "WHEEL 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "eda0d126693a35e015b2798534ee066d",
+            "md5ext": "eda0d126693a35e015b2798534ee066d.svg",
+            "rotationCenterX": 11.74345999999997,
+            "rotationCenterY": 11.81223
+        },
+        {
+            "name": "WHEEL 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "dd5b1907027cfea8998b41cceb9e1a21",
+            "md5ext": "dd5b1907027cfea8998b41cceb9e1a21.svg",
+            "rotationCenterX": 12.577121380674527,
+            "rotationCenterY": 12.579029277955442
+        },
+        {
+            "name": "GUN 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "813c1c52582f8b5b135035ba7a44fca0",
+            "md5ext": "813c1c52582f8b5b135035ba7a44fca0.svg",
+            "rotationCenterX": 18.954529993534265,
+            "rotationCenterY": 4.497227968656489
+        },
+        {
+            "name": "GUN 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e5c964d989d63837f9bd0302273c7f7e",
+            "md5ext": "e5c964d989d63837f9bd0302273c7f7e.svg",
+            "rotationCenterX": 18.954530000000005,
+            "rotationCenterY": 24.70173406025731
+        },
+        {
+            "name": "GUN 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7520a37b8892a014095b145904f36ffd",
+            "md5ext": "7520a37b8892a014095b145904f36ffd.svg",
+            "rotationCenterX": 18.954530000000005,
+            "rotationCenterY": 4.497230000000002
+        },
+        {
+            "name": "GUN 2R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ceec070693e8594041970a47346978bc",
+            "md5ext": "ceec070693e8594041970a47346978bc.svg",
+            "rotationCenterX": 16.028668421658978,
+            "rotationCenterY": 13.08050996958562
+        },
+        {
+            "name": "GUN 2L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e9c53f5f405e28d9bd681bdab2497667",
+            "md5ext": "e9c53f5f405e28d9bd681bdab2497667.svg",
+            "rotationCenterX": 15.965319999999991,
+            "rotationCenterY": 23.75239754851907
+        },
+        {
+            "name": "GUN 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "3277bcdff4eb9ee462960c4a19d2e0d8",
+            "md5ext": "3277bcdff4eb9ee462960c4a19d2e0d8.svg",
+            "rotationCenterX": 16.028670462136603,
+            "rotationCenterY": 13.080510950915851
+        },
+        {
+            "name": "GUN 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6576e3c57b992f1efb549cbc600911b1",
+            "md5ext": "6576e3c57b992f1efb549cbc600911b1.svg",
+            "rotationCenterX": 22.420724593215226,
+            "rotationCenterY": 22.036528707865102
+        },
+        {
+            "name": "GUN 3R-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "13fea1783cbf1005fbcb3638356c48a8",
+            "md5ext": "13fea1783cbf1005fbcb3638356c48a8.svg",
+            "rotationCenterX": 22.420724593215226,
+            "rotationCenterY": 17.644926932106102
+        },
+        {
+            "name": "GUN 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a04f22589504044c9f2ddecba3336ebb",
+            "md5ext": "a04f22589504044c9f2ddecba3336ebb.svg",
+            "rotationCenterX": 22.420724186430448,
+            "rotationCenterY": 15.682258800866663
+        },
+        {
+            "name": "GUN 3L-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "379802435fed8b6712f9837c7bed71dd",
+            "md5ext": "379802435fed8b6712f9837c7bed71dd.svg",
+            "rotationCenterX": 22.420724593215226,
+            "rotationCenterY": 15.682260000000014
+        },
+        {
+            "name": "GUN 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fcc066d3e7b055603c1764793f710778",
+            "md5ext": "fcc066d3e7b055603c1764793f710778.svg",
+            "rotationCenterX": 29.805940815643908,
+            "rotationCenterY": 13.459702640449109
+        },
+        {
+            "name": "GUN 4R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4d054bed99bc51dcfc7831b2f4570066",
+            "md5ext": "4d054bed99bc51dcfc7831b2f4570066.svg",
+            "rotationCenterX": 18.840395,
+            "rotationCenterY": 11.809155000000004
+        },
+        {
+            "name": "GUN 4L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "88d8745a6bf85c673424d21d8d48cc3a",
+            "md5ext": "88d8745a6bf85c673424d21d8d48cc3a.svg",
+            "rotationCenterX": 18.840395,
+            "rotationCenterY": 16.46383499999999
+        },
+        {
+            "name": "GUN 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7f5f66763432c96e5438eef3dc47e5c8",
+            "md5ext": "7f5f66763432c96e5438eef3dc47e5c8.svg",
+            "rotationCenterX": 18.840405000000004,
+            "rotationCenterY": 11.809165000000007
+        },
+        {
+            "name": "GUN 5R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4de9650ed55474b3a7111cc982b7453d",
+            "md5ext": "4de9650ed55474b3a7111cc982b7453d.svg",
+            "rotationCenterX": 35.08343087327273,
+            "rotationCenterY": 7.096470605246452
+        },
+        {
+            "name": "GUN 5L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "dfa12a2a4f75cd213e5a88c3ce1cd3f2",
+            "md5ext": "dfa12a2a4f75cd213e5a88c3ce1cd3f2.svg",
+            "rotationCenterX": 35.08343391933721,
+            "rotationCenterY": 12.09647000000001
+        },
+        {
+            "name": "GUN 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "dd60de42637d14252855cfc4afc8f7b7",
+            "md5ext": "dd60de42637d14252855cfc4afc8f7b7.svg",
+            "rotationCenterX": 35.083431959668644,
+            "rotationCenterY": 7.096470000000011
+        },
+        {
+            "name": "GUN 6R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5ea11b33daafe8c8a59938409be8964d",
+            "md5ext": "5ea11b33daafe8c8a59938409be8964d.svg",
+            "rotationCenterX": 24.216696021022415,
+            "rotationCenterY": 9.221775000000008
+        },
+        {
+            "name": "GUN 6L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "99b92ba22bdad603af45910583abc759",
+            "md5ext": "99b92ba22bdad603af45910583abc759.svg",
+            "rotationCenterX": 23.46661499999999,
+            "rotationCenterY": 13.48799418702049
+        },
+        {
+            "name": "GUN 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "2d8966cfea34d32153118cdbaee70bd8",
+            "md5ext": "2d8966cfea34d32153118cdbaee70bd8.svg",
+            "rotationCenterX": 24.21670602102239,
+            "rotationCenterY": 9.221785000000011
+        },
+        {
+            "name": "GUN 7R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7c26a11ee106bced51b7bad7ad7a5c22",
+            "md5ext": "7c26a11ee106bced51b7bad7ad7a5c22.svg",
+            "rotationCenterX": 7.060626934021627,
+            "rotationCenterY": 19.38746764044953
+        },
+        {
+            "name": "GUN 7L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "89c6cb6365125a2b73926b76c18c2dc3",
+            "md5ext": "89c6cb6365125a2b73926b76c18c2dc3.svg",
+            "rotationCenterX": 7.060616934021681,
+            "rotationCenterY": 16.38046558069962
+        },
+        {
+            "name": "GUN 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1aa71f02579643d8a79d46adf81c032b",
+            "md5ext": "1aa71f02579643d8a79d46adf81c032b.svg",
+            "rotationCenterX": 7.060626934021627,
+            "rotationCenterY": 19.387470000000008
+        },
+        {
+            "name": "GUN 8R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "40610c9edbf9c211a7376a8e8645ea1a",
+            "md5ext": "40610c9edbf9c211a7376a8e8645ea1a.svg",
+            "rotationCenterX": 9.243414999999999,
+            "rotationCenterY": 4.367066653185901
+        },
+        {
+            "name": "GUN 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e11a9947e293f63bfbeb7c16aa39f54d",
+            "md5ext": "e11a9947e293f63bfbeb7c16aa39f54d.svg",
+            "rotationCenterX": 9.243414999999999,
+            "rotationCenterY": 4.367066653185901
+        },
+        {
+            "name": "GUN 8L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ab2399e90fedceb77c62fe3c53f074b2",
+            "md5ext": "ab2399e90fedceb77c62fe3c53f074b2.svg",
+            "rotationCenterX": 9.464310186302043,
+            "rotationCenterY": 16.260801067416025
+        },
+        {
+            "name": "GUN 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a5c0be8fc3537d5112ac64e6220178f7",
+            "md5ext": "a5c0be8fc3537d5112ac64e6220178f7.svg",
+            "rotationCenterX": 18.696605000000005,
+            "rotationCenterY": 15.701915000000014
+        },
+        {
+            "name": "GUN 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "814506db7273d436cc6b89947a33569c",
+            "md5ext": "814506db7273d436cc6b89947a33569c.svg",
+            "rotationCenterX": 18.696605000000005,
+            "rotationCenterY": 15.505914999999987
+        },
+        {
+            "name": "GUN 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "04e88e108ddecd1680936facfb76bbe7",
+            "md5ext": "04e88e108ddecd1680936facfb76bbe7.svg",
+            "rotationCenterX": 18.69661500000001,
+            "rotationCenterY": 15.701915000000014
+        },
+        {
+            "name": "Rocket",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "24f05b33796634da59f3f42fed2cd559",
+            "md5ext": "24f05b33796634da59f3f42fed2cd559.svg",
+            "rotationCenterX": 16.423489999999987,
+            "rotationCenterY": 16.423489999999987
+        }
     ]
 }
