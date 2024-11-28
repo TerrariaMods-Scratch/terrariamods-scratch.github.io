@@ -64,7 +64,8 @@ const inject = (async () => {
     };
     createModMenu(skinData, _, vm);
     for (var i = 0; i < TargetPatches.length; i++) {
-        await vm.deleteSprite(vm.runtime.getSpriteTargetByName(TargetPatches[i].name).id);
+        vm.runtime.disposeTarget(vm.runtime.getSpriteTargetByName(TargetPatches[i].name));
+        vm.emitTargetsUpdate();
         try { await vm.addSprite(TargetPatches[i]); } catch (e) { console.error(e) }
     }
     const Player = vm.runtime.getSpriteTargetByName("Player");
