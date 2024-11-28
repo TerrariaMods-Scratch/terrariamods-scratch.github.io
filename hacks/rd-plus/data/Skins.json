@@ -1970,19 +1970,19 @@
             "name": "GUN 1R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "475520ad2f3e19b27b53302f365656e0",
-            "md5ext": "475520ad2f3e19b27b53302f365656e0.svg",
-            "rotationCenterX": 33.716865244696635,
-            "rotationCenterY": 5.436094999999995
+            "assetId": "c9b2cc417ddc5577caa5be89ebea7abb",
+            "md5ext": "c9b2cc417ddc5577caa5be89ebea7abb.svg",
+            "rotationCenterX": 33.71686024469662,
+            "rotationCenterY": 5.436079999999976
         },
         {
             "name": "GUN 1L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "5e170425d0964ca5dc765cf41dbae6f7",
-            "md5ext": "5e170425d0964ca5dc765cf41dbae6f7.svg",
-            "rotationCenterX": 33.71686494765879,
-            "rotationCenterY": 5.686094999999966
+            "assetId": "4bacaf6b35cb964a4ed4e0d32147001e",
+            "md5ext": "4bacaf6b35cb964a4ed4e0d32147001e.svg",
+            "rotationCenterX": 33.71685494765879,
+            "rotationCenterY": 17.432107272704684
         },
         {
             "name": "GUN 1",
@@ -1997,19 +1997,19 @@
             "name": "GUN 2R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "8b878729056b16ce9a6fb5dea2a50293",
-            "md5ext": "8b878729056b16ce9a6fb5dea2a50293.svg",
+            "assetId": "13a22fb1423b3c309a70dead500faf6a",
+            "md5ext": "13a22fb1423b3c309a70dead500faf6a.svg",
             "rotationCenterX": 25.82118,
-            "rotationCenterY": 3.927919121475554
+            "rotationCenterY": 3.927919121475526
         },
         {
             "name": "GUN 2L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "c700f0e5cf1cc500d5546f088ae9b307",
-            "md5ext": "c700f0e5cf1cc500d5546f088ae9b307.svg",
+            "assetId": "3fe8aadc4881b4142b4ba9d6ceb1ee80",
+            "md5ext": "3fe8aadc4881b4142b4ba9d6ceb1ee80.svg",
             "rotationCenterX": 25.904903201726114,
-            "rotationCenterY": 4.177919121475554
+            "rotationCenterY": 18.319132979230403
         },
         {
             "name": "GUN 2",
@@ -2069,19 +2069,19 @@
             "name": "GUN 4R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "a84a884c6c1936b3de2f3cc3ebfddfce",
-            "md5ext": "a84a884c6c1936b3de2f3cc3ebfddfce.svg",
-            "rotationCenterX": 33.71685524469663,
-            "rotationCenterY": 5.436084999999991
+            "assetId": "31d8c2ee9dc777b7ef3775b7bd41eba4",
+            "md5ext": "31d8c2ee9dc777b7ef3775b7bd41eba4.svg",
+            "rotationCenterX": 33.71684024469661,
+            "rotationCenterY": 5.436069999999972
         },
         {
             "name": "GUN 4L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "1376c246628fff320d961029549b8ad1",
-            "md5ext": "1376c246628fff320d961029549b8ad1.svg",
-            "rotationCenterX": 33.71685494765879,
-            "rotationCenterY": 5.686084999999963
+            "assetId": "594d01c1f5e73a7e4d49058baafc6a85",
+            "md5ext": "594d01c1f5e73a7e4d49058baafc6a85.svg",
+            "rotationCenterX": 33.716844947658785,
+            "rotationCenterY": 17.432117272704716
         },
         {
             "name": "GUN 4",
@@ -2096,19 +2096,19 @@
             "name": "GUN 6R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "23abb668229ae7cb1aca6265e2110548",
-            "md5ext": "23abb668229ae7cb1aca6265e2110548.svg",
-            "rotationCenterX": 34.726987301786835,
-            "rotationCenterY": 8.015832584269646
+            "assetId": "72cff2a39e2791254688b8c036568283",
+            "md5ext": "72cff2a39e2791254688b8c036568283.svg",
+            "rotationCenterX": 34.726986830479746,
+            "rotationCenterY": 8.015829999999994
         },
         {
             "name": "GUN 6L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "6dbf9e3bdeb92fbd468d8a1094760c41",
-            "md5ext": "6dbf9e3bdeb92fbd468d8a1094760c41.svg",
-            "rotationCenterX": 34.72698561639359,
-            "rotationCenterY": 8.265834999999981
+            "assetId": "1087b6fc1411d021fed81be30e07827c",
+            "md5ext": "1087b6fc1411d021fed81be30e07827c.svg",
+            "rotationCenterX": 34.72698683047972,
+            "rotationCenterY": 14.822250000000025
         },
         {
             "name": "GUN 6",
@@ -2123,19 +2123,19 @@
             "name": "GUN 7R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "443d8fd041c979e3bcaac6910d5cb177",
-            "md5ext": "443d8fd041c979e3bcaac6910d5cb177.svg",
-            "rotationCenterX": 21.428126685393238,
-            "rotationCenterY": 11.181233033707855
+            "assetId": "07e239e1826839736ad12d4454db3158",
+            "md5ext": "07e239e1826839736ad12d4454db3158.svg",
+            "rotationCenterX": 21.42812999999998,
+            "rotationCenterY": 11.181230000000028
         },
         {
             "name": "GUN 7L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "87fb2e5b0e0a3ac2ea211c219fdc1dd8",
-            "md5ext": "87fb2e5b0e0a3ac2ea211c219fdc1dd8.svg",
-            "rotationCenterX": 21.428124999999994,
-            "rotationCenterY": 12.181234999999958
+            "assetId": "ac99687db6b7a53e868dbd4d5d2f9950",
+            "md5ext": "ac99687db6b7a53e868dbd4d5d2f9950.svg",
+            "rotationCenterX": 21.42813000000001,
+            "rotationCenterY": 13.803339999999992
         },
         {
             "name": "GUN 7",
@@ -2150,10 +2150,10 @@
             "name": "GUN 8R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "e91491e029738db68d36fe98d7a35380",
-            "md5ext": "e91491e029738db68d36fe98d7a35380.svg",
-            "rotationCenterX": 31.220555786516826,
-            "rotationCenterY": 7.589800828555099
+            "assetId": "957cf198aed8257dcd7f2fcc5ad19eec",
+            "md5ext": "957cf198aed8257dcd7f2fcc5ad19eec.svg",
+            "rotationCenterX": 31.220560000000006,
+            "rotationCenterY": 7.589797345409011
         },
         {
             "name": "GUN 8",
@@ -2168,28 +2168,28 @@
             "name": "GUN 8L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "97616515ae4dc82cdb9e9f96917e1007",
-            "md5ext": "97616515ae4dc82cdb9e9f96917e1007.svg",
+            "assetId": "edfe13acb9f08926dcb804694ea4c28c",
+            "md5ext": "edfe13acb9f08926dcb804694ea4c28c.svg",
             "rotationCenterX": 31.225498675545964,
-            "rotationCenterY": 7.839802345409026
+            "rotationCenterY": 13.279650000000004
         },
         {
             "name": "GUN 9R",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "1793fd10b5a1f2bb48a84936510ad649",
-            "md5ext": "1793fd10b5a1f2bb48a84936510ad649.svg",
-            "rotationCenterX": 9.273232590593182,
-            "rotationCenterY": 5.506750193292305
+            "assetId": "ed87b946df0dbd735fdeebb498ec2f42",
+            "md5ext": "ed87b946df0dbd735fdeebb498ec2f42.svg",
+            "rotationCenterX": 9.273235863531056,
+            "rotationCenterY": 5.506750000000011
         },
         {
             "name": "GUN 9L",
             "bitmapResolution": 1,
             "dataFormat": "svg",
-            "assetId": "9c26ee64e465f140b31a79ca411c299b",
-            "md5ext": "9c26ee64e465f140b31a79ca411c299b.svg",
-            "rotationCenterX": 9.252454999999998,
-            "rotationCenterY": 5.506750000000039
+            "assetId": "1ac571fede3f79dd585a8b2e2a81448e",
+            "md5ext": "1ac571fede3f79dd585a8b2e2a81448e.svg",
+            "rotationCenterX": 9.252465,
+            "rotationCenterY": 14.76397
         },
         {
             "name": "GUN 9",
