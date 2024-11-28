@@ -1,0 +1,1590 @@
+{
+    "Zombie Apocalypse": [
+        {
+            "name": "Word_11",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "90ead57a3ac17eb336f1e39f687d57fd",
+            "md5ext": "90ead57a3ac17eb336f1e39f687d57fd.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_12",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "464a646f861ae90760e520d913243f83",
+            "md5ext": "464a646f861ae90760e520d913243f83.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_13",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "82229c36ad5dbe53c0910637752c8b5e",
+            "md5ext": "82229c36ad5dbe53c0910637752c8b5e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_14",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6afa8ec0cd644f2733d73513c3fb37a7",
+            "md5ext": "6afa8ec0cd644f2733d73513c3fb37a7.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_15",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "43520d40377886a1e83b14121825c268",
+            "md5ext": "43520d40377886a1e83b14121825c268.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_16",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "486002deb78d9a88a6f2a7a841fdef04",
+            "md5ext": "486002deb78d9a88a6f2a7a841fdef04.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_17",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "24c00bd2553ae4eb4035f87e81198439",
+            "md5ext": "24c00bd2553ae4eb4035f87e81198439.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_18",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c4640e543f257da5c29fe29744d1c91f",
+            "md5ext": "c4640e543f257da5c29fe29744d1c91f.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_19",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "68376bf6326b2edd5c87f25de6a17f08",
+            "md5ext": "68376bf6326b2edd5c87f25de6a17f08.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_21",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "90ead57a3ac17eb336f1e39f687d57fd",
+            "md5ext": "90ead57a3ac17eb336f1e39f687d57fd.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_22",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "464a646f861ae90760e520d913243f83",
+            "md5ext": "464a646f861ae90760e520d913243f83.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_23",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "82229c36ad5dbe53c0910637752c8b5e",
+            "md5ext": "82229c36ad5dbe53c0910637752c8b5e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_24",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6afa8ec0cd644f2733d73513c3fb37a7",
+            "md5ext": "6afa8ec0cd644f2733d73513c3fb37a7.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_25",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "43520d40377886a1e83b14121825c268",
+            "md5ext": "43520d40377886a1e83b14121825c268.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_26",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "486002deb78d9a88a6f2a7a841fdef04",
+            "md5ext": "486002deb78d9a88a6f2a7a841fdef04.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_27",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "24c00bd2553ae4eb4035f87e81198439",
+            "md5ext": "24c00bd2553ae4eb4035f87e81198439.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_28",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c4640e543f257da5c29fe29744d1c91f",
+            "md5ext": "c4640e543f257da5c29fe29744d1c91f.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_29",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "68376bf6326b2edd5c87f25de6a17f08",
+            "md5ext": "68376bf6326b2edd5c87f25de6a17f08.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_31",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "90ead57a3ac17eb336f1e39f687d57fd",
+            "md5ext": "90ead57a3ac17eb336f1e39f687d57fd.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_32",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "464a646f861ae90760e520d913243f83",
+            "md5ext": "464a646f861ae90760e520d913243f83.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_33",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "82229c36ad5dbe53c0910637752c8b5e",
+            "md5ext": "82229c36ad5dbe53c0910637752c8b5e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_34",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6afa8ec0cd644f2733d73513c3fb37a7",
+            "md5ext": "6afa8ec0cd644f2733d73513c3fb37a7.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_35",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "43520d40377886a1e83b14121825c268",
+            "md5ext": "43520d40377886a1e83b14121825c268.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_36",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "486002deb78d9a88a6f2a7a841fdef04",
+            "md5ext": "486002deb78d9a88a6f2a7a841fdef04.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_37",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "24c00bd2553ae4eb4035f87e81198439",
+            "md5ext": "24c00bd2553ae4eb4035f87e81198439.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_38",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c4640e543f257da5c29fe29744d1c91f",
+            "md5ext": "c4640e543f257da5c29fe29744d1c91f.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_39",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "68376bf6326b2edd5c87f25de6a17f08",
+            "md5ext": "68376bf6326b2edd5c87f25de6a17f08.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_41",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "90ead57a3ac17eb336f1e39f687d57fd",
+            "md5ext": "90ead57a3ac17eb336f1e39f687d57fd.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_42",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "464a646f861ae90760e520d913243f83",
+            "md5ext": "464a646f861ae90760e520d913243f83.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_43",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "82229c36ad5dbe53c0910637752c8b5e",
+            "md5ext": "82229c36ad5dbe53c0910637752c8b5e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_44",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6afa8ec0cd644f2733d73513c3fb37a7",
+            "md5ext": "6afa8ec0cd644f2733d73513c3fb37a7.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_45",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "43520d40377886a1e83b14121825c268",
+            "md5ext": "43520d40377886a1e83b14121825c268.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_46",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "486002deb78d9a88a6f2a7a841fdef04",
+            "md5ext": "486002deb78d9a88a6f2a7a841fdef04.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_47",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "24c00bd2553ae4eb4035f87e81198439",
+            "md5ext": "24c00bd2553ae4eb4035f87e81198439.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_48",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c4640e543f257da5c29fe29744d1c91f",
+            "md5ext": "c4640e543f257da5c29fe29744d1c91f.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_49",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "68376bf6326b2edd5c87f25de6a17f08",
+            "md5ext": "68376bf6326b2edd5c87f25de6a17f08.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "HEAD 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "255a5771f01a925c71a0ddb418c9c00a",
+            "md5ext": "255a5771f01a925c71a0ddb418c9c00a.svg",
+            "rotationCenterX": 13.4265282424887,
+            "rotationCenterY": 13.765718082954606
+        },
+        {
+            "name": "HEAD 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a7f8b78f2f5bd5bcaaddcc18b2bac51f",
+            "md5ext": "a7f8b78f2f5bd5bcaaddcc18b2bac51f.svg",
+            "rotationCenterX": 12.517510765879763,
+            "rotationCenterY": 13.802693647264277
+        },
+        {
+            "name": "HEAD 2R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "da858ebf578c504a818e58a07ead76e3",
+            "md5ext": "da858ebf578c504a818e58a07ead76e3.svg",
+            "rotationCenterX": 11.041874910740546,
+            "rotationCenterY": 11.97279057176516
+        },
+        {
+            "name": "HEAD 2L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8369814660de3df90efe20733b8e2672",
+            "md5ext": "8369814660de3df90efe20733b8e2672.svg",
+            "rotationCenterX": 11.041874910740518,
+            "rotationCenterY": 11.97279057176516
+        },
+        {
+            "name": "HEAD 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d2ca5d2a0974c3f3edb5c8eec23b7e3d",
+            "md5ext": "d2ca5d2a0974c3f3edb5c8eec23b7e3d.svg",
+            "rotationCenterX": 13.118581124712648,
+            "rotationCenterY": 12.60000500000001
+        },
+        {
+            "name": "HEAD 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ead778db2c7e1e344e187272c55d6ce4",
+            "md5ext": "ead778db2c7e1e344e187272c55d6ce4.svg",
+            "rotationCenterX": 13.118580000000009,
+            "rotationCenterY": 12.60000500000001
+        },
+        {
+            "name": "HEAD 4R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "baf13123115c94a6997fcfd4d73de4d7",
+            "md5ext": "baf13123115c94a6997fcfd4d73de4d7.svg",
+            "rotationCenterX": 13.0358261247126,
+            "rotationCenterY": 13.641787983447045
+        },
+        {
+            "name": "HEAD 4L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "2aea02991933d2d0ccd944553cc648d7",
+            "md5ext": "2aea02991933d2d0ccd944553cc648d7.svg",
+            "rotationCenterX": 13.035824999999988,
+            "rotationCenterY": 13.8921973152857
+        },
+        {
+            "name": "HEAD 5R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "cc45ed89cc8c278e36fd614fee6cba96",
+            "md5ext": "cc45ed89cc8c278e36fd614fee6cba96.svg",
+            "rotationCenterX": 13.156790943182216,
+            "rotationCenterY": 12.33572000000001
+        },
+        {
+            "name": "HEAD 5L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a1fdebe2fab18a7823e88fc61c089ca7",
+            "md5ext": "a1fdebe2fab18a7823e88fc61c089ca7.svg",
+            "rotationCenterX": 13.15679,
+            "rotationCenterY": 13.08572000000001
+        },
+        {
+            "name": "HEAD 6R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4b983bef9942cf9e25f277c243735849",
+            "md5ext": "4b983bef9942cf9e25f277c243735849.svg",
+            "rotationCenterX": 13.355250000000012,
+            "rotationCenterY": 12.643547548517148
+        },
+        {
+            "name": "HEAD 6L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1231ac537c46ec66a295e1f8ab9980e0",
+            "md5ext": "1231ac537c46ec66a295e1f8ab9980e0.svg",
+            "rotationCenterX": 13.355250000000012,
+            "rotationCenterY": 12.556454902965726
+        },
+        {
+            "name": "HEAD 7R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "78908211730be8bffa2b1accea14dac5",
+            "md5ext": "78908211730be8bffa2b1accea14dac5.svg",
+            "rotationCenterX": 13.183775136394246,
+            "rotationCenterY": 12.209297796229208
+        },
+        {
+            "name": "HEAD 7L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a213394c4836e177bb600f8c03a97816",
+            "md5ext": "a213394c4836e177bb600f8c03a97816.svg",
+            "rotationCenterX": 13.183774999999997,
+            "rotationCenterY": 12.171574407541499
+        },
+        {
+            "name": "HEAD 8R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "024456ca987b5510e44d46d9b9cbfc86",
+            "md5ext": "024456ca987b5510e44d46d9b9cbfc86.svg",
+            "rotationCenterX": 14.07832818984329,
+            "rotationCenterY": 13.129007821453797
+        },
+        {
+            "name": "HEAD 8L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "945a93fbbb23a344f7b4ab549b7ea598",
+            "md5ext": "945a93fbbb23a344f7b4ab549b7ea598.svg",
+            "rotationCenterX": 14.078328189843262,
+            "rotationCenterY": 12.81939396914413
+        },
+        {
+            "name": "HEAD 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0a50f42fba527a18bc69247ba30181dc",
+            "md5ext": "0a50f42fba527a18bc69247ba30181dc.svg",
+            "rotationCenterX": 12.684841124712648,
+            "rotationCenterY": 13.172204999999991
+        },
+        {
+            "name": "HEAD 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ca7353d7f345ea77375140357c71bdb2",
+            "md5ext": "ca7353d7f345ea77375140357c71bdb2.svg",
+            "rotationCenterX": 12.684841124712648,
+            "rotationCenterY": 12.172204999999991
+        },
+        {
+            "name": "SHOULDERS 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9e593ac3d71c889b48bec73b7e44c1d4",
+            "md5ext": "9e593ac3d71c889b48bec73b7e44c1d4.svg",
+            "rotationCenterX": 16.68243000000001,
+            "rotationCenterY": 52.15945499999941
+        },
+        {
+            "name": "SHOULDERS 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "58d66236a1fb644a18cf8427c57d765e",
+            "md5ext": "58d66236a1fb644a18cf8427c57d765e.svg",
+            "rotationCenterX": 19.67960274711524,
+            "rotationCenterY": 56.05523196143217
+        },
+        {
+            "name": "SHOULDERS 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "75a18452d093e153e52cf5c0add2d656",
+            "md5ext": "75a18452d093e153e52cf5c0add2d656.svg",
+            "rotationCenterX": 19.67959395493932,
+            "rotationCenterY": 54.858227771588815
+        },
+        {
+            "name": "SHOULDERS 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b10c0bacee604bf51685fff5b6ee2df7",
+            "md5ext": "b10c0bacee604bf51685fff5b6ee2df7.svg",
+            "rotationCenterX": 16.532867103216773,
+            "rotationCenterY": 51.12889474000116
+        },
+        {
+            "name": "SHOULDERS 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8b2ff49f413d169906c5856b10b6228e",
+            "md5ext": "8b2ff49f413d169906c5856b10b6228e.svg",
+            "rotationCenterX": 16.596735714285785,
+            "rotationCenterY": 52.86234214285713
+        },
+        {
+            "name": "SHOULDERS 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5eebeff1fed393a187655d954e90a3f8",
+            "md5ext": "5eebeff1fed393a187655d954e90a3f8.svg",
+            "rotationCenterX": 19.089782423829092,
+            "rotationCenterY": 51.84882182992365
+        },
+        {
+            "name": "SHOULDERS 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c245520144f63ef93f6fbd4fc42c2657",
+            "md5ext": "c245520144f63ef93f6fbd4fc42c2657.svg",
+            "rotationCenterX": 16.46369500000003,
+            "rotationCenterY": 51.18038285714283
+        },
+        {
+            "name": "SHOULDERS 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7f8de1b81d43b415d1930709976aea42",
+            "md5ext": "7f8de1b81d43b415d1930709976aea42.svg",
+            "rotationCenterX": 30.4619691422526,
+            "rotationCenterY": 61.65681886321852
+        },
+        {
+            "name": "SHOULDERS 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "bfe67bed2c101aa230c16fc9e515bd5a",
+            "md5ext": "bfe67bed2c101aa230c16fc9e515bd5a.svg",
+            "rotationCenterX": 14.8050709765335,
+            "rotationCenterY": 54.59336672112323
+        },
+        {
+            "name": "CHEST 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f555c31eec51cda7fbc6478a3fd458e4",
+            "md5ext": "f555c31eec51cda7fbc6478a3fd458e4.svg",
+            "rotationCenterX": 14.739534999999933,
+            "rotationCenterY": 50.15130499999992
+        },
+        {
+            "name": "CHEST 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d423e1e86fa496ac5e2b4020ad683c04",
+            "md5ext": "d423e1e86fa496ac5e2b4020ad683c04.svg",
+            "rotationCenterX": 14.691013559014209,
+            "rotationCenterY": 50.85749377142281
+        },
+        {
+            "name": "CHEST 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4b28a17c57145a29e1b16d344137e700",
+            "md5ext": "4b28a17c57145a29e1b16d344137e700.svg",
+            "rotationCenterX": 13.753640000000019,
+            "rotationCenterY": 49.190537583904444
+        },
+        {
+            "name": "CHEST 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "36f68780f5ca5ebb1a975f5847c1e701",
+            "md5ext": "36f68780f5ca5ebb1a975f5847c1e701.svg",
+            "rotationCenterX": 14.075980734596698,
+            "rotationCenterY": 49.259074999999996
+        },
+        {
+            "name": "CHEST 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "965096be291595d9436e72f2355eb3f4",
+            "md5ext": "965096be291595d9436e72f2355eb3f4.svg",
+            "rotationCenterX": 13.405358721583411,
+            "rotationCenterY": 49.06455500000004
+        },
+        {
+            "name": "CHEST 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "db22a2f9582e2fca3ea48785c530265d",
+            "md5ext": "db22a2f9582e2fca3ea48785c530265d.svg",
+            "rotationCenterX": 13.715020000000038,
+            "rotationCenterY": 49.226504779693045
+        },
+        {
+            "name": "CHEST 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "82e2dfd82714e01c9f71e6098d347f8e",
+            "md5ext": "82e2dfd82714e01c9f71e6098d347f8e.svg",
+            "rotationCenterX": 13.752849999999995,
+            "rotationCenterY": 47.070505
+        },
+        {
+            "name": "CHEST 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f368cb0515a290192f95247ec88d99c5",
+            "md5ext": "f368cb0515a290192f95247ec88d99c5.svg",
+            "rotationCenterX": 13.924874929092624,
+            "rotationCenterY": 49.03783785878613
+        },
+        {
+            "name": "CHEST 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8fc6b9caec1fc936f9f81bd163186a6e",
+            "md5ext": "8fc6b9caec1fc936f9f81bd163186a6e.svg",
+            "rotationCenterX": 19.760579009170954,
+            "rotationCenterY": 57.506553172354785
+        },
+        {
+            "name": "WHEEL 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8f67a94e5df4fd7f0e3a98986361f243",
+            "md5ext": "8f67a94e5df4fd7f0e3a98986361f243.svg",
+            "rotationCenterX": 11.540715000000006,
+            "rotationCenterY": 11.540715000000034
+        },
+        {
+            "name": "WHEEL 2",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "251e5c44e2f6d7ddf19cb661df411e66",
+            "md5ext": "251e5c44e2f6d7ddf19cb661df411e66.svg",
+            "rotationCenterX": 13.976341580115417,
+            "rotationCenterY": 13.838659141912558
+        },
+        {
+            "name": "WHEEL 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fab5a19ce03567be5900ce1f9531eb6b",
+            "md5ext": "fab5a19ce03567be5900ce1f9531eb6b.svg",
+            "rotationCenterX": 11.536445000000015,
+            "rotationCenterY": 11.511664999999994
+        },
+        {
+            "name": "WHEEL 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e4679113f29b8615e787e300195e6c72",
+            "md5ext": "e4679113f29b8615e787e300195e6c72.svg",
+            "rotationCenterX": 12.957826781186554,
+            "rotationCenterY": 12.959703283999062
+        },
+        {
+            "name": "WHEEL 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8759e78cdd70c211e82d155bfa34d262",
+            "md5ext": "8759e78cdd70c211e82d155bfa34d262.svg",
+            "rotationCenterX": 12.220347293779184,
+            "rotationCenterY": 12.222218291330961
+        },
+        {
+            "name": "WHEEL 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a0439bf95de2115570337beab3523b20",
+            "md5ext": "a0439bf95de2115570337beab3523b20.svg",
+            "rotationCenterX": 11.935011043697301,
+            "rotationCenterY": 11.936630479897758
+        },
+        {
+            "name": "WHEEL 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "240c5b8bb28cedc538c8c591c90e98b7",
+            "md5ext": "240c5b8bb28cedc538c8c591c90e98b7.svg",
+            "rotationCenterX": 13.218219999999945,
+            "rotationCenterY": 13.220005000000043
+        },
+        {
+            "name": "WHEEL 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "095da5389b5c884ef2cd176ef68701c2",
+            "md5ext": "095da5389b5c884ef2cd176ef68701c2.svg",
+            "rotationCenterX": 11.871559999999988,
+            "rotationCenterY": 11.871560000000017
+        },
+        {
+            "name": "WHEEL 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8009358bf880c436fb7b6650acd642b0",
+            "md5ext": "8009358bf880c436fb7b6650acd642b0.svg",
+            "rotationCenterX": 11.542741070361046,
+            "rotationCenterY": 11.542746070361005
+        }
+    ],
+    "Radiation": [
+        {
+            "name": "Word_11",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6c5a1f64457dbc4324345ca04109baeb",
+            "md5ext": "6c5a1f64457dbc4324345ca04109baeb.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_13",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ab61ed6609647a69004d144642349fcb",
+            "md5ext": "ab61ed6609647a69004d144642349fcb.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_14",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4108cbd98bde06f25fc548f6cf7c18a3",
+            "md5ext": "4108cbd98bde06f25fc548f6cf7c18a3.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_15",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "402626bd6da28f8b6f034cb6ceee985d",
+            "md5ext": "402626bd6da28f8b6f034cb6ceee985d.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_16",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4f4407d39bff0f4cd44cc0da871f31f3",
+            "md5ext": "4f4407d39bff0f4cd44cc0da871f31f3.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_17",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1c9006a34198eca4ee203be0e8c1be13",
+            "md5ext": "1c9006a34198eca4ee203be0e8c1be13.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_18",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4613630f18829f73469e2b2a4fd3c86c",
+            "md5ext": "4613630f18829f73469e2b2a4fd3c86c.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_19",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "2f575e3c32038b52af0dce589afec21d",
+            "md5ext": "2f575e3c32038b52af0dce589afec21d.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_21",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4796d0bc5c8317a765067b944d548e65",
+            "md5ext": "4796d0bc5c8317a765067b944d548e65.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_23",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "360b79a9bf9aa4c710630772ff411e69",
+            "md5ext": "360b79a9bf9aa4c710630772ff411e69.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_24",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "07fadd3ef07c7b1390e2585a7c5dab15",
+            "md5ext": "07fadd3ef07c7b1390e2585a7c5dab15.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_25",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "95a4ebb6d7eb974b465df03dbe0a9991",
+            "md5ext": "95a4ebb6d7eb974b465df03dbe0a9991.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_26",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "847a0191b2cffdfe7ee59f0a05ac04b0",
+            "md5ext": "847a0191b2cffdfe7ee59f0a05ac04b0.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_27",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "af973f90a3c964929a80dce57ab30253",
+            "md5ext": "af973f90a3c964929a80dce57ab30253.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_28",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b07fbaab6d1eff3301ee4718de8c3def",
+            "md5ext": "b07fbaab6d1eff3301ee4718de8c3def.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_29",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "5c7a6d4f178deeb3675d9c2073425b20",
+            "md5ext": "5c7a6d4f178deeb3675d9c2073425b20.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_31",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e48b0780a0225b1311392149fcff43e4",
+            "md5ext": "e48b0780a0225b1311392149fcff43e4.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_33",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e062c6a5f261e41e1aab32d3187c8e53",
+            "md5ext": "e062c6a5f261e41e1aab32d3187c8e53.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_34",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9012ae14c29a6cd456dcf218750c2e46",
+            "md5ext": "9012ae14c29a6cd456dcf218750c2e46.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_35",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9aede87a11b4d753237e1b3d06a8be1a",
+            "md5ext": "9aede87a11b4d753237e1b3d06a8be1a.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_36",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1b09a5a20b56899d03bb53505f43c311",
+            "md5ext": "1b09a5a20b56899d03bb53505f43c311.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_37",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8c15c2b76d8a10ce36e668494025e7d1",
+            "md5ext": "8c15c2b76d8a10ce36e668494025e7d1.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_38",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c45e4490f084165ade182a46da493a1b",
+            "md5ext": "c45e4490f084165ade182a46da493a1b.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_39",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d8859e35549aa43c34bcf5590124f13a",
+            "md5ext": "d8859e35549aa43c34bcf5590124f13a.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_41",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "34f93467fa16436bf6bee3669eeb12d8",
+            "md5ext": "34f93467fa16436bf6bee3669eeb12d8.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_43",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "36c18a09c46d9c20dc42456cca675530",
+            "md5ext": "36c18a09c46d9c20dc42456cca675530.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_44",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8140de25606678c84a0fc505892f1542",
+            "md5ext": "8140de25606678c84a0fc505892f1542.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_45",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b8a19518e867dc79685adf79910c0d09",
+            "md5ext": "b8a19518e867dc79685adf79910c0d09.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_46",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "83c227a0d6a16dd18c2654740133e05e",
+            "md5ext": "83c227a0d6a16dd18c2654740133e05e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_47",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6a1b26f2b8b082def18117ac435b1619",
+            "md5ext": "6a1b26f2b8b082def18117ac435b1619.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_48",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a8b54e3b4660d8aec1951abdbd955a7e",
+            "md5ext": "a8b54e3b4660d8aec1951abdbd955a7e.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_49",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "edf76652a896cda2f69c7781bcba6cd8",
+            "md5ext": "edf76652a896cda2f69c7781bcba6cd8.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_53",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "67e6391bacafb5dcda5690c2fd406538",
+            "md5ext": "67e6391bacafb5dcda5690c2fd406538.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_55",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8fc76165b2dc44b1585ecd1506e00f45",
+            "md5ext": "8fc76165b2dc44b1585ecd1506e00f45.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_57",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e4c1e2d421f6c06f0f0502ca55da6ca4",
+            "md5ext": "e4c1e2d421f6c06f0f0502ca55da6ca4.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_58",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "69a4328cdcd72a47baf007e54a3d9376",
+            "md5ext": "69a4328cdcd72a47baf007e54a3d9376.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "Word_59",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "78002ff6ba4bbb335bc27df6eab7d96f",
+            "md5ext": "78002ff6ba4bbb335bc27df6eab7d96f.svg",
+            "rotationCenterX": 18.778909999999996,
+            "rotationCenterY": 27.30950999999999
+        },
+        {
+            "name": "HEAD 1R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "53819b0ea397041636d4eb823b5930d5",
+            "md5ext": "53819b0ea397041636d4eb823b5930d5.svg",
+            "rotationCenterX": 23.962659999998408,
+            "rotationCenterY": 12.360238333333825
+        },
+        {
+            "name": "HEAD 1L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "79801d033f571ff0cee28e5f80aa6cb5",
+            "md5ext": "79801d033f571ff0cee28e5f80aa6cb5.svg",
+            "rotationCenterX": 23.96266,
+            "rotationCenterY": 15.86023999999972
+        },
+        {
+            "name": "HEAD 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a1e645c655579d599d77b33ee53f0cc5",
+            "md5ext": "a1e645c655579d599d77b33ee53f0cc5.svg",
+            "rotationCenterX": 13.0565,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6f0180455b8ea770bc32e01f0764cf9c",
+            "md5ext": "6f0180455b8ea770bc32e01f0764cf9c.svg",
+            "rotationCenterX": 13.056498787407946,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 4R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0ac38c3dca297a742912d6423ac35587",
+            "md5ext": "0ac38c3dca297a742912d6423ac35587.svg",
+            "rotationCenterX": 17.589453797200832,
+            "rotationCenterY": 15.436130827598902
+        },
+        {
+            "name": "HEAD 4L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b1bcd3e0c58a468f7bbe3df012c8ff22",
+            "md5ext": "b1bcd3e0c58a468f7bbe3df012c8ff22.svg",
+            "rotationCenterX": 17.589453797200974,
+            "rotationCenterY": 15.436130827598902
+        },
+        {
+            "name": "HEAD 5R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "763668b0de6b9714f9d48a09a2b607e0",
+            "md5ext": "763668b0de6b9714f9d48a09a2b607e0.svg",
+            "rotationCenterX": 12.599999999999994,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 5L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "636641921183e7049d6f2dbbd9f5f221",
+            "md5ext": "636641921183e7049d6f2dbbd9f5f221.svg",
+            "rotationCenterX": 12.599999999999994,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 6R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fbc21c278be697df7e5faeb5538c687c",
+            "md5ext": "fbc21c278be697df7e5faeb5538c687c.svg",
+            "rotationCenterX": 13.136709999999994,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 6L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4fbd7872b7ce46f2fdd5c5db94258455",
+            "md5ext": "4fbd7872b7ce46f2fdd5c5db94258455.svg",
+            "rotationCenterX": 13.136708749339107,
+            "rotationCenterY": 12.599999999999994
+        },
+        {
+            "name": "HEAD 7R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ba42651dcb06762d19d5a1ae86d83b74",
+            "md5ext": "ba42651dcb06762d19d5a1ae86d83b74.svg",
+            "rotationCenterX": 20.13785999999999,
+            "rotationCenterY": 20.46839
+        },
+        {
+            "name": "HEAD 7L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ac5dc584c91c110ba53ba989a2d9842a",
+            "md5ext": "ac5dc584c91c110ba53ba989a2d9842a.svg",
+            "rotationCenterX": 20.13785999999999,
+            "rotationCenterY": 20.46839
+        },
+        {
+            "name": "HEAD 8R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "09f50e297e5519cf282b266eb6c317c0",
+            "md5ext": "09f50e297e5519cf282b266eb6c317c0.svg",
+            "rotationCenterX": 24.70238202473385,
+            "rotationCenterY": 12.557369999999992
+        },
+        {
+            "name": "HEAD 8L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "cc207fade899c4f258769561890b6eb0",
+            "md5ext": "cc207fade899c4f258769561890b6eb0.svg",
+            "rotationCenterX": 24.70238202473385,
+            "rotationCenterY": 11.557369999999992
+        },
+        {
+            "name": "HEAD 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9fc2aa414d14cc64fc3dc718f7f8a9c9",
+            "md5ext": "9fc2aa414d14cc64fc3dc718f7f8a9c9.svg",
+            "rotationCenterX": 19.74963804250976,
+            "rotationCenterY": 22.92527097909047
+        },
+        {
+            "name": "HEAD 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "3ca50f0478e5d6253a0f2db7c38ad907",
+            "md5ext": "3ca50f0478e5d6253a0f2db7c38ad907.svg",
+            "rotationCenterX": 19.74963804250976,
+            "rotationCenterY": 13.356786124930665
+        },
+        {
+            "name": "SHOULDERS 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7c08196a4e0c6fd3a05e78503a804d9d",
+            "md5ext": "7c08196a4e0c6fd3a05e78503a804d9d.svg",
+            "rotationCenterX": 18.80505317410703,
+            "rotationCenterY": 57.341295638235366
+        },
+        {
+            "name": "SHOULDERS 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "07fc71a1dcb225385e6e373055ab18fa",
+            "md5ext": "07fc71a1dcb225385e6e373055ab18fa.svg",
+            "rotationCenterX": 18.412374999999997,
+            "rotationCenterY": 50.722044437695075
+        },
+        {
+            "name": "SHOULDERS 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f9fc93f2c792f2555001628abe4229b1",
+            "md5ext": "f9fc93f2c792f2555001628abe4229b1.svg",
+            "rotationCenterX": 17.69984735512125,
+            "rotationCenterY": 51.17412856119509
+        },
+        {
+            "name": "SHOULDERS 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0277ad363cfb0f181a9dd2f559dbc80e",
+            "md5ext": "0277ad363cfb0f181a9dd2f559dbc80e.svg",
+            "rotationCenterX": 16.681864999999988,
+            "rotationCenterY": 55.59292862888445
+        },
+        {
+            "name": "SHOULDERS 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "d0113d8fbd77b419215b271f474b7051",
+            "md5ext": "d0113d8fbd77b419215b271f474b7051.svg",
+            "rotationCenterX": 27.22349066035204,
+            "rotationCenterY": 53.524092860204874
+        },
+        {
+            "name": "SHOULDERS 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c5eb914951e404e45c0214116b8c6d83",
+            "md5ext": "c5eb914951e404e45c0214116b8c6d83.svg",
+            "rotationCenterX": 14.835177051343209,
+            "rotationCenterY": 53.70179703146289
+        },
+        {
+            "name": "SHOULDERS 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "572800d0fda6f49f66ee6e922df7e7f1",
+            "md5ext": "572800d0fda6f49f66ee6e922df7e7f1.svg",
+            "rotationCenterX": 16.38455000000002,
+            "rotationCenterY": 52.16163852941173
+        },
+        {
+            "name": "SHOULDERS 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "84bc29fb84a79b9fad938eedb1100547",
+            "md5ext": "84bc29fb84a79b9fad938eedb1100547.svg",
+            "rotationCenterX": 18.168554999999998,
+            "rotationCenterY": 56.52203042446902
+        },
+        {
+            "name": "CHEST 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "7d7b341f9add85db827122c85e9dddf7",
+            "md5ext": "7d7b341f9add85db827122c85e9dddf7.svg",
+            "rotationCenterX": 13.573119999999989,
+            "rotationCenterY": 49.36644261011236
+        },
+        {
+            "name": "CHEST 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ebc74cf08c56d150c60fdd40b4f222e0",
+            "md5ext": "ebc74cf08c56d150c60fdd40b4f222e0.svg",
+            "rotationCenterX": 13.295860000000005,
+            "rotationCenterY": 45.290869999999984
+        },
+        {
+            "name": "CHEST 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4d12147ca5c238d6dca35e5b51b3ee30",
+            "md5ext": "4d12147ca5c238d6dca35e5b51b3ee30.svg",
+            "rotationCenterX": 13.644181666666384,
+            "rotationCenterY": 47.76790362995931
+        },
+        {
+            "name": "CHEST 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "8b061ba84f567739a761a9a5e7fc5caf",
+            "md5ext": "8b061ba84f567739a761a9a5e7fc5caf.svg",
+            "rotationCenterX": 13.323035000000004,
+            "rotationCenterY": 48.65262999999999
+        },
+        {
+            "name": "CHEST 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f759bfd75fb4bc5f22b1264258234897",
+            "md5ext": "f759bfd75fb4bc5f22b1264258234897.svg",
+            "rotationCenterX": 16.392945000000026,
+            "rotationCenterY": 59.34161923309367
+        },
+        {
+            "name": "CHEST 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b5f97472eb2ada0f1673e57132589805",
+            "md5ext": "b5f97472eb2ada0f1673e57132589805.svg",
+            "rotationCenterX": 13.21704797752787,
+            "rotationCenterY": 49.123581483217606
+        },
+        {
+            "name": "CHEST 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a7b82919d08e1f68e766d89649bd21ef",
+            "md5ext": "a7b82919d08e1f68e766d89649bd21ef.svg",
+            "rotationCenterX": 13.751650000000012,
+            "rotationCenterY": 50.376815880208994
+        },
+        {
+            "name": "CHEST 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "223f8460010b660463524258f934da06",
+            "md5ext": "223f8460010b660463524258f934da06.svg",
+            "rotationCenterX": 13.65057999999999,
+            "rotationCenterY": 49.05923999999999
+        },
+        {
+            "name": "WHEEL 1",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "0a3ad989a9ed5b3fee9de31a16508ebd",
+            "md5ext": "0a3ad989a9ed5b3fee9de31a16508ebd.svg",
+            "rotationCenterX": 12.64213178118655,
+            "rotationCenterY": 12.64213178118655
+        },
+        {
+            "name": "WHEEL 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b90fe22676ebe487efc2c4f7a9e4ea9a",
+            "md5ext": "b90fe22676ebe487efc2c4f7a9e4ea9a.svg",
+            "rotationCenterX": 11.840188806713542,
+            "rotationCenterY": 11.81770592488516
+        },
+        {
+            "name": "WHEEL 4",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "a727695d2b6c92e2e57ddf8bcdc8b3c8",
+            "md5ext": "a727695d2b6c92e2e57ddf8bcdc8b3c8.svg",
+            "rotationCenterX": 12.220321781186556,
+            "rotationCenterY": 12.222200421896673
+        },
+        {
+            "name": "WHEEL 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f3466745669a08abd3eeda055ac4f8d2",
+            "md5ext": "f3466745669a08abd3eeda055ac4f8d2.svg",
+            "rotationCenterX": 12.57712558491022,
+            "rotationCenterY": 12.579011050430381
+        },
+        {
+            "name": "WHEEL 6",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "99b3b0fde631709fa3e1b1d866fbce17",
+            "md5ext": "99b3b0fde631709fa3e1b1d866fbce17.svg",
+            "rotationCenterX": 12.95781856237312,
+            "rotationCenterY": 12.959701567998167
+        },
+        {
+            "name": "WHEEL 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "ef1289fd703bf3b427682356fe6654d3",
+            "md5ext": "ef1289fd703bf3b427682356fe6654d3.svg",
+            "rotationCenterX": 11.785081781186562,
+            "rotationCenterY": 11.786968153431133
+        },
+        {
+            "name": "WHEEL 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4872ae1d5eda7920565046cbbb5c2e1b",
+            "md5ext": "4872ae1d5eda7920565046cbbb5c2e1b.svg",
+            "rotationCenterX": 11.345910000000003,
+            "rotationCenterY": 11.042014999999992
+        },
+        {
+            "name": "WHEEL 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "4cf58c3e3b6f52e9a9028eaca1c14ec0",
+            "md5ext": "4cf58c3e3b6f52e9a9028eaca1c14ec0.svg",
+            "rotationCenterX": 12.642136781186565,
+            "rotationCenterY": 12.642136781186565
+        },
+        {
+            "name": "GUN 3R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c9c22007aa47a40cdde0519670ac96ac",
+            "md5ext": "c9c22007aa47a40cdde0519670ac96ac.svg",
+            "rotationCenterX": 33.26305207917096,
+            "rotationCenterY": 21.61912000000001
+        },
+        {
+            "name": "GUN 3R-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1119d1aad635012b1f20d176786c5d65",
+            "md5ext": "1119d1aad635012b1f20d176786c5d65.svg",
+            "rotationCenterX": 33.26305207917096,
+            "rotationCenterY": 13.769769999999994
+        },
+        {
+            "name": "GUN 3L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "cde2f238b717132b383a64d4e1ec7dc5",
+            "md5ext": "cde2f238b717132b383a64d4e1ec7dc5.svg",
+            "rotationCenterX": 33.26305207917096,
+            "rotationCenterY": 21.61912000000001
+        },
+        {
+            "name": "GUN 3L-E",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "25e602713e5f585724f6f2aaae690543",
+            "md5ext": "25e602713e5f585724f6f2aaae690543.svg",
+            "rotationCenterX": 33.26305207917096,
+            "rotationCenterY": 20.510369999999995
+        },
+        {
+            "name": "GUN 3",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "9a6fefcc8c8eb7292439643bcc307432",
+            "md5ext": "9a6fefcc8c8eb7292439643bcc307432.svg",
+            "rotationCenterX": 33.26305415834193,
+            "rotationCenterY": 21.61911999999998
+        },
+        {
+            "name": "GUN 5R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e2c731b260b084951340676c415d5c6c",
+            "md5ext": "e2c731b260b084951340676c415d5c6c.svg",
+            "rotationCenterX": 34.871741258362135,
+            "rotationCenterY": 5.455016666666609
+        },
+        {
+            "name": "GUN 5L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "792e91341f02c0ceafa153bfb00e5e03",
+            "md5ext": "792e91341f02c0ceafa153bfb00e5e03.svg",
+            "rotationCenterX": 34.90270000000001,
+            "rotationCenterY": 13.840759878677005
+        },
+        {
+            "name": "GUN 5",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "e699bf865a235a7c08ed7a50b0bba1eb",
+            "md5ext": "e699bf865a235a7c08ed7a50b0bba1eb.svg",
+            "rotationCenterX": 34.871741258362135,
+            "rotationCenterY": 4.507859999999994
+        },
+        {
+            "name": "GUN 7R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "dc913f1c7f740fa91ef0e985c053fb96",
+            "md5ext": "dc913f1c7f740fa91ef0e985c053fb96.svg",
+            "rotationCenterX": 14.404630735397973,
+            "rotationCenterY": 9.499143821829449
+        },
+        {
+            "name": "GUN 7L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "34d85fa76fa7e81b678cdf684e692554",
+            "md5ext": "34d85fa76fa7e81b678cdf684e692554.svg",
+            "rotationCenterX": 14.65457948259558,
+            "rotationCenterY": 15.376571763058706
+        },
+        {
+            "name": "GUN 7",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "76215f14610b58827e5abec86db05f88",
+            "md5ext": "76215f14610b58827e5abec86db05f88.svg",
+            "rotationCenterX": 14.404632402064834,
+            "rotationCenterY": 9.499144298018507
+        },
+        {
+            "name": "GUN 8R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "2a0fe8aca6c84f566c837c61344e60db",
+            "md5ext": "2a0fe8aca6c84f566c837c61344e60db.svg",
+            "rotationCenterX": 15.697683919779593,
+            "rotationCenterY": 8.978779999999972
+        },
+        {
+            "name": "GUN 8",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6899f98f7a39415436ce7ff97a4c283b",
+            "md5ext": "6899f98f7a39415436ce7ff97a4c283b.svg",
+            "rotationCenterX": 15.697684459889757,
+            "rotationCenterY": 8.97878
+        },
+        {
+            "name": "GUN 8L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "b16f502182cefe59b5ae4c8a2183bbe1",
+            "md5ext": "b16f502182cefe59b5ae4c8a2183bbe1.svg",
+            "rotationCenterX": 15.697689459889773,
+            "rotationCenterY": 19.321831670283444
+        },
+        {
+            "name": "GUN 9R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c87aa2f9f08253b54a08bf26b7fadbb8",
+            "md5ext": "c87aa2f9f08253b54a08bf26b7fadbb8.svg",
+            "rotationCenterX": 15.348710714285716,
+            "rotationCenterY": 8.110335714285952
+        },
+        {
+            "name": "GUN 9L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "fb1a9bd7264184e0c13b12e6d3b2cd2f",
+            "md5ext": "fb1a9bd7264184e0c13b12e6d3b2cd2f.svg",
+            "rotationCenterX": 15.348710000000011,
+            "rotationCenterY": 17.3761035651726
+        },
+        {
+            "name": "GUN 9",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "f2589e3b81d630b174fbd21c7bb4a3ef",
+            "md5ext": "f2589e3b81d630b174fbd21c7bb4a3ef.svg",
+            "rotationCenterX": 15.348710000000011,
+            "rotationCenterY": 8.110334999999992
+        },
+        {
+            "name": "Rocket",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "c0581a05c6c0ae2b9d3a8782d21bf74e",
+            "md5ext": "c0581a05c6c0ae2b9d3a8782d21bf74e.svg",
+            "rotationCenterX": 17.244024999999965,
+            "rotationCenterY": 16.605819999999994
+        }
+    ]
+}
