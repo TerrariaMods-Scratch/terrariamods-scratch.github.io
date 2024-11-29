@@ -3,9 +3,9 @@ const run = async () => {
     await scaffolding.loadProject(projectData);
     function loadScript(src) {
         return new Promise(async resolve => {
-            const script = d.createElement("script");
+            const script = document.createElement("script");
             script.innerHTML = await (await fetch(src)).text();
-            d.body.appendChild(script);
+            document.body.appendChild(script);
             resolve();
         });
     }
