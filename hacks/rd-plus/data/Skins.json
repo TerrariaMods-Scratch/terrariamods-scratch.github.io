@@ -1585,6 +1585,42 @@
             "md5ext": "c0581a05c6c0ae2b9d3a8782d21bf74e.svg",
             "rotationCenterX": 17.244024999999965,
             "rotationCenterY": 16.605819999999994
+        },
+        {
+            "name": "Melee R",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "6e8cacb286e63c4222d887e08ab5c985",
+            "md5ext": "6e8cacb286e63c4222d887e08ab5c985.svg",
+            "rotationCenterX": 0.7087199999999996,
+            "rotationCenterY": 4.749570000000006
+        },
+        {
+            "name": "Melee",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "111f2cebeff4e343b394a3884cce4655",
+            "md5ext": "111f2cebeff4e343b394a3884cce4655.svg",
+            "rotationCenterX": 24.530450000000002,
+            "rotationCenterY": 10.012453702142977
+        },
+        {
+            "name": "Melee L",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1a3766e9d99a5a41ae4a3b9627c63957",
+            "md5ext": "1a3766e9d99a5a41ae4a3b9627c63957.svg",
+            "rotationCenterX": 0.7087199999999996,
+            "rotationCenterY": 16.19112579599272
+        },
+        {
+            "name": "Word_Knife",
+            "bitmapResolution": 1,
+            "dataFormat": "svg",
+            "assetId": "1c128e598a9892cb5c0452523726e875",
+            "md5ext": "1c128e598a9892cb5c0452523726e875.svg",
+            "rotationCenterX": 13.112684999999999,
+            "rotationCenterY": -151.19385500000004
         }
     ],
     "BattleHand": [
