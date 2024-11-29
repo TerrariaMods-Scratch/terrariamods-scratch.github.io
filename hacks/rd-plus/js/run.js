@@ -1,6 +1,14 @@
 const run = async () => {
     const projectData = await getProjectData();
     await scaffolding.loadProject(projectData);
+    function loadScript(src) {
+        return new Promise(async resolve => {
+            const script = d.createElement("script");
+            script.innerHTML = await (await fetch(src)).text();
+            d.body.appendChild(script);
+            resolve();
+        });
+    }
     await loadScript("https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/main/hacks/rd-plus/js/rd-plus-patch.js");
     await loadScript("https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/main/hacks/rd-plus/js/anti-cheat.js");
     setProgress(1);
