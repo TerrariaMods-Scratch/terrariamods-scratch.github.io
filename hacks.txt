@@ -1,14 +1,14 @@
 Massive Multiplayer Platformer v1.3 Mod Menu
-https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/mmo.txt
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks/mmo.txt
 
 osu! Full Remake Beatmap Browser
-https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/osu.txt
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks/osu.txt
 
 Terraria (Stamped) v0.65b Multiplayer
-https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/terrariamultiplayer65.txt
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks/terrariamultiplayer65.txt
 
 Robot Destructor Anti-Cheat
-https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/rd.txt
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks/rd.txt
 
 Robot Destructor Plus
-https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/rd-plus.txt
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks/rd-plus.txt
