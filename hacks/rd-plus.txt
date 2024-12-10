@@ -1,0 +1,30 @@
+--Other Hacks--
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks.txt
+
+Robot Destructor Plus
+For: https://scratch.mit.edu/projects/489159823/
+
+--Features--
+Anti-Cheat
+- Get rid of those pesky hackers!
+
+Turbowarp Engine
+- Improved performance and smoother gameplay!
+
+Custom Skins
+- Skins stolen borrowed from members of the community!
+  - THOSE WHO AREN'T USING THIS CLIENT WILL SEE A VANILLA SKIN
+
+Local Storage
+- Keep your loadout and settings
+
+More...
+- Message TerrariaMods on Scratch if you have any suggestions!
+
+--How to Download--
+1) Bookmark/Favorite Any Website
+2) Change the URL of the Bookmark to the Code Below
+javascript:(function()%7B(async () %3D> eval(await (await fetch('https%3A%2F%2Fraw.githubusercontent.com%2FTerrariaMods-Scratch%2Fterrariamods-scratch.github.io%2Fmain%2Fhacks%2Frd-plus%2Fhack.js')).text()))()%3B%7D)()%3B
+
+--How to Use--
+Click the Bookmarklet While on Scratch to Use

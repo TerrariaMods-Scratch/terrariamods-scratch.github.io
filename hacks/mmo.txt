@@ -1,0 +1,20 @@
+--Other Hacks--
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks.txt
+
+Massive Multiplayer Platformer v1.3 Mod Menu
+Scratch: https://scratch.mit.edu/projects/612229554/
+Turbowarp: https://turbowarp.org/612229554/
+
+--Features--
+- Mod Menu
+- Custom Skins (Only Visible to Others With the Hack)
+- Custom Colors (Only Visible to Others With the Hack)
+- Fixed Username Capitalization
+
+--How to Download--
+1) Bookmark/Favorite Any Website
+2) Change the URL of the Bookmark to the Code Below
+javascript:(function()%7B(async () %3D> eval(await (await fetch('https%3A%2F%2Fraw.githubusercontent.com%2FTerrariaMods-Scratch%2Fterrariamods-scratch.github.io%2Fmain%2Fhacks%2Fmmo%2Fhack.js')).text()))()%3B%7D)()%3B
+
+--How to Use--
+Click the Bookmarklet While on Scratch or Turbowarp to Use

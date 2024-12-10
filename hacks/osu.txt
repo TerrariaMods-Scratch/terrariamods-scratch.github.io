@@ -1,0 +1,17 @@
+--Other Hacks--
+https://raw.githubusercontent.com/TerrariaMods-Scratch/terrariamods-scratch.github.io/refs/heads/main/hacks.txt
+
+osu! Full Remake Beatmap Browser
+Scratch: https://scratch.mit.edu/projects/613688710/
+Turbowarp: https://turbowarp.org/613688710/?fps=240&turbo&clones=Infinity&limitless&hqpen
+
+--Features--
+Easily Add and Find Beatmaps!
+
+--How to Download--
+1) Bookmark/Favorite Any Website
+2) Change the URL of the Bookmark to the Code Below
+javascript:(function()%7B(async () %3D> eval(await (await fetch('https%3A%2F%2Fraw.githubusercontent.com%2FTerrariaMods-Scratch%2Fterrariamods-scratch.github.io%2Fmain%2Fhacks%2Fosu%2Fhack.js')).text()))()%3B%7D)()%3B
+
+--How to Use--
+Click the Bookmarklet While on Scratch or Turbowarp to Use
