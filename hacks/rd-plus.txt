@@ -12,7 +12,7 @@ Turbowarp Engine
 - Improved performance and smoother gameplay!
 
 Custom Skins
-- Skins stolen borrowed from members of the community!
+- Skins borrowed from members of the community!
   - THOSE WHO AREN'T USING THIS CLIENT WILL SEE A VANILLA SKIN
 
 Local Storage
