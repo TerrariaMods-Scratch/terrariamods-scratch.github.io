@@ -485,12 +485,12 @@
     <script>
       const loadProjectSB3 = () => new Promise(async (resolve, reject) => {
         const sb3info = JSON.parse(await (await fetch("./sb3/info.json")).text());
-        const parts = await Promise.all(Array.from({ length: sb3info.numparts }, (_, i) => fetch(`./sb3/${sb3info.filename}.sb3.${i}`).then(res => res.blob())));
+        const parts = await Promise.all(Array.from({ length: sb3info.numparts }, (_, i) => fetch(`./sb3/${sb3info.filename}.sb3.${i}`).then(res => res.arrayBuffer())));
         resolve(await new Promise((resolve, reject) => {
           const reader = new FileReader();
           reader.onloadend = () => resolve(reader.result);
           reader.onerror = reject;
-          reader.readAsArrayBuffer(new Blob(parts));
+          reader.readAsArrayBuffer(new Blob(parts.map(e => new Uint8Array(e))));
         }));
       });
       const getProjectData = (function() {
