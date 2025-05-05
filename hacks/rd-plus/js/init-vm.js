@@ -32,9 +32,8 @@ try {
     scaffolding.setup();
     scaffolding.appendTo(appElement);
 
-    const vm = scaffolding.vm;
     window.scaffolding = scaffolding;
-    window.vm = scaffolding.vm;
+    vm = window.vm = scaffolding.vm;
     window.Scratch = {
         vm,
         renderer: vm.renderer,
