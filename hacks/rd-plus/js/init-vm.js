@@ -43,7 +43,8 @@ try {
         videoProvider: vm.runtime.ioDevices.video.provider
     };
 
-    scaffolding.setUsername(accountNavContext.LOGGED_IN_USER.model.username);
+    if (accountNavContext.LOGGED_IN_USER)
+        scaffolding.setUsername(accountNavContext.LOGGED_IN_USER.model.username);
     scaffolding.setAccentColor("#855cd6");
 
     try {
