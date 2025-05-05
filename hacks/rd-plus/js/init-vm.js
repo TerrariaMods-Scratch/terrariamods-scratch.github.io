@@ -167,3 +167,5 @@ try {
 } catch (e) {
     handleError(e);
 }
+
+vm = window.vm;
