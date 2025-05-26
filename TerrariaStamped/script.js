@@ -5,7 +5,7 @@ document.querySelectorAll(".downloadParts").forEach(elem => {
     });
 });
 async function download(url, filename, numParts) {
-    const parts = await Promise.all(Array.from({ length: numParts }, (_, i) => fetch(`./sb3/${sb3info.filename}.sb3.${i}`).then(res => res.arrayBuffer())));
+    const parts = await Promise.all(Array.from({ length: numParts }, (_, i) => fetch(`${url}.${i}`).then(res => res.arrayBuffer())));
     const blob = new Blob(parts.map(e => new Uint8Array(e)));
     const fileUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');
